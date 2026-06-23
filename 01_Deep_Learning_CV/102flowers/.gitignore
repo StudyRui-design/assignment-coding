@@ -1,0 +1,40 @@
+# Python bytecode cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE (keep .idea/ if team shares PyCharm config)
+# .idea/
+
+# Claude Code
+.claude/
+
+# Uploaded images (temporary)
+static/uploads/*.jpg
+static/uploads/*.png
+static/uploads/*.jpeg
+static/uploads/*.gif
+static/uploads/*.bmp
+static/uploads/*.webp
+
+# Model checkpoints (~43 MB each — too large for git)
+models/*.pth
+*.pth
+
+# Raw & processed dataset images (8k+ images, ~350 MB)
+data/raw/
+data/dataset/
+
+# Generated outputs (regenerate on demand)
+results/*.png
+实验报告_*.docx
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini

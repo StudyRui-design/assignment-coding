@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recruitment Role Data Analytics - 岗位数据分析与预测平台">
+    <title>Recruitment Role Data Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- ECharts 主库: 多 CDN 回退，确保可用 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"
+            onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js';"></script>
+    <!-- echarts-wordcloud: CDN 主加载 + 本地回退 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"
+            onerror="this.onerror=null;var s=document.createElement('script');s.src='/static/js/echarts-wordcloud.min.js';document.head.appendChild(s);"></script>
+</head>
+<body>
+
+<!-- 粒子背景 -->
+<canvas class="particles" id="particles" aria-hidden="true"></canvas>
+
+<!-- 顶部导航 -->
+<nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="logo">
+        <div class="icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+        </div>
+        Recruitment · Role Data Analytics
+    </div>
+    <div class="nav-tabs">
+        <button class="active" onclick="switchPage('dashboard')" aria-current="page">📊 数据看板</button>
+        <button onclick="switchPage('predict')">🧠 AI预测</button>
+        <button onclick="switchPage('chat')">💬 AI问答</button>
+    </div>
+</nav>
+
+<!-- ================================================================ -->
+<!-- 主容器 -->
+<!-- ================================================================ -->
+<div class="container">
+
+    <!-- 页面1：数据看板 -->
+    <div class="page active" id="page-dashboard" role="tabpanel" aria-label="数据看板">
+
+        <!-- 统计卡片 -->
+        <div class="stats-grid" id="stats-cards">
+            <div class="stat-card" data-stat="total"><div class="label">总岗位数</div><div class="value">-</div><div class="sub">来自5大热门城市</div></div>
+            <div class="stat-card" data-stat="avg"><div class="label">平均薪资</div><div class="value">-</div><div class="sub">取最低-最高均值</div></div>
+            <div class="stat-card" data-stat="max"><div class="label">最高薪资</div><div class="value">-</div><div class="sub">K/月（最高薪资上限）</div></div>
+            <div class="stat-card" data-stat="city"><div class="label">热门城市</div><div class="value">-</div><div class="sub" id="city-sub"></div></div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="charts-grid">
+            <div class="chart-card"><h3>城市岗位分布</h3><div class="chart-box" id="chart-city"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card"><h3>学历要求分布</h3><div class="chart-box" id="chart-education"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card"><h3>企业类型占比</h3><div class="chart-box" id="chart-comtype"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card"><h3>公司岗位排名 TOP15</h3><div class="chart-box" id="chart-company"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card full-width"><h3>工作经验与薪资关系</h3><div class="chart-box" id="chart-workyear"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card"><h3>薪资区间分布</h3><div class="chart-box" id="chart-salary"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card"><h3>企业规模分布</h3><div class="chart-box" id="chart-comsize"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div></div>
+            <div class="chart-card full-width">
+                <h3>岗位福利词云 <span style="font-size:12px;color:var(--text-muted);font-weight:400;margin-left:8px;">基于300+种真实福利组合 | 共80+福利关键词</span></h3>
+                <div class="chart-box" id="chart-wordcloud" style="height:450px"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面2：AI预测 -->
+    <div class="page" id="page-predict" role="tabpanel" aria-label="AI预测">
+
+        <h3 style="font-size:16px;color:var(--accent-cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+            <span style="width:4px;height:18px;background:var(--accent-cyan);border-radius:2px;"></span>
+            模型性能总览
+        </h3>
+        <div class="models-grid" id="models-grid">
+            <div class="model-score-card"><div class="m-name">决策树 · 城市分类</div><div class="m-score">-</div><div class="m-metric">准确率</div></div>
+            <div class="model-score-card"><div class="m-name">线性回归 · 薪资预测</div><div class="m-score">-</div><div class="m-metric">R²</div></div>
+            <div class="model-score-card"><div class="m-name">随机森林 · 招聘强度</div><div class="m-score">-</div><div class="m-metric">R²</div></div>
+            <div class="model-score-card"><div class="m-name">随机森林 · 薪资预测</div><div class="m-score">-</div><div class="m-metric">R²</div></div>
+        </div>
+
+        <div class="predict-layout">
+            <div class="predict-form-card">
+                <h3>🔮 参数设置</h3>
+                <div class="form-group"><label>目标城市</label><select id="input-city"></select></div>
+                <div class="form-group"><label>学历要求</label><select id="input-education"></select></div>
+                <div class="form-group"><label>工作经验</label><select id="input-workyear"></select></div>
+                <div class="form-group"><label>企业类型</label><select id="input-comtype"></select></div>
+                <div class="form-group"><label>企业规模</label><select id="input-comsize"></select></div>
+                <button class="btn-predict" onclick="doPredict()" id="btn-predict">⚡ 开始预测</button>
+            </div>
+
+            <div class="predict-results" id="predict-results">
+                <div class="result-card" style="text-align:center;color:var(--text-muted);padding:60px 20px;">
+                    <div style="font-size:48px;margin-bottom:12px;">🔍</div>
+                    <p>选择参数后点击"开始预测"<br>查看三个模型的预测结果</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- 算法对比区域 -->
+    <div class="salary-compare-section" id="salary-compare" style="margin-top:30px;">
+        <h3 style="font-size:16px;color:var(--accent-cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+            <span style="width:4px;height:18px;background:var(--accent-cyan);border-radius:2px;"></span>
+            薪资预测 · 双算法对比
+            <span style="font-size:12px;color:var(--text-muted);font-weight:400;margin-left:4px;">线性回归 vs 随机森林</span>
+        </h3>
+
+        <div class="compare-grid">
+            <div class="compare-card">
+                <div class="compare-header" style="background:linear-gradient(135deg,rgba(77,158,255,0.2),rgba(77,158,255,0.05));">
+                    <div class="compare-icon" style="background:var(--accent-blue);">LR</div>
+                    <div class="compare-title">线性回归</div>
+                </div>
+                <div class="compare-body">
+                    <div class="compare-stat">
+                        <span class="cs-label">预测薪资</span>
+                        <span class="cs-value" id="cmp-lr-salary" style="color:var(--accent-blue);">--</span>
+                    </div>
+                    <div class="compare-stat">
+                        <span class="cs-label">R² 得分</span>
+                        <span class="cs-value" id="cmp-lr-r2" style="color:var(--accent-blue);">--</span>
+                    </div>
+                    <div class="compare-stat">
+                        <span class="cs-label">RMSE</span>
+                        <span class="cs-value" id="cmp-lr-rmse" style="color:var(--accent-blue);">--</span>
+                    </div>
+                    <div class="compare-stat">
+                        <span class="cs-label">MAE</span>
+                        <span class="cs-value" id="cmp-lr-mae" style="color:var(--accent-blue);">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="compare-card">
+                <div class="compare-header" style="background:linear-gradient(135deg,rgba(0,230,118,0.2),rgba(0,230,118,0.05));">
+                    <div class="compare-icon" style="background:var(--accent-green);">RF</div>
+                    <div class="compare-title">随机森林</div>
+                </div>
+                <div class="compare-body">
+                    <div class="compare-stat">
+                        <span class="cs-label">预测薪资</span>
+                        <span class="cs-value" id="cmp-rf-salary" style="color:var(--accent-green);">--</span>
+                    </div>
+                    <div class="compare-stat">
+                        <span class="cs-label">R² 得分</span>
+                        <span class="cs-value" id="cmp-rf-r2" style="color:var(--accent-green);">--</span>
+                    </div>
+                    <div class="compare-stat">
+                        <span class="cs-label">RMSE</span>
+                        <span class="cs-value" id="cmp-rf-rmse" style="color:var(--accent-green);">--</span>
+                    </div>
+                    <div class="compare-stat">
+                        <span class="cs-label">MAE</span>
+                        <span class="cs-value" id="cmp-rf-mae" style="color:var(--accent-green);">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 对比图表 -->
+        <div class="chart-card full-width" style="margin-top:20px;">
+            <h3>📊 模型性能对比</h3>
+            <div class="chart-box" id="chart-model-compare" style="height:420px;"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div>
+        </div>
+
+        <!-- 特征重要性 -->
+        <div class="chart-card full-width" style="margin-top:20px;">
+            <div class="feat-imp-header">
+                <h3>🔬 随机森林 · 薪资预测特征重要性</h3>
+                <span style="font-size:12px;color:var(--text-muted);font-weight:400;">各因素对薪资的影响权重</span>
+            </div>
+            <div class="feat-imp-summary" id="feat-imp-summary">
+                <div class="feat-top-finder" id="feat-top-finder">⏳ 加载中...</div>
+            </div>
+            <div class="chart-box" id="chart-feature-importance" style="height:280px;"><div class="chart-skeleton"><div class="sk-pulse"></div></div></div>
+        </div>
+    </div>
+    </div>
+
+    <!-- 页面3：AI智能问答 -->
+    <div class="page" id="page-chat" role="tabpanel" aria-label="AI问答">
+        <div class="chart-card" style="margin-bottom: 0;">
+            <div class="chat-title-bar">
+                <h3><span style="width:4px;height:18px;background:var(--accent-cyan);border-radius:2px;"></span>💬 AI 智能问答 · DeepSeek</h3>
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <span style="font-size:12px;color:var(--text-muted);" id="chat-status">🟢 就绪</span>
+                    <button class="chat-clear-btn" onclick="clearChat()">🔄 清空对话</button>
+                </div>
+            </div>
+            <div class="chat-layout">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="chat-msg bot">
+                        <div class="chat-avatar">🤖</div>
+                        <div class="chat-bubble">
+                            <p>你好！我是 <strong>Recruitment Role Data Analytics</strong> 平台的 AI 助手，基于 <strong>DeepSeek</strong> 大模型。</p>
+                            <p>我可以帮你：</p>
+                            <ul>
+                                <li>📊 解读平台上的数据看板图表</li>
+                                <li>💰 分析不同城市/学历/经验对薪资的影响</li>
+                                <li>🧭 提供数据类岗位的职业发展建议</li>
+                                <li>📈 回答行业趋势和就业市场问题</li>
+                            </ul>
+                            <p>试试问我吧~ 👇</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <textarea id="chat-input" placeholder="输入你的问题，如：数据分析师在哪个城市薪资最高？"
+                        rows="1" onkeydown="handleChatKey(event)" aria-label="输入聊天消息"></textarea>
+                    <button class="chat-send-btn" onclick="sendChat()" id="chat-send-btn" aria-label="发送消息">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 当 JavaScript 被禁用时的提示 -->
+<noscript>
+    <div class="no-js-warning">
+        <p>⚠️ 请启用 JavaScript 以使用 Recruitment Role Data Analytics 平台的所有交互功能。</p>
+    </div>
+</noscript>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

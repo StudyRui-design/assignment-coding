@@ -1,0 +1,486 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统 - 数据可视化</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <link rel="stylesheet" href="css/style.css?v=1"/>
+    <!-- ECharts 图表库 CDN（多级降级） -->
+    <script src="https://unpkg.com/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+        if (typeof echarts === 'undefined') {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"><\/script>');
+        }
+    </script>
+    <style>
+        /* ===== 数据可视化 - 现代化暗色渐变仪表盘 ===== */
+        .dash-wrap {
+            padding: 20px;
+            background: #f0f2f5;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* ---- 页面标题 ---- */
+        .dash-header {
+            margin-bottom: 22px;
+        }
+        .dash-header h2 {
+            font-size: 20px;
+            color: #1d2129;
+            margin: 0 0 4px 0;
+            font-weight: 600;
+        }
+        .dash-header p {
+            margin: 0;
+            font-size: 13px;
+            color: #86909c;
+        }
+
+        /* ---- 统计卡片 ---- */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+        .stat-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+        }
+        .stat-card.c1::before { background: linear-gradient(180deg, #0073b8, #00f2fe); }
+        .stat-card.c2::before { background: linear-gradient(180deg, #43e97b, #38f9d7); }
+        .stat-card.c3::before { background: linear-gradient(180deg, #fa709a, #fee140); }
+        .stat-card.c4::before { background: linear-gradient(180deg, #f6d365, #fda085); }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .stat-card.c1 .stat-icon { background: #e8f4fd; }
+        .stat-card.c2 .stat-icon { background: #e8faf0; }
+        .stat-card.c3 .stat-icon { background: #fde8ef; }
+        .stat-card.c4 .stat-icon { background: #fef7e6; }
+
+        .stat-body { flex: 1; min-width: 0; }
+        .stat-label { font-size: 13px; color: #86909c; margin-bottom: 4px; }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d2129;
+            line-height: 1.2;
+        }
+        .stat-sub {
+            font-size: 11px;
+            color: #c9cdd4;
+            margin-top: 2px;
+        }
+
+        /* ---- 图表容器（卡片风格） ---- */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .chart-grid.full {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .chart-panel {
+            background: #fff;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .chart-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1d2129;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chart-title .dot {
+            width: 4px;
+            height: 16px;
+            border-radius: 2px;
+            background: linear-gradient(180deg, #0073b8, #00f2fe);
+            flex-shrink: 0;
+        }
+        .chart-container {
+            width: 100%;
+            height: 310px;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 1000px) {
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .chart-grid { grid-template-columns: 1fr; }
+            .chart-grid.full { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .stat-grid { grid-template-columns: 1fr; }
+        }
+    
+        
+</style>
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+<!-- 头部 -->
+<header class="publicHeader">
+    <h1><a href="index.html">邓睿的大数据应用课件管理系统</a></h1>
+    <div class="publicHeaderR">
+        <p><span id="hours"></span><span id="showUser" style="color:#fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+
+<!-- 时间栏 -->
+<section class="publicTime">
+    <span id="time">2026年6月3日 星期三</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+
+<!-- 主体 -->
+<section class="publicMian">
+    <!-- 左侧导航 -->
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li class="active"><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="bigData.html">大数据分析</a></li>
+            <li><a href="machineLearning.html">智能推荐</a></li>
+            <li><a href="aiChat.html">AI助手</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 右侧内容区 -->
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>数据可视化仪表盘</span>
+        </div>
+
+        <div class="dash-wrap">
+
+            <!-- 页面标题 -->
+            <div class="dash-header">
+                <h2>数据可视化仪表盘</h2>
+                <p>系统核心数据概览，实时更新</p>
+            </div>
+
+            <!-- ===== 统计卡片 ===== -->
+            <div class="stat-grid">
+                <div class="stat-card c1">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-body">
+                        <div class="stat-label">用户总数</div>
+                        <div class="stat-value" id="cardUserCount">--</div>
+                        <div class="stat-sub">系统注册用户</div>
+                    </div>
+                </div>
+                <div class="stat-card c2">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-body">
+                        <div class="stat-label">科目总数</div>
+                        <div class="stat-value" id="cardSubjectCount">--</div>
+                        <div class="stat-sub">全部科目</div>
+                    </div>
+                </div>
+                <div class="stat-card c3">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-body">
+                        <div class="stat-label">可用科目</div>
+                        <div class="stat-value" id="cardAvailable">--</div>
+                        <div class="stat-sub">启用 + 正常状态</div>
+                    </div>
+                </div>
+                <div class="stat-card c4">
+                    <div class="stat-icon">⛔</div>
+                    <div class="stat-body">
+                        <div class="stat-label">禁用科目</div>
+                        <div class="stat-value" id="cardDisabled">--</div>
+                        <div class="stat-sub">已禁用</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 图表区域（第一行） ===== -->
+            <div class="chart-grid">
+                <div class="chart-panel">
+                    <div class="chart-title"><span class="dot"></span>科目状态分布</div>
+                    <div class="chart-container" id="chartPie"></div>
+                </div>
+                <div class="chart-panel">
+                    <div class="chart-title"><span class="dot"></span>用户数与科目数对比</div>
+                    <div class="chart-container" id="chartBar"></div>
+                </div>
+            </div>
+
+            <!-- ===== 图表区域（第二行：用户类型分布 + 科目状态详情） ===== -->
+            <div class="chart-grid full">
+                <div class="chart-panel">
+                    <div class="chart-title"><span class="dot"></span>用户类型分布</div>
+                    <div class="chart-container" id="chartUserType"></div>
+                </div>
+                <div class="chart-panel">
+                    <div class="chart-title"><span class="dot"></span>科目状态明细</div>
+                    <div class="chart-container" id="chartStatusDetail"></div>
+                </div>
+                <div class="chart-panel">
+                    <div class="chart-title"><span class="dot"></span>综合数据仪表</div>
+                    <div class="chart-container" id="chartGauge"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script><script src="js/user.js"></script>
+<script>
+// ===== ECharts 加载检测 =====
+function checkEcharts() {
+    if (typeof echarts === 'undefined') {
+        document.querySelectorAll('.chart-container').forEach(function(el) {
+            el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:14px;">⚠️ 图表库加载失败，请刷新页面</div>';
+        });
+        return false;
+    }
+    return true;
+}
+
+// ===== 页面加载 =====
+$(function () {
+    if (!checkEcharts()) return;
+
+    $.ajax({
+        url: "/sft/dashboard/stats",
+        type: "GET",
+        dataType: "json",
+        success: function (resp) {
+            var data = resp.data || {};
+            // 填充统计卡片
+            $('#cardUserCount').text(data.userCount || 0);
+            $('#cardSubjectCount').text(data.subjectCount || 0);
+            $('#cardAvailable').text(data.availableCount || 0);
+            $('#cardDisabled').text(data.disabledCount || 0);
+
+            // 渲染所有图表
+            renderPieChart(data);
+            renderBarChart(data);
+            renderUserTypeChart(data);
+            renderStatusDetailChart(data);
+            renderGaugeChart(data);
+        },
+        error: function () {
+            $('.stat-value').text('ERR');
+            document.querySelectorAll('.chart-container').forEach(function(el) {
+                el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#e6a23c;font-size:14px;">❌ 数据加载失败，请检查网络</div>';
+            });
+        }
+    });
+});
+
+// ===== 图表1: 科目状态分布（环形饼图） =====
+function renderPieChart(data) {
+    var chartDom = document.getElementById('chartPie');
+    var myChart = echarts.init(chartDom);
+    var statusData = [];
+    for (var key in data.subjectStatus) {
+        statusData.push({ name: key, value: data.subjectStatus[key] });
+    }
+    var option = {
+        tooltip: { trigger: 'item', formatter: '{b}: {c} 个 ({d}%)' },
+        legend: { bottom: 5, textStyle: { fontSize: 11 } },
+        series: [{
+            name: '科目状态', type: 'pie', radius: ['40%', '72%'],
+            center: ['50%', '46%'], roseType: 'radius',
+            label: { fontSize: 11, formatter: '{b}\n{d}%' },
+            data: statusData,
+            itemStyle: { borderRadius: 6, borderColor: '#fff', borderWidth: 2 },
+            emphasis: { itemStyle: { shadowBlur: 12, shadowColor: 'rgba(0,0,0,0.15)' } },
+            animationType: 'scale', animationEasing: 'elasticOut',
+            color: ['#67c23a', '#409eff', '#e6a23c', '#f56c6c', '#909399']
+        }]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+}
+
+// ===== 图表2: 用户数与科目数对比（柱状图） =====
+function renderBarChart(data) {
+    var chartDom = document.getElementById('chartBar');
+    if(!chartDom) return;
+    try { var myChart = echarts.init(chartDom); } catch(e) { return; }
+    var categories = ['用户总数', '科目总数', '可用科目', '禁用科目'];
+    var values = [data.userCount, data.subjectCount, data.availableCount, data.disabledCount];
+    var colors = [['#0073b8','#00f2fe'], ['#43e97b','#38f9d7'], ['#fa709a','#fee140'], ['#f6d365','#fda085']];
+    var option = {
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+        grid: { left: '10%', right: '10%', bottom: '8%', top: '8%', containLabel: true },
+        xAxis: { type: 'category', data: categories, axisLabel: { fontSize: 12, color: '#555' } },
+        yAxis: { type: 'value', minInterval: 1, name: '数量（个）' },
+        series: [{
+            type: 'bar', barWidth: '50%',
+            data: values.map(function(val, idx) {
+                return {
+                    value: val,
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: colors[idx][0] },
+                            { offset: 1, color: colors[idx][1] }
+                        ]),
+                        borderRadius: [6, 6, 0, 0]
+                    }
+                };
+            }),
+            label: { show: true, position: 'top', fontSize: 14, fontWeight: 'bold', color: '#333' }
+        }]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+}
+
+// ===== 图表3: 用户类型分布（饼图） =====
+function renderUserTypeChart(data) {
+    var chartDom = document.getElementById('chartUserType');
+    if(!chartDom) return;
+    try { var myChart = echarts.init(chartDom); } catch(e) { return; }
+    var typeData = [];
+    for (var key in data.userType) {
+        typeData.push({ name: key, value: data.userType[key] });
+    }
+    var option = {
+        tooltip: { trigger: 'item', formatter: '{b}: {c} 人 ({d}%)' },
+        legend: { bottom: 5, textStyle: { fontSize: 11 } },
+        series: [{
+            name: '用户类型', type: 'pie', radius: ['35%', '65%'],
+            center: ['50%', '46%'],
+            label: { fontSize: 11, formatter: '{b}\n{c}人' },
+            data: typeData,
+            itemStyle: { borderRadius: 4, borderColor: '#fff', borderWidth: 2 },
+            emphasis: { itemStyle: { shadowBlur: 12, shadowColor: 'rgba(0,0,0,0.15)' } },
+            animationEasing: 'elasticOut',
+            color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de']
+        }]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+}
+
+// ===== 图表4: 科目状态明细（横向柱状图） =====
+function renderStatusDetailChart(data) {
+    var chartDom = document.getElementById('chartStatusDetail');
+    if(!chartDom) return;
+    try { var myChart = echarts.init(chartDom); } catch(e) { return; }
+    var names = [], counts = [];
+    for (var key in data.subjectStatus) {
+        names.push(key);
+        counts.push(data.subjectStatus[key]);
+    }
+    var option = {
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+        grid: { left: '15%', right: '10%', top: 8, bottom: 8, containLabel: true },
+        xAxis: { type: 'value', minInterval: 1 },
+        yAxis: { type: 'category', data: names, axisLabel: { fontSize: 12, color: '#555' } },
+        series: [{
+            type: 'bar', barWidth: '55%',
+            data: counts.map(function(v, i) {
+                var colors = ['#67c23a', '#409eff', '#e6a23c', '#f56c6c'];
+                return {
+                    value: v,
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            { offset: 0, color: colors[i % colors.length] },
+                            { offset: 1, color: colors[(i+1) % colors.length] }
+                        ]),
+                        borderRadius: [0, 6, 6, 0]
+                    }
+                };
+            }),
+            label: { show: true, position: 'right', fontSize: 13, fontWeight: 'bold', color: '#333' }
+        }]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+}
+
+// ===== 图表5: 综合数据仪表（仪表盘） =====
+function renderGaugeChart(data) {
+    var chartDom = document.getElementById('chartGauge');
+    if(!chartDom) return;
+    try { var myChart = echarts.init(chartDom); } catch(e) { return; }
+    var total = data.userCount + data.subjectCount;
+    var option = {
+        tooltip: { formatter: '{a}: {c}' },
+        series: [
+            {
+                name: '用户总数', type: 'gauge',
+                center: ['25%', '50%'], radius: '70%',
+                min: 0, max: Math.max(data.userCount * 1.5, 100),
+                axisLine: { lineStyle: { width: 8, color: [[0.8, '#0073b8'],[1, '#00f2fe']] } },
+                axisTick: { show: false },
+                splitLine: { show: false },
+                axisLabel: { show: false },
+                detail: { fontSize: 11, fontWeight: 'bold', color: '#333', offsetCenter: [0, '70%'] },
+                title: { fontSize: 10, offsetCenter: [0, '85%'] },
+                data: [{ value: data.userCount, name: '用户' }]
+            },
+            {
+                name: '科目总数', type: 'gauge',
+                center: ['75%', '50%'], radius: '70%',
+                min: 0, max: Math.max(data.subjectCount * 1.5, 50),
+                axisLine: { lineStyle: { width: 8, color: [[0.8, '#43e97b'],[1, '#38f9d7']] } },
+                axisTick: { show: false },
+                splitLine: { show: false },
+                axisLabel: { show: false },
+                detail: { fontSize: 11, fontWeight: 'bold', color: '#333', offsetCenter: [0, '70%'] },
+                title: { fontSize: 10, offsetCenter: [0, '85%'] },
+                data: [{ value: data.subjectCount, name: '科目' }]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader">
+    <h1>邓睿的大数据应用课件管理系统</h1>
+    <div class="publicHeaderR">
+        <p><span>下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li class="active"><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>科目管理页面</span>
+        </div>
+        <div class="search-bar">
+            <form id="searchForm" style="display: inline-block;">
+                <label for="subjectName" style="margin-right: 5px;">科目名：</label>
+                <input
+                        type="text"
+                        id="subjectName"
+                        name="name"
+                        placeholder="请输入科目名"
+                        style="vertical-align: middle; margin-right: 5px;"
+                />
+                <button type="button" onclick="searchSubject()" style="vertical-align: middle; background-color: #5cb85c; color: #fff; border: none; padding: 5px 15px; border-radius: 3px; cursor: pointer;">
+                    查询
+                </button>
+            </form>
+            <a href="subjectAdd.html" style="float: right; margin-top: 5px;">
+                <button style="background-color: #50a1ff; color: #fff; border: none; padding: 5px 15px; border-radius: 3px; cursor: pointer;">
+                    + 添加科目
+                </button>
+            </a>
+        </div>
+        <!-- 科目表格：仅保留表头，数据行由JS动态生成 -->
+        <table class="providerTable" cellpadding="0" cellspacing="0">
+            <tr class="firstTr">
+                <th width="10%">科目编码</th>
+                <th width="20%">科目名称</th>
+                <th width="20%">创建人</th>
+                <th width="20%">状态</th>
+                <th width="30%">操作</th>
+            </tr>
+            <!-- 数据行将由JS动态生成，这里留空 -->
+            <tbody id="subjectTableBody"></tbody>
+            <tr>
+                <td colspan="5">
+                    当前第1页，6条数据&nbsp;&nbsp;&nbsp;&nbsp;共2页
+                    首页
+                    尾页
+                    上一页
+                    下一页
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- 点击删除按钮后弹出的页面 -->
+<div class="zhezhao"></div>
+<div class="remove" id="removeUse">
+    <div class="removerChid">
+        <h2>提示</h2>
+        <div class="removeMain">
+            <p>你确定要删除该科目吗？</p>
+            <a href="#" id="yes">确定</a>
+            <a href="#" id="no">取消</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/js.js"></script>
+<script src="js/time.js"></script>
+<script>
+    // 页面加载完成后，自动加载所有科目
+    window.onload = function () {
+        loadSubjects();
+    };
+
+    // 加载科目列表（无查询条件）
+    function loadSubjects(name = "") {
+        $.ajax({
+            url: "/sft/subject/list",
+            type: "GET",
+            data: { name: name }, // 传递查询的科目名，空字符串表示查所有
+            dataType: "json",
+            success: function (subjects) {
+                let tbody = document.getElementById("subjectTableBody");
+                tbody.innerHTML = ""; // 清空原有内容
+
+                // 遍历科目列表，生成表格行
+                subjects.forEach(subject => {
+                    let tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${subject.id}</td>
+                        <td>${subject.name}</td>
+                        <td>${subject.creator}</td>
+                        <td>${subject.status}</td>
+                        <td>
+                            <a href="#" class="removeUser" onclick="deleteSubject(${subject.id})">
+                                <img src="img/schu.png" alt="禁用" title="禁用"/>
+                            </a>
+                            <a href="subjectUpdate.html?id=${subject.id}">
+                                <img src="img/xiugai.png" alt="修改" title="修改"/>
+                            </a>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            },
+            error: function () {
+                alert("加载科目失败，请重试");
+            }
+        });
+    }
+
+    // 按科目名查询
+    function searchSubject() {
+        let name = document.getElementById("subjectName").value;
+        loadSubjects(name);
+    }
+
+    // 删除科目
+    function deleteSubject(id) {
+        // 显示删除确认弹窗
+        $('.zhezhao').show();
+        $('#removeUse').show();
+
+        // 确定删除
+        $('#yes').off('click').on('click', function() {
+            $.ajax({
+                url: "/sft/subject/delete",
+                type: "GET",
+                data: { id: id },
+                success: function() {
+                    // 隐藏弹窗
+                    $('.zhezhao').hide();
+                    $('#removeUse').hide();
+                    // 重新加载列表
+                    loadSubjects();
+                    alert("删除成功");
+                },
+                error: function() {
+                    alert("删除失败，请重试");
+                }
+            });
+            return false;
+        });
+
+        // 取消删除
+        $('#no').off('click').on('click', function() {
+            $('.zhezhao').hide();
+            $('#removeUse').show();
+            return false;
+        });
+    }
+</script>
+</body>
+</html>

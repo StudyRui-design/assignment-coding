@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<!--头部-->
+    <header class="publicHeader">
+        <h1>邓睿的大数据应用课件管理系统</h1>
+        <div class="publicHeaderR">
+            <p><span>下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+            <a href="login.html">退出</a>
+        </div>
+    </header>
+<!--时间-->
+    <section class="publicTime">
+        <span id="time">2015年1月1日 11:11  星期一</span>
+        <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+    </section>
+<!--主体内容-->
+    <section class="publicMian ">
+        <div class="left">
+            <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+            <nav>
+                <ul class="list">
+                <li ><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="sparkAnalytics.html">大数据分析平台</a></li>
+                <li><a href="login.html">退出系统</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="right">
+            <div class="location">
+                <strong>你现在所在的位置是:</strong>
+                <span>用户管理页面</span>
+            </div>
+            <div class="search">
+                <span>用户名：</span>
+                <input type="text" placeholder="请输入用户名"/>
+                <input type="button" value="查询"/>
+                <a href="userAdd.html">添加用户</a>
+            </div>
+            <!--用户-->
+            <table class="providerTable" cellpadding="0" cellspacing="0">
+                <tr class="firstTr">
+                    <th width="10%">用户账号</th>
+                    <th width="20%">真实姓名</th>
+                    <th width="10%">性别</th>
+                    <th width="15%">出生日期</th>
+                    <th width="15%">电话</th>
+                    <th width="10%">用户类型</th>
+                    <th width="20%">操作</th>
+                </tr>
+                <tbody id="userTableBody">
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+<!--点击删除按钮后弹出的页面-->
+<div class="zhezhao"></div>
+<div class="remove" id="removeUse">
+    <div class="removerChid">
+        <h2>提示</h2>
+        <div class="removeMain">
+            <p>你确定要删除该用户吗？</p>
+            <a href="#" id="yes">确定</a>
+            <a href="#" id="no">取消</a>
+        </div>
+    </div>
+</div>
+
+    <footer class="footer">
+    </footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script>
+<script>
+var deleteUserId = null;
+
+// 加载用户列表
+function loadUserList() {
+    $.getJSON('/sft/user/list', function(data) {
+        var html = '';
+        if (data && data.length > 0) {
+            $.each(data, function(i, user) {
+                html += '<tr>';
+                html += '<td>' + user.username + '</td>';
+                html += '<td>' + user.realName + '</td>';
+                html += '<td>' + (user.gender || '') + '</td>';
+                html += '<td>' + (user.birthday || '') + '</td>';
+                html += '<td>' + (user.phone || '') + '</td>';
+                html += '<td>' + (user.userType || '') + '</td>';
+                html += '<td>';
+                html += '<a href="userUpdate.html?id=' + user.id + '"><img src="img/xiugai.png" alt="修改" title="修改"/></a>';
+                html += '<a href="#" class="removeUser" data-id="' + user.id + '" data-name="' + user.username + '"><img src="img/schu.png" alt="删除" title="删除"/></a>';
+                html += '</td>';
+                html += '</tr>';
+            });
+        } else {
+            html = '<tr><td colspan="7" style="text-align:center;padding:20px;">暂无用户数据</td></tr>';
+        }
+        $('#userTableBody').html(html);
+
+        // 重新绑定删除事件
+        $('.removeUser').click(function(e) {
+            e.preventDefault();
+            deleteUserId = $(this).data('id');
+            $('.zhezhao').css('display', 'block');
+            $('#removeUse').fadeIn();
+        });
+    });
+}
+
+$(function() {
+    loadUserList();
+
+    // 删除确认
+    $('#yes').click(function() {
+        if (deleteUserId) {
+            $.post('/sft/user/delete', {id: deleteUserId}, function(data) {
+                document.write(data);
+                document.close();
+            });
+        }
+    });
+
+    // 取消删除
+    $('#no').click(function() {
+        $('.zhezhao').css('display', 'none');
+        $('#removeUse').fadeOut();
+        deleteUserId = null;
+    });
+});
+</script>
+
+</body>
+</html>

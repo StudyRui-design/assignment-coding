@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <link rel="stylesheet" href="css/style.css?v=1"/>
+
+<style>
+        
+    </style>
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+<!--头部-->
+<header class="publicHeader">
+    <h1><a href="index.html">邓睿的大数据应用课件管理系统</a></h1>
+
+    <div class="publicHeaderR">
+        <p><span>下午好！</span><span id="showUser" style="color:#fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li ><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="bigData.html">大数据分析</a></li>
+                <li><a href="machineLearning.html">智能推荐</a></li>
+                <li><a href="aiChat.html">AI助手</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>科目管理页面 >> 科目修改页面</span>
+        </div>
+        <div class="providerAdd">
+            <!-- 表单提交到科目修改Servlet，添加验证 -->
+            <form action="/sft/subject/update" method="post" onsubmit="return checkForm()">
+                <!-- 隐藏域存储科目ID，用于标识修改对象 -->
+                <input type="hidden" name="id" id="subjectId" value=""/>
+                <div>
+                    <label for="subjectName">科目名称：</label>
+                    <input type="text" name="name" id="subjectName"/>
+                    <span id="nameTip" style="color: red; display: none;">*请输入科目名称</span>
+                </div>
+                <div>
+                    <label for="status">科目状态：</label>
+                    <select name="status" id="status">
+                        <option value="启用">启用</option>
+                        <option value="正常">正常</option>
+                        <option value="禁用">禁用</option>
+                    </select>
+                </div>
+                <div class="providerAddBtn">
+                    <input type="submit" value="更新"/>
+                    <input type="button" value="返回" onclick="history.back(-1)"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+</footer>
+<script src="js/time.js"></script><script src="js/user.js"></script>
+<script>
+    // 页面加载时获取URL参数并填充表单
+    window.onload = function() {
+        var params = new URLSearchParams(window.location.search);
+        var idEl = document.getElementById("subjectId");
+        var nameEl = document.getElementById("subjectName");
+        var statusEl = document.getElementById("status");
+        if(idEl) idEl.value = params.get("id") || "";
+        if(nameEl) nameEl.value = params.get("name") || "";
+        if(statusEl) statusEl.value = params.get("status") || "正常";
+    }
+
+    // 表单验证函数
+    function checkForm() {
+        var nameEl = document.getElementById("subjectName");
+        var nameTip = document.getElementById("nameTip");
+        if (!nameEl || !nameTip) return true;
+        var name = nameEl.value.trim();
+        if (name === "") {
+            nameTip.style.display = "inline";
+            return false;
+        } else {
+            nameTip.style.display = "none";
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

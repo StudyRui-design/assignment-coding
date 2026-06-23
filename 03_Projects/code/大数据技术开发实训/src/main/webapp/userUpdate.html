@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader">
+    <h1>邓睿的大数据应用课件管理系统</h1>
+
+    <div class="publicHeaderR">
+        <p><span>下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li ><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="sparkAnalytics.html">大数据分析平台</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>用户管理页面 >> 用户修改页面</span>
+        </div>
+        <div class="providerAdd">
+            <form action="#" id="userForm">
+                <input type="hidden" name="id" id="userId"/>
+                <div>
+                    <label for="userName">真实姓名：</label>
+                    <input type="text" name="realName" id="userName"/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label >用户性别：</label>
+                    <select name="gender" id="gender">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="data">出生日期：</label>
+                    <input type="text" name="birthday" id="data"/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label for="userphone">用户电话：</label>
+                    <input type="text" name="phone" id="userphone"/>
+                    <span >*</span>
+                </div>
+                <div>
+                    <label for="userAddress">用户地址：</label>
+                    <input type="text" name="address" id="userAddress"/>
+                </div>
+                <div>
+                    <label >用户类别：</label>
+                    <input type="radio" name="userType" value="学员"/>学员
+                    <input type="radio" name="userType" value="老师"/>老师
+                    <input type="radio" name="userType" value="管理员"/>管理员
+                </div>
+                <div class="providerAddBtn">
+                    <input type="button" value="保存" id="saveBtn"/>
+                    <input type="button" value="返回" onclick="window.location='userList.html'"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer">
+</footer>
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script>
+<script>
+$(function() {
+    // 从 URL 获取用户 ID 并加载数据
+    var id = getQueryParam('id');
+    if (id) {
+        $.getJSON('/sft/user/get', {id: id}, function(user) {
+            if (user && user.id) {
+                $('#userId').val(user.id);
+                $('#userName').val(user.realName);
+                $('#gender').val(user.gender || '男');
+                $('#data').val(user.birthday);
+                $('#userphone').val(user.phone);
+                $('#userAddress').val(user.address);
+                $('input[name="userType"][value="' + (user.userType || '学员') + '"]').prop('checked', true);
+            }
+        });
+    }
+
+    $('#saveBtn').click(function() {
+        var id = $('#userId').val();
+        var realName = $('#userName').val().trim();
+        var gender = $('#gender').val();
+        var birthday = $('#data').val().trim();
+        var phone = $('#userphone').val().trim();
+        var address = $('#userAddress').val().trim();
+        var userType = $('input[name="userType"]:checked').val();
+
+        if (!realName) { alert('请输入真实姓名'); return; }
+
+        // 校验生日格式
+        if (birthday && !/^\d{4}-\d{2}-\d{2}$/.test(birthday)) {
+            alert('出生日期格式应为 yyyy-MM-dd，如 2000-01-01');
+            return;
+        }
+
+        $.post('/sft/user/update', {
+            id: id,
+            realName: realName,
+            gender: gender || '',
+            birthday: birthday || '',
+            phone: phone || '',
+            address: address || '',
+            userType: userType || '学员'
+        }, function(data) {
+            document.write(data);
+            document.close();
+        });
+    });
+});
+
+function getQueryParam(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+    var r = window.location.search.substr(1).match(reg);
+    return r ? decodeURIComponent(r[2]) : null;
+}
+</script>
+
+</body>
+</html>

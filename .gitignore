@@ -1,0 +1,44 @@
+# Python bytecode cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+# .idea/
+
+# Claude Code
+.claude/
+
+# Uploaded images (temporary)
+static/uploads/*.jpg
+static/uploads/*.png
+static/uploads/*.jpeg
+static/uploads/*.gif
+static/uploads/*.bmp
+static/uploads/*.webp
+
+# Model checkpoints / serialized models (~50+ MB — too large for git)
+models/*.pth
+*.pth
+*.pkl
+
+# Large JSON / data files
+**/data/*.json
+*.json.zip
+
+# Raw & processed dataset images (8k+ images, ~350 MB)
+data/raw/
+data/dataset/
+
+# Generated outputs (regenerate on demand)
+results/*.png
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini

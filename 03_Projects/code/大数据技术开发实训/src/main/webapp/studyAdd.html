@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader">
+    <h1>邓睿的大数据应用课件管理系统</h1>
+
+    <div class="publicHeaderR">
+        <p><span>下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                 <li ><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="sparkAnalytics.html">大数据分析平台</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>课件管理页面 >> 课件资源添加页面</span>
+        </div>
+        <div class="providerAdd">
+            <form id="studyForm">
+                <!--div的class 为error是验证错误，ok是验证成功-->
+                <div>
+                    <label for="name">课件资源名：</label>
+                    <input type="text" name="name" id="name" required/>
+                    <span>*请输入课件资源名</span>
+                </div>
+                <div>
+                    <label>所属科目：</label>
+                    <select name="subjectName" id="subjectName">
+                        <option value="html">html</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Java">Java</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div>
+                    <label for="description">课件简介：</label>
+                     <textArea cols="80" rows="4" name="description" id="description"></textArea>
+                </div>
+                <div>
+                    <label for="detail">课件详情：</label>
+                     <textArea cols="80" rows="12" name="detail" id="detail"></textArea>
+                </div>
+                <div>
+                    <label for="filePath">课件附件：</label>
+                    <input type="file" name="filePath" id="filePath"/>
+                    <span>*请选择文件</span>
+                </div>
+                <div class="providerAddBtn">
+                    <input type="button" value="保存" onclick="submitStudy()"/>
+                    <input type="button" value="返回" onclick="window.location='studyList.html'"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer class="footer">
+</footer>
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script>
+<script>
+    // AJAX 提交课件表单
+    function submitStudy() {
+        var name = $('#name').val();
+        if (!name || name.trim() === '') {
+            alert('请输入课件资源名');
+            return;
+        }
+
+        var formData = {
+            name: name,
+            subjectName: $('#subjectName').val(),
+            description: $('#description').val(),
+            detail: $('#detail').val(),
+            filePath: ''
+        };
+
+        $.ajax({
+            url: '/sft/study/add',
+            type: 'POST',
+            data: formData,
+            success: function(res) {
+                var result;
+                try {
+                    result = JSON.parse(res);
+                } catch(e) {
+                    alert('服务器返回异常');
+                    return;
+                }
+                // 兼容 success 是字符串或布尔值
+                if (result.success || result.success === '添加成功') {
+                    alert('添加成功');
+                    window.location = 'studyList.html';
+                } else if (result.error) {
+                    alert(result.error);
+                } else {
+                    alert('添加失败');
+                }
+            },
+            error: function() {
+                alert('添加失败，请重试');
+            }
+        });
+    }
+</script>
+</body>
+</html>

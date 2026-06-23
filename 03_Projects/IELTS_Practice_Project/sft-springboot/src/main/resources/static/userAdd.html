@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <link rel="stylesheet" href="css/style.css?v=1"/>
+
+<style>
+        
+    </style>
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+<header class="publicHeader">
+    <h1><a href="index.html">邓睿的大数据应用课件管理系统</a></h1>
+    <div class="publicHeaderR">
+        <p><span id="hours"></span><span style="color: #fff21b" id="showUser"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li class="active"><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="bigData.html">大数据分析</a></li>
+                <li><a href="machineLearning.html">智能推荐</a></li>
+                <li><a href="aiChat.html">AI助手</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>用户管理页面 >> 用户添加页面</span>
+        </div>
+        <div class="providerAdd">
+            <form action="/sft/user/add" method="post">
+                <div>
+                    <label for="username">用户账号：</label>
+                    <input type="text" name="username" id="username" required/>
+                    <span>*请输入用户账号，且不能重复</span>
+                </div>
+                <div>
+                    <label for="realName">真实姓名：</label>
+                    <input type="text" name="realName" id="realName" required/>
+                    <span>*请输入真实姓名</span>
+                </div>
+                <div>
+                    <label for="password">用户密码：</label>
+                    <input type="password" name="password" id="password" required/>
+                    <span>*密码长度必须大于6位</span>
+                </div>
+                <div>
+                    <label for="rePassword">确认密码：</label>
+                    <input type="password" name="rePassword" id="rePassword" required/>
+                    <span>*请确认密码</span>
+                </div>
+                <div>
+                    <label>用户性别：</label>
+                    <select name="gender">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div>
+                    <label for="birth">出生日期：</label>
+                    <input type="text" name="birth" id="birth" placeholder="如：1998-02-01"/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label for="phone">用户电话：</label>
+                    <input type="text" name="phone" id="phone"/>
+                    <span>*</span>
+                </div>
+                <div>
+                    <label for="address">用户地址：</label>
+                    <input type="text" name="address" id="address"/>
+                </div>
+                <div>
+                    <label>用户类别：</label>
+                    <input type="radio" name="userType" value="0" checked/>学员
+                    <input type="radio" name="userType" value="1"/>老师
+                    <input type="radio" name="userType" value="2"/>管理员
+                </div>
+                <div class="providerAddBtn">
+                    <input type="submit" value="保存"/>
+                    <input type="button" value="返回" onclick="window.location='userList.html'"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<footer class="footer"></footer>
+<script src="js/time.js"></script><script src="js/user.js"></script>
+</body>
+</html>

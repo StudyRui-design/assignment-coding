@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
+	Server cannot be resolved to a type
+	The method startJettyServer() from the type SparkServer refers to the missing type Server
+
+	at edu.jxut.sft.SparkServer.main(SparkServer.java:91)

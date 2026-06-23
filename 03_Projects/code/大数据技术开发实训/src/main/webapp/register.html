@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户注册 - 邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="login_bg">
+<section class="loginBox">
+    <header class="loginHeader">
+        <h1>邓睿的大数据应用课件管理系统 - 注册</h1>
+    </header>
+    <section class="loginCont">
+        <form class="loginForm" action="/sft/register" method="post"><!-- 提交到RegisterServlet -->
+            <div class="inputbox">
+                <label for="regUser">用户名：</label>
+                <input id="regUser" type="text" name="username" placeholder="请输入用户名" required/>
+            </div>
+            <div class="inputbox">
+                <label for="regPwd">密码：</label>
+                <input id="regPwd" type="password" name="password" placeholder="请输入密码" required/>
+            </div>
+            <div class="inputbox">
+                <label for="realName">真实姓名：</label>
+                <input id="realName" type="text" name="realName" placeholder="请输入真实姓名" required/>
+            </div>
+            <div class="subBtn">
+                <input type="submit" value="注册" />
+                <input type="reset" value="重置"/>
+            </div>
+        </form>
+    </section>
+</section>
+</body>
+</html>

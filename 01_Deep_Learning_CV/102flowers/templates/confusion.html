@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}102 Flowers — Confusion Matrix{% endblock %}
+
+{% block content %}
+<!-- ======== Overview Metrics ======== -->
+{% if summary %}
+<div class="card">
+    <h2>📋 Model Performance Summary</h2>
+    <p style="color:#636e72;font-size:0.9rem;margin-bottom:16px;">
+        Evaluation on test set: <strong>{{ summary.num_samples }} images</strong>, <strong>{{ summary.num_classes }} classes</strong>.
+        Overall accuracy <strong>{{ summary.accuracy }}%</strong>
+        ({{ summary.correct }} correct / {{ summary.incorrect }} incorrect).
+    </p>
+
+    <div class="metrics-grid-2" style="margin-bottom:16px;">
+        <div style="background:#e8f8f5;border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-size:0.8rem;color:#636e72;">Accuracy</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#00b894;">{{ summary.accuracy }}%</div>
+        </div>
+        <div style="background:#e3f2fd;border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-size:0.8rem;color:#636e72;">Avg Recall</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#0984e3;">{{ summary.avg_recall }}%</div>
+        </div>
+        <div style="background:#fef3e2;border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-size:0.8rem;color:#636e72;">Avg Precision</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#e67e22;">{{ summary.avg_precision }}%</div>
+        </div>
+        <div style="background:#fde8f0;border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-size:0.8rem;color:#636e72;">Avg F1</div>
+            <div style="font-size:1.5rem;font-weight:700;color:#e84393;">{{ summary.avg_f1 }}%</div>
+        </div>
+    </div>
+
+    <div class="metrics-grid-3" style="margin-bottom:14px;">
+        <div style="background:#fff;border:1px solid #dfe6e9;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#00b894;">{{ summary.recall_ge90_count }}</div>
+            <div style="font-size:0.78rem;color:#636e72;">Recall ≥ 90% <span style="color:#b2bec3;">({{ summary.recall_ge90_pct }}%)</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid #dfe6e9;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#0984e3;">{{ summary.recall_ge50_count }}</div>
+            <div style="font-size:0.78rem;color:#636e72;">Recall ≥ 50% <span style="color:#b2bec3;">({{ summary.recall_ge50_pct }}%)</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid #dfe6e9;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#d63031;">{{ summary.recall_lt30_count }}</div>
+            <div style="font-size:0.78rem;color:#636e72;">Recall &lt; 30% <span style="color:#b2bec3;">({{ summary.recall_lt30_pct }}%)</span></div>
+        </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr auto;gap:14px;">
+        <div style="background:#e8f8f5;border-radius:8px;padding:12px 16px;">
+            <span style="font-size:0.82rem;font-weight:600;color:#00b894;">🏆 100% Recall:&nbsp;</span>
+            <span style="font-size:0.85rem;color:#2d3436;">{{ summary.recall_100_classes | join(', ') }}</span>
+        </div>
+        <div style="background:#ffeef0;border-radius:8px;padding:12px 16px;white-space:nowrap;">
+            <span style="font-size:0.82rem;font-weight:600;color:#d63031;">⚠️ Lowest:&nbsp;</span>
+            <span style="font-size:0.85rem;color:#2d3436;"><strong>{{ summary.recall_lowest.name }}</strong> ({{ summary.recall_lowest.folder }}) — <span style="color:#d63031;">{{ summary.recall_lowest.recall }}%</span></span>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- ======== Confusion Matrix Heatmap ======== -->
+<div class="card">
+    <h2>🔍 Confusion Matrix (102×102)</h2>
+    <p style="color:#636e72;font-size:0.9rem;margin-bottom:16px;">
+        Hover over any cell to see the exact count. True labels on the Y axis, predicted labels on the X axis.
+    </p>
+    <div class="chart-container">
+        {{ cm_html | safe }}
+    </div>
+</div>
+
+<!-- ======== Recall Bar Chart ======== -->
+<div class="card">
+    <h2>📊 Per-Class Recall (sorted by recall)</h2>
+    <p style="color:#636e72;font-size:0.9rem;margin-bottom:16px;">
+        Hover over bars to see exact recall values. Classes are sorted from highest to lowest recall.
+    </p>
+    <div class="chart-container">
+        {{ recall_html | safe }}
+    </div>
+</div>
+
+<!-- ======== Per-Class Misclassification Detail ======== -->
+<div class="card">
+    <h2>🎯 Investigate a Specific Class</h2>
+    <p style="color:#636e72;font-size:0.9rem;margin-bottom:12px;">
+        Select a flower class to see which other classes it is most often confused with.
+    </p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <select id="class-select" style="padding:10px 12px;font-size:0.95rem;border-radius:8px;border:2px solid #b2bec3;flex:1;min-width:300px;">
+            <option value="">-- Select a flower class --</option>
+            {% for opt in class_options %}
+            <option value="{{ opt.index }}">{{ opt.label }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" onclick="loadMisclass()">🔍 Analyze</button>
+    </div>
+    <div id="misclass-chart" style="margin-top:20px;"></div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+async function loadMisclass() {
+    const select = document.getElementById('class-select');
+    const idx = select.value;
+    if (idx === '') return;
+
+    const container = document.getElementById('misclass-chart');
+    container.innerHTML = '<p style="text-align:center;padding:40px;">Loading…</p>';
+
+    try {
+        const resp = await fetch(`/api/misclass/${idx}`);
+        const html = await resp.text();
+        container.innerHTML = html;
+
+        // innerHTML does NOT execute <script> tags — Plotly charts need them
+        // Re-create each script node so the browser runs them
+        const scripts = container.querySelectorAll('script');
+        scripts.forEach(function(oldScript) {
+            const newScript = document.createElement('script');
+            newScript.textContent = oldScript.textContent;
+            if (oldScript.parentNode) {
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            }
+        });
+    } catch (err) {
+        container.innerHTML = `<p style="color:#d63031;text-align:center;padding:40px;">Error: ${err.message}</p>`;
+    }
+}
+</script>
+{% endblock %}

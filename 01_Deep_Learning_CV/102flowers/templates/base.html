@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}102 Flowers Classifier{% endblock %}</title>
+
+    <!-- Chart.js (lightweight, ~60KB gzipped) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.1.0.min.js"></script>
+
+    <style>
+        /* ================================================================
+           Botanical Design System — "Plant Guide" visual language
+           ================================================================ */
+        :root {
+            /* Core palette */
+            --sage:            #5b8c5a;
+            --sage-dark:       #3d6b3c;
+            --sage-light:      #e8f5e9;
+            --sage-mist:       #f2f8f2;
+
+            --bark:            #8b6f55;
+            --bark-light:      #f5efe8;
+
+            --bloom:           #d4786e;
+            --bloom-light:     #fef3f0;
+
+            --sun:             #e0a449;
+            --sun-light:       #fef9f0;
+
+            --sky:             #6c9ebf;
+            --sky-light:       #eef5f9;
+
+            /* Neutrals */
+            --cream:           #faf8f5;
+            --paper:           #ffffff;
+            --ink:             #2d3436;
+            --ink-light:       #636e72;
+            --stone:           #dfe6e9;
+            --stone-light:     #f5f6fa;
+
+            /* Shadows */
+            --shadow-sm:       0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:       0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:       0 8px 32px rgba(0,0,0,0.10);
+
+            /* Radii */
+            --radius-sm:       8px;
+            --radius-md:       12px;
+            --radius-lg:       16px;
+
+            /* Transitions */
+            --ease:            0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ---------- Reset & Base ---------- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- Nav Bar — botanical header ---------- */
+        nav {
+            background: linear-gradient(135deg, #2d3e2d 0%, #3d543d 100%);
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #e8efe8;
+            padding: 15px 0;
+            margin-right: 36px;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav .brand .icon { font-size: 1.5rem; }
+        nav .brand span { color: #8fbc8f; }
+        nav a {
+            color: #b8c8b8;
+            text-decoration: none;
+            padding: 15px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--ease), background var(--ease);
+            border-radius: 6px;
+            margin: 0 2px;
+        }
+        nav a:hover, nav a.active {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* ---------- Container ---------- */
+        .container {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 36px 24px 60px;
+        }
+
+        /* ---------- Cards ---------- */
+        .card {
+            background: var(--paper);
+            border-radius: var(--radius-md);
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #ede8e0;
+            transition: box-shadow var(--ease);
+        }
+        .card:hover { box-shadow: var(--shadow-md); }
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            color: var(--ink);
+            border-bottom: 2px solid var(--sage-light);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h2 .section-icon { font-size: 1.4rem; }
+        .card h3 {
+            font-size: 1.05rem;
+            color: var(--ink-light);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* ---------- Stat Cards (item 5) — unified palette ---------- */
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 900px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+
+        .stat-card {
+            border-radius: var(--radius-md);
+            padding: 20px 18px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card .stat-icon { font-size: 1.5rem; margin-bottom: 6px; }
+        .stat-card .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+        .stat-card .stat-label {
+            font-size: 0.82rem;
+            color: var(--ink-light);
+            font-weight: 500;
+        }
+
+        .stat-accuracy { background: var(--sage-light); }
+        .stat-accuracy .stat-value { color: var(--sage-dark); }
+        .stat-recall   { background: var(--sky-light); }
+        .stat-recall .stat-value   { color: #4a7fa0; }
+        .stat-precision { background: var(--sun-light); }
+        .stat-precision .stat-value { color: #b8861a; }
+        .stat-f1       { background: var(--bark-light); }
+        .stat-f1 .stat-value       { color: var(--bark); }
+
+        .stat-row-sm {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 700px) { .stat-row-sm { grid-template-columns: repeat(3, 1fr); } }
+
+        .stat-card-sm {
+            background: var(--paper);
+            border: 1px solid #ede8e0;
+            border-radius: var(--radius-sm);
+            padding: 14px 12px;
+            text-align: center;
+        }
+        .stat-card-sm .sv { font-size: 1.6rem; font-weight: 700; }
+        .stat-card-sm .sl { font-size: 0.78rem; color: var(--ink-light); }
+
+        /* ---------- Image Cards (item 2) — botanical gallery ---------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .bloom-card {
+            background: var(--paper);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #ede8e0;
+            transition: transform var(--ease), box-shadow var(--ease);
+            cursor: default;
+        }
+        .bloom-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .bloom-card .bloom-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            background: var(--stone-light);
+        }
+        .bloom-card .bloom-info {
+            padding: 12px 14px;
+        }
+        .bloom-card .bloom-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+        .bloom-card .bloom-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 0.75rem;
+            color: var(--ink-light);
+        }
+        .bloom-card .bloom-meta span { font-weight: 600; }
+        .bloom-card .bloom-meta .r { color: var(--sage-dark); }
+        .bloom-card .bloom-meta .p { color: #b8861a; }
+
+        /* ---------- Misclassification Cards (item 1) — contrast pairs -------- */
+        .misclass-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .misclass-card {
+            background: var(--paper);
+            border: 1px solid #f0e0d8;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .misclass-card .misclass-header {
+            padding: 12px 16px;
+            background: var(--bloom-light);
+            border-bottom: 1px solid #f5d8d0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .misclass-card .misclass-header .class-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--ink);
+        }
+        .misclass-card .misclass-header .recall-badge {
+            background: var(--bloom);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+        .misclass-card .misclass-body {
+            display: flex;
+            gap: 12px;
+            padding: 14px;
+            align-items: start;
+        }
+        .misclass-card .misclass-body .side {
+            flex: 1;
+            text-align: center;
+        }
+        .misclass-card .misclass-body .side img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--stone-light);
+        }
+        .misclass-card .misclass-body .side .label {
+            font-size: 0.75rem;
+            color: var(--ink-light);
+            margin-top: 6px;
+        }
+        .misclass-card .misclass-body .side .label strong {
+            color: var(--ink);
+        }
+        .misclass-card .misclass-body .arrow-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 30%;
+            font-size: 1.5rem;
+            color: var(--bloom);
+            flex-shrink: 0;
+        }
+
+        /* ---------- Top Confusion Pairs (item 4) ----------------------------- */
+        .confusion-pair-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .confusion-pair {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 14px;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            border: 1px solid #ede8e0;
+            transition: background var(--ease);
+        }
+        .confusion-pair:hover { background: #fff; }
+
+        .confusion-pair .pair-imgs {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .confusion-pair .pair-imgs img {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: var(--stone-light);
+        }
+        .confusion-pair .pair-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .confusion-pair .pair-info .pair-names {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .confusion-pair .pair-info .pair-detail {
+            font-size: 0.78rem;
+            color: var(--ink-light);
+        }
+        .confusion-pair .pair-count {
+            background: var(--bloom-light);
+            color: var(--bloom);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 6px 14px;
+            border-radius: 16px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        /* ---------- Recall Distribution Chart (item 3) ----------------------- */
+        .recall-chart-wrap {
+            position: relative;
+            width: 100%;
+            height: 480px;
+        }
+        .recall-chart-wrap canvas { width: 100% !important; height: 100% !important; }
+
+        /* ---------- Training Curves (item 6) --------------------------------- */
+        .chart-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        .chart-container .plotly-graph-div,
+        .chart-container .js-plotly-plot {
+            max-width: 100% !important;
+        }
+
+        /* ---------- Forms (preserved for index page) ------------------------- */
+        .upload-form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .upload-form input[type="file"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 10px 12px;
+            border: 2px dashed var(--stone);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            background: #fafafa;
+            cursor: pointer;
+        }
+        .upload-form input[type="file"]:hover { border-color: var(--sage); }
+
+        .btn {
+            padding: 10px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background var(--ease), transform 0.1s;
+        }
+        .btn:active { transform: scale(0.97); }
+        .btn-primary { background: var(--sage); color: #fff; }
+        .btn-primary:hover { background: var(--sage-dark); }
+        .btn-secondary { background: var(--ink-light); color: #fff; }
+        .btn-secondary:hover { background: #4a5458; }
+
+        /* ---------- Result block (index page) -------------------------------- */
+        .result-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 28px;
+        }
+        @media (max-width: 768px) {
+            .result-grid { grid-template-columns: 1fr; }
+            nav { flex-wrap: wrap; }
+        }
+        .result-img img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        .prediction-badge {
+            display: inline-block;
+            background: var(--sage);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .confidence-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sage-dark);
+        }
+
+        /* ---------- Tables (preserved) --------------------------------------- */
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th {
+            background: var(--stone-light);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky; top: 0;
+        }
+        td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+        tr:hover td { background: #fafafa; }
+        .table-scroll { max-height: 400px; overflow-y: auto; border: 1px solid #eee; border-radius: var(--radius-sm); }
+
+        /* ---------- Batch grid (preserved) ----------------------------------- */
+        .batch-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 900px) { .batch-grid { grid-template-columns: repeat(2, 1fr); } }
+        .batch-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 4px solid var(--stone);
+        }
+        .batch-item.correct { border-color: var(--sage); }
+        .batch-item.wrong { border-color: var(--bloom); }
+        .batch-item img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+        .batch-info { padding: 10px; font-size: 0.82rem; background: #fafafa; }
+        .batch-info .true { color: var(--ink); font-weight: 600; }
+        .batch-info .pred { color: var(--ink-light); }
+
+        /* ---------- Misc ----------------------------------------------------- */
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 16px 0 8px;
+            color: var(--ink-light);
+        }
+        .empty-state { text-align: center; padding: 48px 20px; color: var(--stone); }
+        .empty-state .icon { font-size: 3rem; }
+        details summary {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 8px 0;
+            color: var(--sage);
+        }
+        details summary:hover { color: var(--sage-dark); }
+
+        /* Responsive */
+        .hide-mobile { }
+        @media (max-width: 640px) {
+            .hide-mobile { display: none; }
+            .container { padding: 16px 12px; }
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="brand">
+            <span class="icon">🌿</span> <span>102</span>Flowers
+        </div>
+        <a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}class="active"{% endif %}>
+            🏠 Home
+        </a>
+        <a href="{{ url_for('training') }}" {% if request.endpoint == 'training' %}class="active"{% endif %}>
+            📊 Dashboard
+        </a>
+        <a href="{{ url_for('confusion') }}" {% if request.endpoint == 'confusion' %}class="active"{% endif %}>
+            🔍 Matrix
+        </a>
+        <a href="{{ url_for('batch') }}" {% if request.endpoint == 'batch' %}class="active"{% endif %}>
+            🖼️ Samples
+        </a>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

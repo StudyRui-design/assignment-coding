@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大数据分析平台 - 基于Apache Spark实时统计分析</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <link rel="stylesheet" href="css/style.css?v=1"/>
+    <!-- ECharts 图表库 CDN（多级降级：unpkg → cdnjs → jsdelivr） -->
+    <script src="https://unpkg.com/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+        if (typeof echarts === 'undefined') {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"><\/script>');
+        }
+    </script>
+    <style>
+        /* ===== 大数据专属样式 ===== */
+        .bigdata-header {
+            background: linear-gradient(135deg, #005c96, #0073b8, #0090d0, #0073b8);
+            background-size: 300% 300%;
+            animation: headerFlow 10s ease infinite;
+            color: #fff;
+            padding: 28px 20px;
+            text-align: center;
+            border-radius: 0 0 14px 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0,115,184,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .bigdata-header::before {
+            content: '';
+            position: absolute; top: -50%; left: -10%; width: 120%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+            animation: bgMove 30s linear infinite;
+        }
+        @keyframes bgMove { from { transform: translateY(0); } to { transform: translateY(-48px); } }
+        .bigdata-header h1 { font-size: 28px; margin-bottom: 6px; position: relative; z-index: 1; }
+        .bigdata-header p { font-size: 14px; opacity: 0.85; position: relative; z-index: 1; }
+        .spark-badge {
+            display: inline-block; padding: 4px 18px; border-radius: 20px;
+            background: rgba(255,255,255,0.2); font-size: 13px; margin-top: 8px;
+            border: 1px solid rgba(255,255,255,0.3); position: relative; z-index: 1;
+        }
+
+        /* 统计卡片 */
+        .bd-cards { display: flex; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; }
+        .bd-card {
+            flex: 1; min-width: 200px; background: #fff; border-radius: 12px;
+            padding: 22px 24px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+            transition: all 0.3s ease; cursor: default; position: relative; overflow: hidden;
+        }
+        .bd-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+        .bd-card-icon { font-size: 36px; margin-bottom: 8px; opacity: 0.9; }
+        .bd-card-value { font-size: 36px; font-weight: 800; color: #333; line-height: 1.2; }
+        .bd-card-label { font-size: 13px; color: #888; margin-top: 4px; }
+        .bd-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            border-radius: 12px 12px 0 0;
+        }
+        .bd-card:nth-child(1)::after { background: linear-gradient(90deg, #0073b8, #0073b8); }
+        .bd-card:nth-child(2)::after { background: linear-gradient(90deg, #f093fb, #f5576c); }
+        .bd-card:nth-child(3)::after { background: linear-gradient(90deg, #0073b8, #00f2fe); }
+        .bd-card:nth-child(4)::after { background: linear-gradient(90deg, #43e97b, #38f9d7); }
+
+        /* 图表区域 */
+        .chart-section { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+        .chart-panel {
+            flex: 1; min-width: 420px; background: #fff; border-radius: 12px;
+            padding: 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .chart-panel:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .chart-panel-title {
+            font-size: 15px; font-weight: 700; color: #2c3e50; margin-bottom: 10px;
+            padding-left: 10px; border-left: 4px solid #0073b8;
+        }
+        .chart-panel-title .dot {
+            display: inline-block; width: 8px; height: 8px;
+            background: #0073b8; border-radius: 50%; margin-right: 6px;
+        }
+        .chart-container { width: 100%; height: 340px; }
+
+        /* 用户排行表格 */
+        .rank-table-wrapper {
+            background: #fff; border-radius: 12px; padding: 18px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .rank-table-wrapper:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .rank-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .rank-table th {
+            background: #0073b8; color: #fff;
+            padding: 10px 14px; text-align: left; font-weight: 600;
+        }
+        .rank-table td { padding: 9px 14px; border-bottom: 1px solid #f0f0f0; color: #555; }
+        .rank-table tbody tr:hover { background: #f0f6fc; }
+        .rank-num {
+            display: inline-block; width: 22px; height: 22px; line-height: 22px;
+            text-align: center; border-radius: 50%; font-size: 12px; font-weight: 700;
+            color: #fff; background: #999;
+        }
+        .rank-num.top1 { background: linear-gradient(135deg, #ffd700, #ffaa00); }
+        .rank-num.top2 { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); }
+        .rank-num.top3 { background: linear-gradient(135deg, #cd7f32, #a06828); }
+
+        /* 加载状态 */
+        .loading-overlay {
+            position: absolute; inset: 0; background: rgba(255,255,255,0.85);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: inherit; z-index: 10;
+        }
+        .spinner {
+            width: 36px; height: 36px; border: 3px solid #e0e0e0;
+            border-top-color: #0073b8; border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* 状态指示器 */
+        .spark-status {
+            position: fixed; top: 80px; right: 20px; z-index: 999;
+            padding: 6px 14px; border-radius: 20px; font-size: 12px;
+            background: #f0f9eb; color: #67c23a; border: 1px solid #c2e7b0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: none;
+            letter-spacing: 0.3px;
+        }
+        .spark-status.offline { background: #fef0f0; color: #f56c6c; border-color: #fbc4c4; }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .bd-cards { flex-direction: column; }
+            .chart-section { flex-direction: column; }
+            .chart-panel { min-width: 100%; }
+            .chart-container { height: 280px; }
+        }
+        
+</style>
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+
+<!-- 头部 -->
+<header class="publicHeader">
+    <h1>大数据分析平台 — 实时统计</h1>
+    <div class="publicHeaderR">
+        <p><span id="hours"></span><span id="showUser" style="color:#fff21b"> Admin</span>, 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+
+<!-- 时间栏 -->
+<section class="publicTime">
+    <span id="time">2026年6月3日 星期三</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+
+<!-- Spark连接状态指示 -->
+<div class="spark-status" id="sparkStatus">Spark 已连接 (localhost:9090)</div>
+
+<!-- 主体 -->
+<section class="publicMian">
+    <!-- 左侧导航 -->
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li class="active"><a href="bigData.html">大数据分析</a></li>
+            <li><a href="machineLearning.html">智能推荐</a></li>
+            <li><a href="aiChat.html">AI助手</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 右侧内容区 -->
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>大数据分析平台 · 基于Apache Spark的实时统计分析</span>
+        </div>
+
+        <!-- 页面标题头 -->
+        <div class="bigdata-header">
+            <h1><a href="index.html">大数据分析平台</a></h1>
+            <p>基于 Apache Spark 的实时数据统计分析</p>
+            <span class="spark-badge">⚡ Spark 驱动</span>
+        </div>
+
+        <!-- ===== 4个统计卡片 ===== -->
+        <div class="bd-cards">
+            <div class="bd-card">
+                <div class="bd-card-icon">👥</div>
+                <div class="bd-card-value" id="statUserCount">--</div>
+                <div class="bd-card-label">用户总数</div>
+            </div>
+            <div class="bd-card">
+                <div class="bd-card-icon">📚</div>
+                <div class="bd-card-value" id="statSubjectCount">--</div>
+                <div class="bd-card-label">科目数量</div>
+            </div>
+            <div class="bd-card">
+                <div class="bd-card-icon">📝</div>
+                <div class="bd-card-value" id="statStudyCount">--</div>
+                <div class="bd-card-label">学习记录</div>
+            </div>
+            <div class="bd-card">
+                <div class="bd-card-icon">📊</div>
+                <div class="bd-card-value" id="statAvgStudy">--</div>
+                <div class="bd-card-label">人均学习次数</div>
+            </div>
+        </div>
+
+        <!-- ===== 图表区域 ===== -->
+        <div class="chart-section">
+            <!-- 科目学习分布（饼图） -->
+            <div class="chart-panel">
+                <div class="chart-panel-title"><span class="dot"></span>科目学习分布</div>
+                <div class="chart-container" id="pieChart"></div>
+            </div>
+            <!-- 科目热度排行（横向柱状图） -->
+            <div class="chart-panel">
+                <div class="chart-panel-title"><span class="dot"></span>科目热度排行 TOP10</div>
+                <div class="chart-container" id="barChart"></div>
+            </div>
+        </div>
+
+        <!-- ===== 用户排行表格 ===== -->
+        <div class="rank-table-wrapper">
+            <div class="chart-panel-title"><span class="dot"></span>🏆 用户学习时长排行榜 TOP10</div>
+            <table class="rank-table">
+                <thead>
+                    <tr>
+                        <th width="60">排名</th>
+                        <th width="140">用户名</th>
+                        <th width="140">姓名</th>
+                        <th width="100">学习记录数</th>
+                        <th width="130">总学习时长</th>
+                    </tr>
+                </thead>
+                <tbody id="rankTableBody">
+                    <tr><td colspan="5" style="text-align:center;padding:40px;color:#999;">⏳ 正在从Spark加载数据...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script><script src="js/user.js"></script>
+<script>
+// ======================== 配置 ========================
+var SPARK_API_BASE = 'http://localhost:9090';
+var LOCAL_API_BASE = '/sft/local';  // 同源本地降级接口
+var REFRESH_INTERVAL = 30000; // 30秒自动刷新
+var useLocal = false;     // 是否降级到本地接口
+
+// ======================== 工具函数 ========================
+function apiCall(url) {
+    var base = useLocal ? LOCAL_API_BASE : SPARK_API_BASE;
+    return $.ajax({ url: base + url, type: 'GET', dataType: 'json', timeout: 10000 });
+}
+
+function showSparkStatus(online) {
+    var el = $('#sparkStatus');
+    if (online && !useLocal) {
+        el.text('Spark 已连接 (' + SPARK_API_BASE + ')').removeClass('offline').show();
+    } else if (useLocal) {
+        el.text('📦 使用本地数据模式 (Spark 未启动)').css({'background':'#f4f4ff','color':'#666','border-color':'#d0d0e0'}).show();
+        el.removeClass('offline');
+    } else {
+        el.text('❌ Spark 未连接，请启动微服务 (端口9090)').addClass('offline').show();
+    }
+}
+
+// ======================== 数据加载与渲染 ========================
+function loadAllData() {
+    if (!useLocal) showSparkStatus(true);
+
+    $.when(
+        apiCall('/api/stats/overview'),
+        apiCall('/api/stats/subject'),
+        apiCall('/api/stats/user'),
+        apiCall('/api/stats/ranking')
+    ).done(function(ovRes, subjRes, userRes, rankRes) {
+        // 本地接口返回 {code:200, data: {...}} 格式，需要解包
+        function unwrap(r) { return r[0].data || r[0]; }
+
+        var ov = unwrap(ovRes);
+        $('#statUserCount').text(ov.userCount || 0);
+        $('#statSubjectCount').text(ov.subjectCount || 0);
+        $('#statStudyCount').text(ov.studyCount || 0);
+        $('#statAvgStudy').text((ov.avgStudyPerUser || 0) + '次');
+
+        // 2. 渲染饼图 — 科目学习分布
+        var subjData = unwrap(subjRes);
+        renderPieChart(Array.isArray(subjData) ? subjData : []);
+
+        // 3. 渲染柱状图 — 科目热度排行
+        var rankData = unwrap(rankRes);
+        renderBarChart(Array.isArray(rankData) ? rankData : []);
+
+        // 4. 渲染排行表格
+        var userData = unwrap(userRes);
+        renderRankTable(Array.isArray(userData) ? userData : []);
+        showSparkStatus(true);
+
+    }).fail(function(xhr, status, err) {
+        if (!useLocal) {
+            console.warn('[大数据] Spark 连接失败，切换到本地数据模式...');
+            useLocal = true;
+            loadAllData();
+            return;
+        }
+        showSparkStatus(false);
+        var errHtml = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#e6a23c;font-size:14px;">⚠️ 数据加载失败</div>';
+        var pieEl = document.getElementById('pieChart');
+        if (pieEl) pieEl.innerHTML = errHtml;
+        var barEl = document.getElementById('barChart');
+        if (barEl) barEl.innerHTML = errHtml;
+        $('#rankTableBody').html('<tr><td colspan="5" style="text-align:center;padding:30px;color:#e6a23c;">❌ 数据加载失败</td></tr>');
+    });
+}
+
+// ======================== 图表渲染 ========================
+
+/** 检测 ECharts 是否加载成功 */
+function checkEcharts() {
+    if (typeof echarts === 'undefined') {
+        console.error('[大数据] ECharts 未加载，请检查网络连接');
+        var ids = ['pieChart', 'barChart'];
+        ids.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:14px;">⚠️ 图表库加载失败，请刷新页面重试</div>';
+        });
+        return false;
+    }
+    return true;
+}
+
+// 饼图：科目学习分布
+function renderPieChart(dataArr) {
+    if (!checkEcharts()) return;
+    var chartDom = document.getElementById('pieChart');
+    if (!chartDom) return;
+    try { var myChart = echarts.init(chartDom);
+
+    var names = [], values = [];
+    dataArr.forEach(function(item) {
+        names.push(item.subjectName);
+        values.push({ value: item.studyCount, name: item.subjectName });
+    });
+
+    // 颜色方案
+    var colors = ['#5470c6','#91cc75','#fac858','#ee6666','#73c0de',
+                  '#3ba272','#fc8452','#9a60b4','#ea7ccc','#7289ab',
+                  '#91d4cf','#b37f94','#de9c36','#c45656','#61a0a8',
+                  '#d48265','#91c7ae','#e69d87','#8dc63f','#ea7cac',
+                  '#c4ccd3','#6eb4c7','#f0c27f','#bda29a','#e8849a',
+                  '#97b552','#95a072','#997b74','#ad8f51','#b87098'];
+
+    var option = {
+        tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+        legend: { type: 'scroll', bottom: 0, textStyle: { fontSize: 11 } },
+        series: [{
+            name: '学习分布',
+            type: 'pie',
+            radius: ['38%', '72%'],
+            center: ['50%', '46%'],
+            roseType: 'radius',
+            label: { fontSize: 11, formatter: '{b}\n{d}%' },
+            data: values,
+            itemStyle: { borderRadius: 5, borderColor: '#fff', borderWidth: 2 },
+            emphasis: { itemStyle: { shadowBlur: 15, shadowColor: 'rgba(0,0,0,0.2)' } },
+            animationType: 'scale',
+            animationEasing: 'elasticOut'
+        }],
+        color: colors
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+    } catch(e) {}
+}
+
+// 横向柱状图：科目热度排行
+function renderBarChart(dataArr) {
+    if (!checkEcharts()) return;
+    var chartDom = document.getElementById('barChart');
+    if (!chartDom) return;
+    try { var myChart = echarts.init(chartDom);
+
+    var names = [], scores = [];
+    dataArr.forEach(function(item) {
+        names.push(item.name);
+        scores.push(item.score);
+    });
+    names.reverse();
+    scores.reverse();
+
+    var option = {
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: '{b}: 热度 {c}' },
+        grid: { left: '12%', right: '10%', top: 8, bottom: 8, containLabel: true },
+        xAxis: { type: 'value' },
+        yAxis: { type: 'category', data: names, axisLabel: { fontSize: 12, color: '#555' } },
+        series: [{
+            type: 'bar',
+            barWidth: '58%',
+            data: scores.map(function(v, i) {
+                return {
+                    value: v,
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            { offset: 0, color: i < 3 ? '#f5576c' : '#0073b8' },
+                            { offset: 1, color: i < 3 ? '#f093fb' : '#00f2fe' }
+                        ]),
+                        borderRadius: [0, 6, 6, 0]
+                    }
+                };
+            }),
+            label: { show: true, position: 'right', fontSize: 12, fontWeight: 'bold', color: '#333' },
+            animationDelay: function(idx) { return idx * 80; }
+        }],
+        animationEasing: 'elasticOut'
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function() { myChart.resize(); });
+    } catch(e) {}
+}
+
+// 排行榜表格
+function renderRankTable(dataArr) {
+    var html = '';
+    if (!dataArr.length) {
+        html = '<tr><td colspan="5" style="text-align:center;padding:30px;color:#999;">暂无数据</td></tr>';
+    } else {
+        dataArr.forEach(function(item, idx) {
+            var rankClass = idx === 0 ? 'top1' : (idx === 1 ? 'top2' : (idx === 2 ? 'top3' : ''));
+            html += '<tr>' +
+                '<td><span class="rank-num ' + rankClass + '">' + (idx + 1) + '</span></td>' +
+                '<td>' + (item.userName || '-') + '</td>' +
+                '<td>' + (item.userId || '-') + '</td>' +
+                '<td><strong>' + (item.studyCount || 0) + '</strong> 条</td>' +
+                '<td>' + (item.durationText || '--') + '</td>' +
+                '</tr>';
+        });
+    }
+    $('#rankTableBody').html(html);
+}
+
+// ======================== 启动 ========================
+$(function() {
+    loadAllData();
+    setInterval(loadAllData, REFRESH_INTERVAL);
+});
+</script>
+</body>
+</html>

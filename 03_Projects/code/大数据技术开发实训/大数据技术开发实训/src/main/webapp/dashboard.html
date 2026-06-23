@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        /* 统计卡片样式 - 参考图配色 */
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 15px;
+        }
+        .stat-card {
+            flex: 1;
+            padding: 20px 20px 20px 25px;
+            border-radius: 8px;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card .info {
+            z-index: 1;
+        }
+        .stat-card .info h3 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: normal;
+            opacity: 0.95;
+        }
+        .stat-card .info .number {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .stat-card .info .desc {
+            font-size: 12px;
+            margin-top: 6px;
+            opacity: 0.85;
+        }
+        .stat-card .icon {
+            font-size: 48px;
+            opacity: 0.25;
+            z-index: 1;
+        }
+        /* 蓝 - 用户总数 */
+        .stat-card.user { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+        /* 绿 - 科目总数 */
+        .stat-card.subject { background: linear-gradient(135deg, #00f260 0%, #0575e6 100%); }
+        /* 橙 - 可用科目 */
+        .stat-card.active { background: linear-gradient(135deg, #fce38a 0%, #f38181 100%); }
+        /* 粉 - 禁用科目 */
+        .stat-card.inactive { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+
+        /* 图表容器 */
+        .charts-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 20px;
+        }
+        .chart-box {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .chart-box h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .chart-box canvas {
+            max-width: 100%;
+            height: 300px;
+        }
+        /* 图例样式 */
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+        .chart-legend span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .chart-legend .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader">
+    <h1>邓睿的大数据应用课件管理系统</h1>
+    <div class="publicHeaderR">
+        <p><span>下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li class="active"><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>数据可视化仪表盘</span>
+        </div>
+
+        <!-- 统计卡片 -->
+        <div class="stats-container">
+            <div class="stat-card user">
+                <div class="info">
+                    <h3>用户总数</h3>
+                    <div class="number" id="userCount">0</div>
+                    <div class="desc">当前系统用户总量</div>
+                </div>
+                <div class="icon">&#128101;</div>
+            </div>
+            <div class="stat-card subject">
+                <div class="info">
+                    <h3>科目总数</h3>
+                    <div class="number" id="subjectCount">0</div>
+                    <div class="desc">所有科目数量</div>
+                </div>
+                <div class="icon">&#128218;</div>
+            </div>
+            <div class="stat-card active">
+                <div class="info">
+                    <h3>可用科目</h3>
+                    <div class="number" id="activeCount">0</div>
+                    <div class="desc">启用 + 正常状态</div>
+                </div>
+                <div class="icon">&#9989;</div>
+            </div>
+            <div class="stat-card inactive">
+                <div class="info">
+                    <h3>禁用科目</h3>
+                    <div class="number" id="inactiveCount">0</div>
+                    <div class="desc">已禁用的科目</div>
+                </div>
+                <div class="icon">&#128683;</div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="charts-container">
+            <div class="chart-box">
+                <h3>科目状态分布</h3>
+                <canvas id="pieChart"></canvas>
+                <div class="chart-legend" id="pieLegend"></div>
+            </div>
+            <div class="chart-box">
+                <h3>用户数与科目数对比</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script>
+<script>
+    // 页面加载时获取统计数据
+    window.onload = function() {
+        loadStats();
+    };
+
+    function loadStats() {
+        $.ajax({
+            url: "/sft/dashboard/stats",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                // 更新统计卡片
+                $("#userCount").text(data.userCount || 0);
+                $("#subjectCount").text(data.subjectCount || 0);
+                $("#activeCount").text(data.activeCount || 0);
+                $("#inactiveCount").text(data.inactiveCount || 0);
+
+                // 渲染环形图
+                renderDonutChart(data.activeCount || 0, data.inactiveCount || 0);
+
+                // 渲染柱状图
+                renderBarChart(data.userCount || 0, data.subjectCount || 0, data.activeCount || 0, data.inactiveCount || 0);
+            },
+            error: function() {
+                alert("加载统计数据失败");
+            }
+        });
+    }
+
+    // 渲染环形图（甜甜圈图）- 科目状态分布
+    function renderDonutChart(active, inactive) {
+        var canvas = document.getElementById('pieChart');
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.offsetWidth || 400;
+        canvas.height = canvas.offsetHeight || 300;
+        var w = canvas.width;
+        var h = canvas.height;
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
+
+        var data = [active, inactive];
+        var labels = ['启用', '禁用'];
+        var colors = ['#52c41a', '#faad14'];
+        var total = data.reduce(function(a, b) { return a + b; }, 0);
+
+        if (total === 0) {
+            ctx.fillStyle = '#999';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('暂无数据', w / 2, h / 2);
+            document.getElementById('pieLegend').innerHTML = '';
+            return;
+        }
+
+        var cx = w / 2, cy = h / 2 + 5;
+        var outerRadius = Math.min(w, h) / 2 - 50;
+        var innerRadius = outerRadius * 0.55;
+        var startAngle = -Math.PI / 2;
+
+        data.forEach(function(val, i) {
+            var sliceAngle = (val / total) * Math.PI * 2;
+            ctx.beginPath();
+            ctx.arc(cx, cy, outerRadius, startAngle, startAngle + sliceAngle);
+            ctx.arc(cx, cy, innerRadius, startAngle + sliceAngle, startAngle, true);
+            ctx.closePath();
+            ctx.fillStyle = colors[i];
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // 百分比标签
+            var pct = ((val / total) * 100).toFixed(2) + '%';
+            var midAngle = startAngle + sliceAngle / 2;
+            var labelRadius = (outerRadius + innerRadius) / 2;
+            var lx = cx + Math.cos(midAngle) * labelRadius;
+            var ly = cy + Math.sin(midAngle) * labelRadius;
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 13px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(pct, lx, ly);
+
+            // 外部引线标签
+            var lineRadius = outerRadius + 15;
+            var lineX = cx + Math.cos(midAngle) * lineRadius;
+            var lineY = cy + Math.sin(midAngle) * lineRadius;
+            var textX = lineX + (Math.cos(midAngle) > 0 ? 15 : -15);
+            ctx.strokeStyle = colors[i];
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(cx + Math.cos(midAngle) * outerRadius, cy + Math.sin(midAngle) * outerRadius);
+            ctx.lineTo(lineX, lineY);
+            ctx.lineTo(textX, lineY);
+            ctx.stroke();
+            ctx.fillStyle = '#666';
+            ctx.font = '12px Arial';
+            ctx.textAlign = Math.cos(midAngle) > 0 ? 'left' : 'right';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(labels[i] + ' ' + pct, textX + (Math.cos(midAngle) > 0 ? 3 : -3), lineY);
+
+            startAngle += sliceAngle;
+        });
+
+        // 中心文字
+        ctx.fillStyle = '#333';
+        ctx.font = 'bold 14px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('科目状态', cx, cy - 8);
+        ctx.fillStyle = '#666';
+        ctx.font = '12px Arial';
+        ctx.fillText('总计 ' + total, cx, cy + 10);
+
+        // 生成图例HTML
+        var legendHtml = '';
+        labels.forEach(function(label, i) {
+            var pct = ((data[i] / total) * 100).toFixed(2) + '%';
+            legendHtml += '<span><span class="dot" style="background:' + colors[i] + '"></span>' + label + ' ' + pct + '</span>';
+        });
+        document.getElementById('pieLegend').innerHTML = legendHtml;
+    }
+
+    // 渲染柱状图 - 用户数与科目数对比
+    function renderBarChart(userCount, subjectCount, activeCount, inactiveCount) {
+        var canvas = document.getElementById('barChart');
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.offsetWidth || 400;
+        canvas.height = canvas.offsetHeight || 300;
+        var w = canvas.width;
+        var h = canvas.height;
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, w, h);
+
+        var data = [userCount, subjectCount, activeCount, inactiveCount];
+        var labels = ['用户总数', '科目总数', '可用科目', '禁用科目'];
+        var colors = ['#0072ff', '#00f260', '#f38181', '#f5576c'];
+
+        var padding = { top: 30, right: 20, bottom: 50, left: 50 };
+        var chartW = w - padding.left - padding.right;
+        var chartH = h - padding.top - padding.bottom;
+        var maxVal = Math.max.apply(null, data.concat([1]));
+        // 向上取整到合适的刻度
+        var yMax = Math.ceil(maxVal / 5) * 5;
+        if (yMax < 10) yMax = 10;
+        var barCount = data.length;
+        var barWidth = Math.min(50, chartW / barCount * 0.55);
+        var spacing = (chartW - barWidth * barCount) / (barCount + 1);
+
+        // 绘制坐标轴
+        ctx.strokeStyle = '#e0e0e0';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, padding.top);
+        ctx.lineTo(padding.left, h - padding.bottom);
+        ctx.lineTo(w - padding.right, h - padding.bottom);
+        ctx.stroke();
+
+        // Y轴刻度和网格线
+        ctx.fillStyle = '#666';
+        ctx.font = '11px Arial';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        var ySteps = 5;
+        for (var i = 0; i <= ySteps; i++) {
+            var yVal = Math.round(yMax * i / ySteps);
+            var y = h - padding.bottom - (chartH * i / ySteps);
+            ctx.fillText(yVal, padding.left - 8, y);
+            if (i > 0) {
+                ctx.strokeStyle = '#f0f0f0';
+                ctx.beginPath();
+                ctx.moveTo(padding.left, y);
+                ctx.lineTo(w - padding.right, y);
+                ctx.stroke();
+            }
+        }
+
+        // Y轴标题
+        ctx.save();
+        ctx.translate(15, h / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillStyle = '#999';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('数量（个）', 0, 0);
+        ctx.restore();
+
+        // 绘制柱子
+        data.forEach(function(val, i) {
+            var x = padding.left + spacing + i * (barWidth + spacing);
+            var barH = (val / yMax) * chartH;
+            var y = h - padding.bottom - barH;
+
+            // 柱子圆角
+            var r = 4;
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + barWidth - r, y);
+            ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + r);
+            ctx.lineTo(x + barWidth, h - padding.bottom);
+            ctx.lineTo(x, h - padding.bottom);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+            ctx.fillStyle = colors[i];
+            ctx.fill();
+
+            // 柱顶数值
+            ctx.fillStyle = '#333';
+            ctx.font = 'bold 13px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText(val, x + barWidth / 2, y - 6);
+
+            // X轴标签
+            ctx.fillStyle = '#666';
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            ctx.fillText(labels[i], x + barWidth / 2, h - padding.bottom + 10);
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能推荐系统 - 机器学习分析平台</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <link rel="stylesheet" href="css/style.css?v=1"/>
+    <script src="https://unpkg.com/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>if(typeof echarts==='undefined'){document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"><\/script>')}</script>
+    <style>
+        /* ===== ML专属样式 ===== */
+        .ml-header {
+            background: linear-gradient(135deg, #0073b8 0%, #0090d0 100%);
+            color: #fff; padding: 26px 20px; text-align: center;
+            border-radius: 0 0 16px 16px; margin-bottom: 22px;
+            box-shadow: 0 4px 20px rgba(0,115,184,0.35);
+            position: relative; overflow: hidden;
+        }
+        .ml-header h1 { font-size: 26px; margin-bottom: 4px; position: relative; z-index: 1; }
+        .ml-header p { font-size: 13px; opacity: 0.85; position: relative; z-index: 1; }
+        .algo-tag {
+            display: inline-block; padding: 3px 14px; border-radius: 15px;
+            background: rgba(255,255,255,0.2); font-size: 12px; margin: 4px 4px 0;
+            border: 1px solid rgba(255,255,255,0.3); position: relative; z-index: 1;
+        }
+
+        /* Tab切换 */
+        .ml-tabs { display: flex; gap: 0; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+        .ml-tab {
+            flex: 1; padding: 12px; text-align: center; font-size: 14px; font-weight: 600;
+            background: #f5f7fa; color: #666; cursor: pointer; transition: all 0.3s;
+            border-right: 1px solid #e8ecf1; user-select: none;
+        }
+        .ml-tab:last-child { border-right: none; }
+        .ml-tab.active { background: linear-gradient(135deg, #0073b8, #0090d0); color: #fff; }
+        .ml-tab:hover:not(.active) { background: #ebeef3; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.35s ease; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+        /* 概览卡片 */
+        .ml-stats { display: flex; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+        .ml-stat-item {
+            flex: 1; min-width: 150px; background: #fff; border-radius: 10px; padding: 16px;
+            text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .ml-stat-val { font-size: 28px; font-weight: 800; color: #0073b8; }
+        .ml-stat-lbl { font-size: 12px; color: #999; margin-top: 2px; }
+
+        /* 推荐卡片网格 */
+        .rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+        .rec-card {
+            background: #fff; border-radius: 10px; padding: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.3s;
+            border-left: 4px solid #0073b8;
+        }
+        .rec-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,115,184,0.15); }
+        .rec-card-name { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 4px; }
+        .rec-card-cat { font-size: 11px; color: #999; background: #f0fdf4; padding: 2px 8px; border-radius: 10px; display: inline-block; }
+        .rec-card-reason { font-size: 12px; color: #666; margin-top: 8px; line-height: 1.5; }
+        .rec-card-score { float: right; font-size: 16px; font-weight: 800; color: #0090d0; }
+
+        /* 聚类卡片 */
+        .cluster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px; }
+        .cluster-card {
+            background: #fff; border-radius: 12px; padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06); text-align: center;
+            border-top: 4px solid #ddd; transition: transform 0.3s;
+        }
+        .cluster-card:hover { transform: scale(1.03); }
+        .cluster-label { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .cluster-count { font-size: 32px; font-weight: 800; }
+        .cluster-detail { font-size: 11px; color: #999; margin-top: 6px; line-height: 1.6; }
+
+        /* 热门列表 */
+        .hot-list { list-style: none; padding: 0; margin: 0; }
+        .hot-item {
+            display: flex; align-items: center; padding: 12px 14px;
+            border-bottom: 1px solid #f0f0f0; background: #fff;
+            transition: background 0.2s;
+        }
+        .hot-item:hover { background: #f8fcfa; }
+        .hot-rank {
+            width: 28px; height: 28px; line-height: 28px; text-align: center;
+            border-radius: 50%; font-weight: 700; font-size: 12px; color: #fff;
+            background: #bbb; margin-right: 14px; flex-shrink: 0;
+        }
+        .hot-rank.r1 { background: linear-gradient(135deg,#ffd700,#ffaa00); }
+        .hot-rank.r2 { background: linear-gradient(135deg,#c0c0c0,#999); }
+        .hot-rank.r3 { background: linear-gradient(135deg,#cd7f32,#a06828); }
+        .hot-info { flex: 1; }
+        .hot-name { font-size: 14px; font-weight: 600; color: #333; }
+        .hot-meta { font-size: 11px; color: #999; margin-top: 2px; }
+        .hot-score { font-size: 18px; font-weight: 800; color: #0073b8; }
+
+        /* 用户选择 */
+        .user-selector { margin-bottom: 16px; }
+        .user-selector select {
+            padding: 8px 16px; border: 2px solid #0073b8; border-radius: 8px;
+            font-size: 14px; outline: none; background: #fff; min-width: 220px;
+        }
+        .user-selector button {
+            padding: 8px 20px; background: linear-gradient(135deg,#0073b8,#0090d0);
+            color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; margin-left: 10px;
+        }
+        .user-selector button:hover { opacity: 0.9; }
+
+        /* 图表容器 */
+        .ml-chart-box {
+            background: #fff; border-radius: 10px; padding: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px;
+        }
+        .ml-chart { width: 100%; height: 320px; }
+        @media (min-width: 1200px) { .ml-chart { height: 360px; } }
+        @media (max-width: 600px) { .ml-chart { height: 280px; } }
+
+        
+        @media (max-width: 800px) { .ml-tabs { flex-wrap: wrap; } .ml-tab { flex: 1 1 auto; } .rec-grid { grid-template-columns: 1fr; } }
+    
+        
+</style>
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+
+<header class="publicHeader">
+    <h1>智能推荐系统 — 机器学习分析</h1>
+    <div class="publicHeaderR">
+        <p><span id="hours"></span><span id="showUser" style="color:#fff21b"> Admin</span>, 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<section class="publicTime">
+    <span id="time"></span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+
+<section class="publicMian">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表<span></span></h2>
+        <nav><ul class="list">
+            <li><a href="subjectList.html">科目管理</a></li>
+            <li><a href="studyList.html">课件管理</a></li>
+            <li><a href="userList.html">用户管理</a></li>
+            <li><a href="password.html">密码修改</a></li>
+            <li><a href="dashboard.html">数据可视化</a></li>
+            <li><a href="bigData.html">大数据分析</a></li>
+            <li class="active"><a href="machineLearning.html">智能推荐</a></li>
+            <li><a href="aiChat.html">AI助手</a></li>
+            <li><a href="login.html">退出系统</a></li>
+        </ul></nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置:</strong>
+            <span>机器学习智能推荐系统</span>
+        </div>
+
+        <div class="ml-header">
+            <h1><a href="index.html">智能推荐系统 &amp; 机器学习分析</a></h1>
+            <p>基于 Spark + Flask 的 K-Means 聚类 + 协同过滤推荐</p>
+            <div>
+                <span class="algo-tag">K-Means 聚类</span>
+                <span class="algo-tag">协同过滤推荐</span>
+            </div>
+        </div>
+
+        <!-- Tab导航 -->
+        <div class="ml-tabs">
+            <div class="ml-tab active" onclick="switchTab(0,this)">数据概览</div>
+            <div class="ml-tab" onclick="switchTab(1,this)">智能推荐</div>
+            <div class="ml-tab" onclick="switchTab(2,this)">用户聚类</div>
+            <div class="ml-tab" onclick="switchTab(3,this)">热门科目</div>
+        </div>
+
+        <!-- ===== Tab 1: 数据概览 ===== -->
+        <div class="tab-content active" id="tab0">
+            <div class="ml-stats">
+                <div class="ml-stat-item"><div class="ml-stat-val" id="ovUsers">--</div><div class="ml-stat-lbl">注册用户</div></div>
+                <div class="ml-stat-item"><div class="ml-stat-val" id="ovSubjects">--</div><div class="ml-stat-lbl">课程科目</div></div>
+                <div class="ml-stat-item"><div class="ml-stat-val" id="ovStudies">--</div><div class="ml-stat-lbl">学习记录</div></div>
+                <div class="ml-stat-item"><div class="ml-stat-val" id="ovAvg">--</div><div class="ml-stat-lbl">人均学习</div></div>
+            </div>
+            <div class="ml-chart-box">
+                <div class="ml-chart" id="mlOverviewChart"></div>
+            </div>
+        </div>
+
+        <!-- ===== Tab 2: 智能推荐 ===== -->
+        <div class="tab-content" id="tab1">
+            <div class="user-selector">
+                <label for="selUser">选择用户查看个性化推荐：</label>
+                <select id="selUser">
+                    <option value="">-- 默认热门推荐 --</option>
+                </select>
+                <button onclick="loadRecommendations()">获取推荐</button>
+            </div>
+            <div class="rec-grid" id="recGrid">
+                <div style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">⏳ 点击「获取推荐」加载结果</div>
+            </div>
+        </div>
+
+        <!-- ===== Tab 3: 用户聚类 ===== -->
+        <div class="tab-content" id="tab2">
+            <div class="cluster-grid" id="clusterGrid">
+                <div style="grid-column:1/-1;text-align:center;padding:30px;color:#999;">⏳ 加载中...</div>
+            </div>
+            <div class="ml-chart-box">
+                <div class="ml-chart" id="clusterChart"></div>
+            </div>
+        </div>
+
+        <!-- ===== Tab 4: 热门科目 ===== -->
+        <div class="tab-content" id="tab3">
+            <ul class="hot-list" id="hotList">
+                <li style="padding:30px;text-align:center;color:#999;">⏳ 加载中...</li>
+            </ul>
+            <div class="ml-chart-box">
+                <div class="ml-chart" id="hotChart"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script><script src="js/user.js"></script>
+<script>
+var API = 'http://localhost:9090';       // Spark 微服务
+var LOCAL_API = '/sft/local';            // 同源本地降级接口
+var useLocal = false;  // 是否使用本地模式
+
+// Tab切换
+function switchTab(idx, el) {
+    $('.ml-tab').removeClass('active');
+    $(el).addClass('active');
+    $('.tab-content').removeClass('active');
+    $('#tab'+idx).addClass('active');
+
+    // 懒加载数据
+    if(idx===0) loadOverview();
+    if(idx===2) loadClusters();
+    if(idx===3) loadHotSubjects();
+}
+
+// AJAX工具（支持自动降级）
+function callApi(url) {
+    var base = useLocal ? LOCAL_API : API;
+    return $.get(base + url);
+}
+
+function unwrapResp(d) { return d.data || d; }
+
+    // ======================== Tab 1: 数据概览 ========================
+function loadOverview() {
+    callApi('/api/stats/overview').done(function(d){
+        var ov = unwrapResp(d);
+        $('#ovUsers').text(ov.userCount||0);
+        $('#ovSubjects').text(ov.subjectCount||0);
+        $('#ovStudies').text(ov.studyCount||0);
+        $('#ovAvg').text((ov.avgStudyPerUser||0)+'次');
+
+        // 使用直观的横向柱状图对比 4 项指标
+        var labels = ['用户数','科目数','学习记录','人均学习'];
+        var values = [ov.userCount||0, ov.subjectCount||0, ov.studyCount||0, Math.round(ov.avgStudyPerUser)||0];
+        var colors = ['#5470c6','#91cc75','#fac858','#ee6666'];
+
+        var el = document.getElementById('mlOverviewChart');
+        if(!el) return;
+        try { var chart = echarts.init(el); chart.setOption({
+            tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+            grid:{left:'14%',right:'12%',top:'3%',bottom:'8%'},
+            xAxis:{type:'value',name:'数量',axisLabel:{fontSize:11}},
+            yAxis:{
+                type:'category',data:labels,
+                axisLabel:{fontSize:13,fontWeight:'bold',color:'#444'}
+            },
+            series:[{
+                type:'bar', barWidth:'55%',
+                label:{show:true,position:'right',fontSize:14,fontWeight:'bold',formatter:'{c}'},
+                data:values.map(function(v,i){
+                    return {value:v, itemStyle:{
+                        color:{type:'linear',x:0,y:0,x2:1,y2:0,
+                            colorStops:[{offset:0,color:colors[i]},{offset:1,color:colors[i]+'99'}]},
+                        borderRadius:[0,6,6,0]
+                    }};
+                })
+            }]
+        }); } catch(e) {}
+    }).fail(function(){
+        if (!useLocal) { useLocal = true; console.warn('[智能推荐] 切换到本地数据模式'); loadOverview(); }
+    });
+}
+
+// ======================== Tab 2: 智能推荐 ========================
+function loadUserList() {
+    callApi('/api/stats/user').done(function(d){
+        var arr = Array.isArray(d) ? d : (unwrapResp(d).data || []);
+        var opts = '<option value="">-- 默认热门推荐 --</option>';
+        arr.forEach(function(u){
+            opts += '<option value="'+(u.userId||u.id)+'">'+(u.userName||u.username||'用户')+' (ID:'+(u.userId||u.id)+')</option>';
+        });
+        $('#selUser').html(opts);
+    }).fail(function(){
+        if (!useLocal) { useLocal = true; loadUserList(); }
+    });
+}
+
+function loadRecommendations() {
+    var uid = $('#selUser').val();
+    var apiUrl = uid ? '/api/ml/user-recommendation?userId='+uid : '/api/ml/recommendations';
+
+    $('#recGrid').html('<div style="grid-column:1/-1;text-align:center;padding:40px;color:#0073b8;"><div class="spinner"></div><br>AI正在为您生成推荐...</div>');
+
+    callApi(apiUrl).done(function(d){
+        var raw = unwrapResp(d);
+        var arr = raw.recommendations || raw.data || [];
+        if(!arr.length) { $('#recGrid').html('<div style="grid-column:1/-1;text-align:center;padding:30px;color:#999;">暂无推荐数据</div>'); return; }
+
+        var html = '';
+        arr.forEach(function(item,i){
+            var name = item.name || item.subjectName || '未知科目';
+            var score = item.avgRating ? item.avgRating.toFixed(1) : (item.score || item.recommendScore || '-');
+            html += '<div class="rec-card">'+
+                '<div class="rec-card-name">'+name+'</div>'+
+                '<span class="rec-card-cat">'+(item.category||'推荐科目')+'</span>'+
+                '<span class="rec-card-score">'+(typeof score === 'number' ? score.toFixed(1) : score)+'★</span>'+
+                '<div class="rec-card-reason">'+(item.reason||'评分高 · 热门推荐')+'</div>'+
+                '</div>';
+        });
+        $('#recGrid').html(html);
+    }).fail(function(){
+        if (!useLocal) { useLocal = true; loadRecommendations(); return; }
+        $('#recGrid').html('<div style="grid-column:1/-1;text-align:center;padding:30px;color:#f56c6c;">❌ 数据加载失败</div>');
+    });
+}
+
+// ======================== Tab 3: 用户聚类 ========================
+function loadClusters() {
+    callApi('/api/ml/clusters').done(function(d){
+        var raw = unwrapResp(d);
+        var clusters = raw.clusters || [];
+
+        // 聚类卡片
+        var cardHtml = '';
+        clusters.forEach(function(c){
+            cardHtml += '<div class="cluster-card" style="border-top-color:'+c.color+'">'+
+                '<div class="cluster-label">'+c.label+'<br><small style="font-size:11px;font-weight:400;color:#999">占比 '+Math.round(c.count/(raw.totalCount||1)*100)+'%</small></div>'+
+                '<div class="cluster-count" style="color:'+c.color+'">'+c.count+'</div>'+
+                '<div class="cluster-detail">'+
+                '平均学习 '+c.avgStudy+' 次<br>'+
+                '平均科目 '+c.avgSubjects+' 门<br>'+
+                '活跃度 '+c.avgActivity+'</div></div>';
+        });
+        $('#clusterGrid').html(cardHtml || '<p>暂无聚类数据</p>');
+
+        // 聚类分布图
+        var cel = document.getElementById('clusterChart');
+        if(!cel) return;
+        try { var chart = echarts.init(cel); chart.setOption({
+            title:{text:'用户群体分布',left:'center',textStyle:{fontSize:15}},
+            tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+            legend:{data:(clusters||[]).map(function(c){return c.label;})},
+            xAxis:{type:'category',data:(clusters||[]).map(function(c){return c.label})},
+            yAxis:{type:'value',name:'人数'},
+            series:[{
+                type:'bar', barWidth:'50%',
+                data:(clusters||[]).map(function(c){
+                    return {value:c.count, itemStyle:{color:c.color,borderRadius:[6,6,0,0]}};
+                }),
+                label:{show:true,position:'top',fontWeight:'bold'}
+            }],
+            grid:{left:'8%',right:'8%',top:'12%',bottom:'8%'}
+        }); } catch(e) {}
+    }).fail(function(){
+        if (!useLocal) { useLocal = true; loadClusters(); }
+        else $('#clusterGrid').html('<p style="color:#f56c6c;text-align:center">❌ 连接失败</p>');
+    });
+}
+
+// ======================== Tab 4: 热门科目 ========================
+function loadHotSubjects() {
+    callApi('/api/ml/hot-subjects').done(function(d){
+        var raw = unwrapResp(d);
+        var subjects = raw.hotSubjects || [];
+
+        // 列表
+        var listHtml = '';
+        subjects.slice(0,10).forEach(function(s,i){
+            var rc = i<3?'r'+(i+1):'';
+            listHtml += '<li class="hot-item">'+
+                '<span class="hot-rank '+rc+'">'+(i+1)+'</span>'+
+                '<div class="hot-info"><div class="hot-name">'+s.name+'</div>'+
+                '<div class="meta">'+(s.creator||'')+' · '+s.learnerCount+'人学习 · ⭐'+(s.avgRating||'4.5')+'</div></div>'+
+                '<span class="hot-score">'+s.totalRating+'</span></li>';
+        });
+        $('#hotList').html(listHtml || '<li>暂无数据</li>');
+
+        // 柱状图
+        var hel = document.getElementById('hotChart');
+        if(!hel) return;
+        try { var chart = echarts.init(hel); chart.setOption({
+            title:{text:'热门科目热度值 TOP10',left:'center',textStyle:{fontSize:15}},
+            tooltip:{trigger:'axis'},
+            grid:{left:'16%',right:'12%',top:'10%',bottom:'8%'},
+            xAxis:{type:'value',name:'热度值'},
+            yAxis:{
+                type:'category',data:subjects.slice(0,10).map(function(s){return s.name}),
+                axisLabel:{fontSize:11}
+            },
+            series:[{
+                type:'bar',barWidth:'55%', data:subjects.slice(0,10).map(function(s,i){
+                    return {value:s.totalRating, itemStyle:{
+                        color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:i<3?'#f093fb':'#0073b8'},{offset:1,color:i<3?'#f5576c':'#0090d0'}]),
+                        borderRadius:[0,6,6,0]
+                    }};
+                }), label:{show:true,position:'right',fontSize:11,fontWeight:'bold'}
+            }]
+        }); } catch(e) {}
+    }).fail(function(){
+        if (!useLocal) { useLocal = true; loadHotSubjects(); }
+        else $('#hotList').html('<li style="color:#f56c6c">❌ 连接失败</li>');
+    });
+}
+
+
+
+$(function(){
+    loadOverview();          // 默认Tab已显示，直接加载
+    loadUserList();           // 预加载用户列表
+});
+
+// 响应式：窗口缩放时重绘所有 ECharts 实例
+var _resizeTimer = null;
+$(window).resize(function(){
+    clearTimeout(_resizeTimer);
+    _resizeTimer = setTimeout(function(){
+        $('.ml-chart').each(function(){
+            var inst = echarts.getInstanceByDom(this);
+            if(inst) inst.resize();
+        });
+    }, 200);
+});
+</script>
+</body>
+</html>

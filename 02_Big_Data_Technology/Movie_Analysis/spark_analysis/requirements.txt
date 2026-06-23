@@ -1,0 +1,2 @@
+pyspark>=3.4.0
+mysql-connector-java>=8.0.33

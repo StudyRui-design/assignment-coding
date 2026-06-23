@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Spark 微服务 API 文档 - Swagger UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.4.1/swagger-ui.min.css" />
+    <style>
+        body { margin: 0; background: #fafafa; }
+        .topbar { background: #0073b8 !important; }
+        .topbar-wrapper .link { display: flex; align-items: center; }
+        .topbar-wrapper .link img { height: 30px; }
+        .swagger-ui .topbar { background-color: #0073b8; }
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.4.1/swagger-ui-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.4.1/swagger-ui-standalone-preset.min.js"></script>
+    <script>
+        window.onload = function() {
+            SwaggerUIBundle({
+                url: '/api/openapi.json',
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+                docExpansion: "list",
+                defaultModelsExpandDepth: 1,
+                tryItOutEnabled: true
+            });
+        };
+    </script>
+</body>
+</html>

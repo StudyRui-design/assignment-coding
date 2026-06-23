@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}102 Flowers — Batch Prediction{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Batch Prediction — Validation Set Samples</h2>
+    <p style="color:#636e72;font-size:0.9rem;margin-bottom:16px;">
+        8 randomly sampled images from the test set.
+        <span style="color:#00b894;font-weight:600;">Green border</span> = correct prediction;
+        <span style="color:#d63031;font-weight:600;">Red border</span> = incorrect.
+        <a href="{{ url_for('batch') }}" class="btn btn-secondary" style="margin-left:16px;">Refresh Samples</a>
+    </p>
+
+    <div class="batch-grid">
+        {% for item in batch_data %}
+        <div class="batch-item {{ 'correct' if item.correct else 'wrong' }}">
+            <img src="{{ item.image_url }}"
+                 alt="Flower"
+                 loading="lazy">
+            <div class="batch-info">
+                <div class="true">True: {{ item.true_name }}</div>
+                <div class="pred">Pred: {{ item.pred_name }}</div>
+                <div style="font-size:0.78rem;color:#636e72;margin-top:4px;">
+                    Confidence: {{ item.confidence }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

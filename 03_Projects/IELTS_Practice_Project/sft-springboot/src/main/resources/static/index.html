@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <style>
+        .welcome-banner {
+            background: linear-gradient(135deg, #0073b8, #0073b8);
+            border-radius: 14px;
+            padding: 32px 36px;
+            color: #fff;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .welcome-banner::after {
+            content: '✦';
+            position: absolute;
+            right: -10px;
+            bottom: -40px;
+            font-size: 180px;
+            opacity: 0.08;
+            line-height: 1;
+        }
+        .welcome-banner h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .welcome-banner h2 span { color: #ffd700; }
+        .welcome-banner p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+        .welcome-time {
+            display: inline-block;
+            padding: 4px 16px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .quick-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            text-decoration: none;
+            display: block;
+        }
+        .quick-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(102,126,234,0.12);
+        }
+        .quick-card:active { transform: translateY(-1px); }
+        .quick-card .qc-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 10px;
+        }
+        .quick-card .qc-label {
+            font-size: 13px;
+            color: #333;
+            font-weight: 600;
+        }
+        .quick-card .qc-desc {
+            font-size: 11px;
+            color: #999;
+            margin-top: 2px;
+        }
+        .qc-c1 .qc-icon { background: #e8f4fd; }
+        .qc-c2 .qc-icon { background: #e8faf0; }
+        .qc-c3 .qc-icon { background: #fde8ef; }
+        .qc-c4 .qc-icon { background: #fef7e6; }
+        .qc-c5 .qc-icon { background: #f0e8fd; }
+        .qc-c6 .qc-icon { background: #e8fdf0; }
+        .qc-c7 .qc-icon { background: #fde8f0; }
+        .qc-c8 .qc-icon { background: #e8f0fd; }
+        .qc-c9 .qc-icon { background: #fef3e6; }
+
+        .info-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        .info-section h3 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .info-item {
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fb;
+            border-radius: 10px;
+        }
+        .info-item .ii-val {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0073b8;
+        }
+        .info-item .ii-lbl {
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 900px) {
+            .quick-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .quick-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+<header class="publicHeader">
+    <h1><a href="index.html">邓睿的大数据应用课件管理系统</a></h1>
+    <div class="publicHeaderR">
+        <p><span id="hours"></span><span style="color: #fff21b" id="showUser"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<section class="publicTime">
+    <span id="time"></span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<section class="publicMian">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="bigData.html">大数据分析</a></li>
+                <li><a href="machineLearning.html">智能推荐</a></li>
+                <li><a href="aiChat.html">AI助手</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="welcome-banner" id="welcomeBanner">
+            <h2>欢迎回来，<span id="welcomeName">Admin</span></h2>
+            <p>今天也是学习大数据技术的好日子！</p>
+            <span class="welcome-time" id="timeDisplay"></span>
+        </div>
+
+        <div class="quick-grid">
+            <a href="dashboard.html" class="quick-card qc-c1">
+                <div class="qc-icon">📊</div>
+                <div class="qc-label">数据可视化</div>
+                <div class="qc-desc">查看系统核心数据</div>
+            </a>
+            <a href="bigData.html" class="quick-card qc-c2">
+                <div class="qc-icon">📈</div>
+                <div class="qc-label">大数据分析</div>
+                <div class="qc-desc">学习行为智能分析</div>
+            </a>
+            <a href="machineLearning.html" class="quick-card qc-c3">
+                <div class="qc-icon">🤖</div>
+                <div class="qc-label">智能推荐</div>
+                <div class="qc-desc">AI 个性化推荐科目</div>
+            </a>
+            <a href="aiChat.html" class="quick-card qc-c4">
+                <div class="qc-icon">💬</div>
+                <div class="qc-label">AI助手</div>
+                <div class="qc-desc">DeepSeek AI 对话</div>
+            </a>
+            <a href="subjectList.html" class="quick-card qc-c5">
+                <div class="qc-icon">📚</div>
+                <div class="qc-label">科目管理</div>
+                <div class="qc-desc">管理课程科目</div>
+            </a>
+                <a href="studyList.html" class="quick-card qc-c6">
+                <div class="qc-icon">📖</div>
+                <div class="qc-label">课件管理</div>
+                <div class="qc-desc">管理学习课件</div>
+            </a>
+            <a href="userList.html" class="quick-card qc-c7">
+                <div class="qc-icon">👥</div>
+                <div class="qc-label">用户管理</div>
+                <div class="qc-desc">管理系统用户</div>
+            </a>
+            <a href="password.html" class="quick-card qc-c8">
+                <div class="qc-icon">🔑</div>
+                <div class="qc-label">密码修改</div>
+                <div class="qc-desc">修改登录密码</div>
+            </a>
+        </div>
+
+        <div class="info-section">
+            <h3>📌 系统信息</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="ii-val" id="sumUsers">--</div>
+                    <div class="ii-lbl">注册用户</div>
+                </div>
+                <div class="info-item">
+                    <div class="ii-val" id="sumSubjects">--</div>
+                    <div class="ii-lbl">课程科目</div>
+                </div>
+                <div class="info-item">
+                    <div class="ii-val" id="sumStudies">--</div>
+                    <div class="ii-lbl">学习记录</div>
+                </div>
+                <div class="info-item">
+                    <div class="ii-val" id="sumRatings">--</div>
+                    <div class="ii-lbl">评分记录</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer"></footer>
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+    // 更新时间
+    function updateTime() {
+        var d = new Date();
+        var s = d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 '+d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
+        var el = document.getElementById('timeDisplay');
+        if(el) el.textContent = '🕐 '+s;
+    }
+    setInterval(updateTime,10000);
+    updateTime();
+
+    // 加载系统概览数据
+    $.get('/sft/dashboard/stats').done(function(d){
+        if(d && d.data){
+            var e1=document.getElementById('sumUsers'), e2=document.getElementById('sumSubjects');
+            var e3=document.getElementById('sumStudies'), e4=document.getElementById('sumRatings');
+            if(e1) e1.textContent = d.data.userCount||0;
+            if(e2) e2.textContent = d.data.subjectCount||0;
+            if(e3) e3.textContent = d.data.studyCount||0;
+            if(e4) e4.textContent = d.data.ratingCount||0;
+        } else {
+            $('#sumUsers,#sumSubjects,#sumStudies,#sumRatings').text('0');
+        }
+    }).fail(function(){
+        $('#sumUsers,#sumSubjects,#sumStudies,#sumRatings').text('--');
+    });
+});
+</script>
+<script src="js/time.js"></script>
+<script src="js/user.js"></script>
+</body>
+</html>

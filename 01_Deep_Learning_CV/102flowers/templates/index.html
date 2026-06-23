@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}102 Flowers — Predict{% endblock %}
+
+{% block content %}
+<!-- ======== Upload Card ======== -->
+<div class="card">
+    <h2>🌸 Upload a Flower Image</h2>
+    <form method="POST" enctype="multipart/form-data" class="upload-form">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit" class="btn btn-primary">🔍 Upload &amp; Predict</button>
+    </form>
+    <p style="margin-top:10px;color:#636e72;font-size:0.85rem;">
+        Select a flower photo. The model will predict which of the 102 Oxford flower species it is.
+    </p>
+</div>
+
+<!-- ======== Results (only after POST) ======== -->
+{% if result %}
+<div class="card">
+    <h2>📋 Prediction Result</h2>
+
+    <div class="result-grid">
+        <!-- Uploaded image -->
+        <div class="result-img">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded flower">
+        </div>
+
+        <!-- Prediction -->
+        <div>
+            <p class="section-title">Predicted Category</p>
+            <span class="prediction-badge">{{ result.predicted_name }}</span>
+
+            <p class="section-title" style="margin-top:16px;">Confidence</p>
+            <span class="confidence-text">{{ result.confidence }}</span>
+
+            <!-- Top-5 Horizontal Bar Chart -->
+            <p class="section-title" style="margin-top:20px;">Top-5 Predictions</p>
+            <div style="margin-top:8px;">
+                {% for name, pct, raw in top5_data %}
+                <div style="display:flex;align-items:center;margin-bottom:6px;gap:8px;">
+                    <span style="width:160px;font-size:0.85rem;text-align:right;flex-shrink:0;">{{ name }}</span>
+                    <div style="flex:1;height:22px;background:#eee;border-radius:4px;overflow:hidden;">
+                        <div style="height:100%;background:{% if loop.index == 1 %}#0984e3{% else %}#74b9ff{% endif %};
+                                    width:{{ '%.0f' % (raw * 100) }}%;border-radius:4px;"></div>
+                    </div>
+                    <span style="width:60px;font-size:0.85rem;font-weight:600;">{{ pct }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======== Full Probability Table ======== -->
+{% if all_probs_table %}
+<div class="card">
+    <h2>📊 All 102 Classes — Probability Ranking</h2>
+    <details>
+        <summary>Show top 10 (click to expand all 102)</summary>
+        <div class="table-scroll" style="margin-top:12px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Flower Category</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in all_probs_table %}
+                    <tr>
+                        <td>{{ row.rank }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.prob }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </details>
+</div>
+{% endif %}
+{% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Expand/collapse for the probability table
+document.addEventListener('DOMContentLoaded', function() {
+    const details = document.querySelector('details');
+    const tableScroll = document.querySelector('.table-scroll');
+    if (details && tableScroll) {
+        // Show only top-10 initially
+        const rows = tableScroll.querySelectorAll('tbody tr');
+        rows.forEach(function(row, i) {
+            if (i >= 10) row.style.display = 'none';
+        });
+        details.addEventListener('toggle', function() {
+            rows.forEach(function(row, i) {
+                if (i >= 10) {
+                    row.style.display = details.open ? '' : 'none';
+                }
+            });
+            if (details.open) {
+                details.querySelector('summary').textContent = 'Collapse (showing all 102)';
+            } else {
+                details.querySelector('summary').textContent = 'Show top 10 (click to expand all 102)';
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

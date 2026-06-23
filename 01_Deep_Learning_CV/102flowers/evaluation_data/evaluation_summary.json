@@ -1,0 +1,25 @@
+{
+  "accuracy": 71.95,
+  "num_classes": 102,
+  "num_samples": 6149,
+  "correct": 4424,
+  "incorrect": 1725,
+  "avg_recall": 72.72,
+  "avg_precision": 72.45,
+  "avg_f1": 70.24,
+  "recall_ge90_count": 18,
+  "recall_ge90_pct": 17.6,
+  "recall_ge50_count": 87,
+  "recall_ge50_pct": 85.3,
+  "recall_lt30_count": 1,
+  "recall_lt30_pct": 1.0,
+  "recall_100_classes": [
+    "gaura",
+    "silverbush"
+  ],
+  "recall_lowest": {
+    "name": "clematis",
+    "folder": "082",
+    "recall": 0.2609
+  }
+}

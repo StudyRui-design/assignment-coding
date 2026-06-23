@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css?v=11"/>
+    <link rel="stylesheet" href="css/style.css?v=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"></head>
+<body>
+<header class="publicHeader">
+    <h1><a href="index.html">邓睿的大数据应用课件管理系统</a></h1>
+    <div class="publicHeaderR">
+        <p><span id="hours"></span><span style="color: #fff21b" id="showUser"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<section class="publicMian ">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li class="active"><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li><a href="bigData.html">大数据分析</a></li>
+            <li><a href="machineLearning.html">智能推荐</a></li>
+            <li><a href="aiChat.html">AI助手</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>科目管理页面</span>
+        </div>
+        <div class="search-bar">
+            <label for="subjectName" style="margin-right:5px;">科目名：</label>
+            <input type="text" id="subjectName" name="name" placeholder="请输入科目名" style="vertical-align:middle;margin-right:5px;"/>
+            <button type="button" onclick="searchSubject()" style="background-color:#5cb85c;color:#fff;border:none;padding:5px 15px;border-radius:3px;cursor:pointer;">查询</button>
+            <a href="subjectAdd.html" style="float:right;margin-top:5px;">
+                <button style="background-color:#50a1ff;color:#fff;border:none;padding:5px 15px;border-radius:3px;cursor:pointer;">+ 添加科目</button>
+            </a>
+        </div>
+        <table class="providerTable" cellpadding="0" cellspacing="0">
+            <tr class="firstTr">
+                <th width="10%">科目编码</th>
+                <th width="20%">科目名称</th>
+                <th width="20%">创建人</th>
+                <th width="20%">状态</th>
+                <th width="30%">操作</th>
+            </tr>
+            <tbody id="subjectTableBody"></tbody>
+            <tr>
+                <td colspan="5" id="pageInfo">加载中...</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<div class="zhezhao"></div>
+<div class="remove" id="removeUse">
+    <div class="removerChid">
+        <h2>提示</h2>
+        <div class="removeMain">
+            <p>你确定要删除该科目吗？</p>
+            <a href="#" id="yes">确定</a>
+            <a href="#" id="no">取消</a>
+        </div>
+    </div>
+</div>
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script><script src="js/user.js"></script>
+<script>
+var currentPage = 1;
+var currentName = '';
+
+window.onload = function () {
+    loadSubjects();
+};
+
+function loadSubjects(name) {
+    if (name !== undefined) currentName = name || '';
+    $.ajax({
+        url: "/sft/subject/list",
+        type: "GET",
+        data: { name: currentName, page: currentPage, pageSize: 10 },
+        dataType: "json",
+        success: function (result) {
+            var d = result.data || {};
+            var subjects = d.list || [];
+            var totalCount = d.total || 0;
+            var pageSize = d.pageSize || 6;
+            var totalPage = Math.ceil(totalCount / pageSize) || 1;
+            var tbody = document.getElementById("subjectTableBody");
+            tbody.innerHTML = "";
+            if (subjects.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">暂无数据</td></tr>';
+            }
+            subjects.forEach(function(subject) {
+                var tr = document.createElement("tr");
+                tr.innerHTML =
+                    '<td>' + (subject.id || '') + '</td>' +
+                    '<td>' + (subject.name || '') + '</td>' +
+                    '<td>' + (subject.creator || '') + '</td>' +
+                    '<td>' + (subject.status || '') + '</td>' +
+                    '<td>' +
+                    '<a href="#" class="removeUser" onclick="deleteSubject(' + subject.id + ')"><img src="img/schu.png" alt="删除" title="删除"/></a>' +
+                    '<a href="subjectUpdate.html?id=' + subject.id + '&name=' + encodeURIComponent(subject.name || '') + '&status=' + encodeURIComponent(subject.status || '') + '"><img src="img/xiugai.png" alt="修改" title="修改"/></a>' +
+                    '</td>';
+                tbody.appendChild(tr);
+            });
+            // 分页
+            var pi = document.getElementById("pageInfo");
+            var phtml = '当前第' + currentPage + '页，共' + totalCount + '条数据&nbsp;&nbsp;共' + totalPage + '页&nbsp;';
+            phtml += '<a href="javascript:;" onclick="goPage(1)">首页</a>&nbsp;';
+            phtml += '<a href="javascript:;" onclick="goPage(' + totalPage + ')">尾页</a>&nbsp;';
+            if (currentPage > 1) phtml += '<a href="javascript:;" onclick="goPage(' + (currentPage-1) + ')">上一页</a>&nbsp;';
+            if (currentPage < totalPage) phtml += '<a href="javascript:;" onclick="goPage(' + (currentPage+1) + ')">下一页</a>';
+            pi.innerHTML = phtml;
+        },
+        error: function () {
+            alert("加载科目失败，请重试");
+        }
+    });
+}
+
+function goPage(page) {
+    currentPage = page;
+    loadSubjects();
+}
+
+function searchSubject() {
+    currentPage = 1;
+    var el = document.getElementById("subjectName");
+    loadSubjects(el ? el.value : '');
+}
+
+function deleteSubject(id) {
+    $('.zhezhao').show();
+    $('#removeUse').show();
+    $('#yes').off('click').on('click', function() {
+        $.ajax({
+            url: "/sft/subject/delete",
+            type: "GET",
+            data: { id: id },
+            success: function() {
+                $('.zhezhao').hide();
+                $('#removeUse').hide();
+                loadSubjects();
+            },
+            error: function() {
+                alert("删除失败，请重试");
+            }
+        });
+        return false;
+    });
+    $('#no').off('click').on('click', function() {
+        $('.zhezhao').hide();
+        $('#removeUse').hide();
+        return false;
+    });
+}
+</script>
+</body>
+</html>

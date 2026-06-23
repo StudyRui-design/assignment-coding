@@ -1,0 +1,3853 @@
+<?xml version="1.0" encoding="UTF-8"?><w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14 w15 wp14">
+  <w:body>
+    <w:p w14:paraId="7639823A">
+      <w:pPr>
+        <w:spacing w:before="156" w:beforeLines="50" w:after="312" w:afterLines="100"/>
+        <w:jc w:val="center"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman" w:eastAsiaTheme="minorEastAsia"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+        </w:rPr>
+        <w:t>实验</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>10</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+        </w:rPr>
+        <w:t>：S</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t xml:space="preserve">park </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>SQL</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>编程</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="40"/>
+          <w:szCs w:val="48"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>实战</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="05C187B7">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+        <w:outlineLvl w:val="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+        </w:rPr>
+        <w:t>实验目的</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="3CEEB612">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+        <w:ind w:left="420" w:leftChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>练习</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>SCALA</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>编程语言；</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="42239CF4">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+        <w:ind w:left="420" w:leftChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>掌握IDEA中的数据库组件、大数据工具组件和SSH工具组件使用；</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="2C033975">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+        <w:ind w:left="420" w:leftChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>练习SparkSQL中DataFrame和Dataset的创建和基本操作</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+        <w:t>；</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="73501C64">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+        <w:ind w:left="420" w:leftChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>熟悉DSL风格与SQL风格；</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="60E3B0E3">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+        <w:ind w:left="420" w:leftChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>熟悉Spark读写MySQL数据库及HDFS；</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="656DC725">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="2"/>
+        </w:numPr>
+        <w:ind w:left="420" w:leftChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:sz w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>练习用Spark SQL解决实际数据分析任务。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="64980E65">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+        <w:ind w:left="0" w:leftChars="0" w:firstLine="0" w:firstLineChars="0"/>
+        <w:outlineLvl w:val="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+        </w:rPr>
+        <w:t>实验</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>内容和要求</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="485061EF">
+      <w:pPr>
+        <w:pStyle w:val="2"/>
+        <w:keepNext/>
+        <w:keepLines/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl w:val="0"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+        <w:kinsoku/>
+        <w:wordWrap/>
+        <w:overflowPunct/>
+        <w:topLinePunct w:val="0"/>
+        <w:autoSpaceDE/>
+        <w:autoSpaceDN/>
+        <w:bidi w:val="0"/>
+        <w:adjustRightInd/>
+        <w:snapToGrid/>
+        <w:spacing w:before="157" w:beforeLines="50" w:after="157" w:afterLines="50" w:line="240" w:lineRule="auto"/>
+        <w:ind w:left="0" w:leftChars="0" w:firstLine="482" w:firstLineChars="200"/>
+        <w:textAlignment w:val="auto"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>实验准备</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="54C51250">
+      <w:pPr>
+        <w:pStyle w:val="2"/>
+        <w:keepNext/>
+        <w:keepLines/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl w:val="0"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+        <w:kinsoku/>
+        <w:wordWrap/>
+        <w:overflowPunct/>
+        <w:topLinePunct w:val="0"/>
+        <w:autoSpaceDE/>
+        <w:autoSpaceDN/>
+        <w:bidi w:val="0"/>
+        <w:adjustRightInd/>
+        <w:snapToGrid/>
+        <w:spacing w:before="157" w:beforeLines="50" w:after="157" w:afterLines="50" w:line="240" w:lineRule="auto"/>
+        <w:ind w:left="0" w:leftChars="0" w:firstLine="482" w:firstLineChars="200"/>
+        <w:textAlignment w:val="auto"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+      <w:bookmarkEnd w:id="0"/>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>程序设计一</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6C50AAAB">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:ind w:firstLine="480"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>请</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>仔细分析ratings数据文件的特点，设计一个Scala程序，从hdfs上读取ratings.dat分别通过DSL代码和SQL语句，对电影评分数据进行统计分析，获取Top10电影（电影评分平均值最高，并且每个电影被评分的次数大于2000），并将结果写入MySQL数据库中，并生成一个csv文件写入hdfs中。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="77F4AD54">
+      <w:pPr>
+        <w:pStyle w:val="2"/>
+        <w:keepNext/>
+        <w:keepLines/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl w:val="0"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+        <w:kinsoku/>
+        <w:wordWrap/>
+        <w:overflowPunct/>
+        <w:topLinePunct w:val="0"/>
+        <w:autoSpaceDE/>
+        <w:autoSpaceDN/>
+        <w:bidi w:val="0"/>
+        <w:adjustRightInd/>
+        <w:snapToGrid/>
+        <w:spacing w:before="157" w:beforeLines="50" w:after="157" w:afterLines="50" w:line="240" w:lineRule="auto"/>
+        <w:ind w:left="0" w:leftChars="0" w:firstLine="482" w:firstLineChars="200"/>
+        <w:textAlignment w:val="auto"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>程序设计二</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="01FB49FB">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:ind w:firstLine="480"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>请</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>仔细分析ratings、movie和user三个数据文件的特点，设计一个Scala程序，从hdfs上读取数据文件，进行以下分析操作：</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="4F1F870A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="4"/>
+        </w:numPr>
+        <w:ind w:firstLine="480"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>选出年龄在18-24的女性用户评分最高的10部影片。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="3CC263FE">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="4"/>
+        </w:numPr>
+        <w:ind w:firstLine="480"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>选出25-34岁男性用户最喜欢的3种电影类型。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="575DB2D9">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+        <w:ind w:left="0" w:leftChars="0" w:firstLine="0" w:firstLineChars="0"/>
+        <w:outlineLvl w:val="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>实验步骤</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="0DE27140">
+      <w:pPr>
+        <w:pStyle w:val="2"/>
+        <w:keepNext/>
+        <w:keepLines/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl w:val="0"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="5"/>
+        </w:numPr>
+        <w:kinsoku/>
+        <w:wordWrap/>
+        <w:overflowPunct/>
+        <w:topLinePunct w:val="0"/>
+        <w:autoSpaceDE/>
+        <w:autoSpaceDN/>
+        <w:bidi w:val="0"/>
+        <w:adjustRightInd/>
+        <w:snapToGrid/>
+        <w:spacing w:before="157" w:beforeLines="50" w:after="157" w:afterLines="50" w:line="240" w:lineRule="auto"/>
+        <w:ind w:leftChars="200"/>
+        <w:textAlignment w:val="auto"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>程序设计一</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6FA76913">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:ind w:firstLine="482" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>任务分析</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="049DDEFC">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="7"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0" w:firstLine="0" w:firstLineChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>数据读取与转换</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6AF3F294">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>使用SparkSession从HDFS读取ratings.dat文件。将读取的数据通过RDD转换为DataFrame，并指定正确的Schema。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="0AB85B77">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="7"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0" w:firstLine="0" w:firstLineChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>数据过滤与聚合</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="2610BF68">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>使用SQL和DSL风格对数据进行分组、聚合操作，计算每个电影的平均评分和评分次数。过滤出评分次数大于2000的电影，并按平均评分降序排序，获取Top10电影。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="27086F21">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="7"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0" w:firstLine="0" w:firstLineChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>数据写入</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="43AD001D">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>将结果数据写入MySQL数据库，需要指定数据库连接参数、表名等。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="5E931320">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>将结果数据生成CSV文件并写入HDFS，指定文件路径和格式。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="5D68F393">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:ind w:firstLine="482" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>代码编写</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="794F27EE">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>参考代码：</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="701DD8B6">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>使用参考代码注意修改hdfs地址和mysql地址</w:t>
+      </w:r>
+    </w:p>
+    <w:tbl>
+      <w:tblPr>
+        <w:tblStyle w:val="5"/>
+        <w:tblW w:w="0" w:type="auto"/>
+        <w:tblInd w:w="0" w:type="dxa"/>
+        <w:tblBorders>
+          <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+          <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+          <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+          <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+          <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+          <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+        </w:tblBorders>
+        <w:shd w:val="clear" w:color="auto" w:fill="FEF2CC" w:themeFill="accent4" w:themeFillTint="32"/>
+        <w:tblLayout w:type="autofit"/>
+        <w:tblCellMar>
+          <w:top w:w="0" w:type="dxa"/>
+          <w:left w:w="108" w:type="dxa"/>
+          <w:bottom w:w="0" w:type="dxa"/>
+          <w:right w:w="108" w:type="dxa"/>
+        </w:tblCellMar>
+      </w:tblPr>
+      <w:tblGrid>
+        <w:gridCol w:w="8522"/>
+      </w:tblGrid>
+      <w:tr w14:paraId="4F48A6EB">
+        <w:tblPrEx>
+          <w:tblBorders>
+            <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+            <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+            <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+            <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+            <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+            <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+          </w:tblBorders>
+          <w:shd w:val="clear" w:color="auto" w:fill="FEF2CC" w:themeFill="accent4" w:themeFillTint="32"/>
+          <w:tblCellMar>
+            <w:top w:w="0" w:type="dxa"/>
+            <w:left w:w="108" w:type="dxa"/>
+            <w:bottom w:w="0" w:type="dxa"/>
+            <w:right w:w="108" w:type="dxa"/>
+          </w:tblCellMar>
+        </w:tblPrEx>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="8522" w:type="dxa"/>
+            <w:shd w:val="clear" w:color="auto" w:fill="FEF2CC" w:themeFill="accent4" w:themeFillTint="32"/>
+          </w:tcPr>
+          <w:p w14:paraId="0C1E77EB">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>import java.util.Properties</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="26CC998B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>import org.apache.spark.rdd.RDD</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="26549F77">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>import org.apache.spark.sql.{DataFrame, Dataset, Row, SaveMode, SparkSession}</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="09903372">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>import org.apache.spark.storage.StorageLevel</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0AECA565">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="3DFDEB78">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>/**</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="6C1E96A8">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve"> * 需求：对电影评分数据进行统计分析，获取Top10电影（电影评分平均值最高，并且每个电影被评分的次数大于2000)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="236C2BCD">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve"> */</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="272B1319">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>object Top10Movie {</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="390EFF74">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="450089E3">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">  def main(args: Array[String]): Unit = {</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5DEEE4BD">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="0A0EC630">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // T构建SparkSession实例对象，采用建造者设计模式</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="7CEE923D">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    val spark: SparkSession = SparkSession</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3D2CB99B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .builder()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="035BA1A1">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // 设置应用名称</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="18E0001E">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .appName(this.getClass.getSimpleName.stripSuffix(&quot;$&quot;))</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="6820AEF0">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // 设置运行Master</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="04547E4F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .master(&quot;local[4]&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4FE22A05">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // TODO: 设置shuffle时分区数目</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0ED6E77F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .config(&quot;spark.sql.shuffle.partitions&quot;, &quot;4&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4EBE2F1C">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .getOrCreate()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="6465D517">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 导入隐式转换函数库</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4D58E427">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    import spark.implicits._</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="75457414">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="0E6616D7">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 1. 读取电影评分数据，从hdfs系统读取</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3B0998EC">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    val rawRatingRDD: RDD[String] = spark.sparkContext.textFile(&quot;hdfs://hadoop01:8020/datas/ml-1m/ratings.dat&quot;, minPartitions = 2)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="2DCBE83B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    //显示rdd的内容</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3006589A">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    println(s&quot;Count = ${rawRatingRDD.count()}&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0DF666F2">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    println(rawRatingRDD.first())</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="56E4E2DA">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="7695EC58">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 2. 转换数据，指定Schema信息，封装到DataFrame</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4BC0E966">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    val ratingDF: DataFrame = rawRatingRDD</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0E2EBACA">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .map { line =&gt;</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4FD051B4">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        // 样本数据：1::1193::5::978300760</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3870D435">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        val Array(userId, movieId, rating, timestamp) = line.split(&quot;::&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4C8902A5">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        // 返回四元组</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="37DD78F8">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        (userId, movieId, rating.toDouble, timestamp.toLong)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="7CB459A5">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      }</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="734726CC">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .toDF(&quot;userId&quot;, &quot;movieId&quot;, &quot;rating&quot;, &quot;timestamp&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="088EDE95">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    /*</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="16495945">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      root</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="24ED6F5E">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">       |-- userId: string (nullable = true)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="2F378F05">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">       |-- movieId: string (nullable = true)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5DEF74D6">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">       |-- rating: double (nullable = false)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="03923C05">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">       |-- timestamp: long (nullable = false)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="04496E99">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">     */</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="46F0C1B9">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    ratingDF.printSchema()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0896FDA2">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    ratingDF.show(10, truncate = false)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4B6AEF6B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="46E7E681">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 当某个DataFrame被使用多次，考虑缓存，底层就是RDD</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="354A5DC5">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    ratingDF.persist(StorageLevel.MEMORY_AND_DISK).count()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3D609E96">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="3ABB8950">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 3. 基于SQL方式分析</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="44AC117B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // step1: 注册为临时视图</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="76FAD828">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    ratingDF.createOrReplaceTempView(&quot;tmp_view_ratings&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4C8C1113">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // step2: 编写SQL并执行</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="06C8B257">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    /*</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="1517FEDE">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      - 1、按照电影进行分组，计算每个电影平均评分和评分人数</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="16191B87">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      - 2、过滤获取评分人数大于2000的电影</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="6989E1C0">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      - 3、按照电影评分降序排序，再按照评分人数排序</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="07D8ECBA">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">     */</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="1DEBE8D8">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    val top10MoviesDF: DataFrame = spark.sql(</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="008F2868">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      &quot;&quot;&quot;</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="6A975743">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |SELECT</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="62450894">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  movieId,</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="7B166AF4">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  ROUND(AVG(rating), 2) AS avg_rating,</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4F582231">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  COUNT(movieId) AS cnt_rating</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="090BFD04">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |FROM</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5F05E984">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  tmp_view_ratings</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="18EEE2A9">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |GROUP BY</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5FDFF788">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  movieId</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="49B87B33">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |HAVING</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="71A82885">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  cnt_rating &gt;= 2000</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5175D1DC">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |ORDER BY</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4DA66E21">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  avg_rating DESC, cnt_rating DESC</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4DF3A42D">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |LIMIT</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="76455E34">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |  10</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0C32888C">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        |&quot;&quot;&quot;.stripMargin)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3EB355AE">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 打印结果的Schema</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="6A6E7A5A">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    top10MoviesDF.printSchema()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="760D4A05">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 显示前10条记录，不截断内容</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0FF96C62">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    top10MoviesDF.show(10, truncate = false)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="014E9859">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="2505131F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 4. 基于DSL方式分析</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0AA9B9F7">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 导入函数库</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="07349A9F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    import org.apache.spark.sql.functions._</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="7C58433D">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    val resultDF: Dataset[Row] = ratingDF</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="341F8EF6">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // a. 按照电影分组</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="78623C50">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .groupBy($&quot;movieId&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="07322BBE">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // b. 聚合操作：平均评分、评分人数</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3A06C8F6">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .agg(</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="667F60FE">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        // ROUND(AVG(rating), 2) AS avg_rating</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="32DACA35">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        round(avg($&quot;rating&quot;), 2).as(&quot;avg_rating&quot;), //</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="2FDC1F22">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        count($&quot;movieId&quot;).as(&quot;cnt_rating&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="06C5254C">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      )</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="476F27F5">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // c. 过滤 评分人数大于2000</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="12C31CAE">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .where($&quot;cnt_rating&quot; &gt;= 2000)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="685F4D16">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // d. 排序</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="650FCE18">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .orderBy($&quot;avg_rating&quot;.desc, $&quot;cnt_rating&quot;.desc)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4FC37B03">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      // e. 获取前10</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="1522B293">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .limit(10)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="48547587">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 打印结果的Schema</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="70308C54">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    resultDF.printSchema()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="019280D0">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 显示前10条记录，不截断内容</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="17CA3783">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    resultDF.show(10, truncate = false)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="45AE0839">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="5BE0E970">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 数据不再使用，释放缓存</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="631726E8">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    ratingDF.unpersist()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="74CF403F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="7B42BE4D">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 5. 保存结果数据至MySQL表和CSV文件</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3EE6ED2A">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    resultDF.cache() // 由于结果数据很少，直接放入内存即可</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="7FFBDCA3">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="66969882">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 5.1 保存数据至MySQL表中</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3AA8F8FE">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    resultDF</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="40DCE01C">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .write</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="0E96D73A">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .mode(SaveMode.Overwrite) // 保存模式</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5F394CBF">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .option(&quot;driver&quot;, &quot;com.mysql.cj.jdbc.Driver&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="788E699B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .option(&quot;user&quot;, &quot;root&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="18C0B959">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .option(&quot;password&quot;, &quot;123&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="1E568CAF">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .jdbc(</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="27DB2F5F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        &quot;jdbc:mysql://hadoop01:3306/?serverTimezone=UTC&amp;characterEncoding=utf8&amp;useUnicode=true&quot;,</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="3B4C2542">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        &quot;spark.tb_top10_movies&quot;,</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="53578F27">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">        new Properties()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="07529042">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      )</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="27FE1E7F">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="72F534CF">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // TODO: 5.2 保存数据至CSV文件 -&gt; 每行数据中各个字段使用逗号隔开, 往往CSV文件首行为列名称</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="366812C1">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    resultDF</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="15FCC80B">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .write</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="21872932">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .mode(SaveMode.Overwrite)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="067BB5FD">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .option(&quot;header&quot;, &quot;true&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="1EEBDE52">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">      .csv(&quot;datas/top10Movies/&quot;)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="5271C9E6">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="1BB420B5">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 释放资源，清除数据</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="32BBD721">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    resultDF.unpersist()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="48245EBD">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+          <w:p w14:paraId="5A4AB241">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    // 应用结束，关闭资源</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="14D95164">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    Thread.sleep(1000)</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="4E7B32CD">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">    spark.stop()</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="7873468E">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t xml:space="preserve">  }</w:t>
+            </w:r>
+          </w:p>
+          <w:p w14:paraId="087D6FC4">
+            <w:pPr>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:vertAlign w:val="baseline"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+              </w:rPr>
+              <w:t>}</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+    </w:tbl>
+    <w:p w14:paraId="1A916CA7">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:ind w:firstLine="482" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>运行结果</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="1874D61B">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:ind w:firstLine="480" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>RDD展示</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6824712C">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="114300" distR="114300">
+            <wp:extent cx="2769235" cy="3201670"/>
+            <wp:effectExtent l="9525" t="9525" r="12065" b="17780"/>
+            <wp:docPr id="2" name="图片 2" descr="1745853816680"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="2" name="图片 2" descr="1745853816680"/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId4"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="2769235" cy="3201670"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:ln>
+                      <a:solidFill>
+                        <a:schemeClr val="accent1">
+                          <a:lumMod val="40000"/>
+                          <a:lumOff val="60000"/>
+                        </a:schemeClr>
+                      </a:solidFill>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="5F284E71">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>DSL及SQL操作结果展示</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="191486A1">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="114300" distR="114300">
+            <wp:extent cx="2588260" cy="3077210"/>
+            <wp:effectExtent l="9525" t="9525" r="12065" b="18415"/>
+            <wp:docPr id="3" name="图片 3" descr="1745853852043"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="3" name="图片 3" descr="1745853852043"/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId5"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="2588260" cy="3077210"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:ln>
+                      <a:solidFill>
+                        <a:schemeClr val="accent1">
+                          <a:lumMod val="40000"/>
+                          <a:lumOff val="60000"/>
+                        </a:schemeClr>
+                      </a:solidFill>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing>
+      <w:drawing>
+          <wp:inline distT="0" distB="0" distL="114300" distR="114300">
+            <wp:extent cx="2601595" cy="3088005"/>
+            <wp:effectExtent l="9525" t="9525" r="17780" b="17145"/>
+            <wp:docPr id="4" name="图片 4" descr="1745853874905"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="4" name="图片 4" descr="1745853874905"/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId6"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="2601595" cy="3088005"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:ln>
+                      <a:solidFill>
+                        <a:schemeClr val="accent1">
+                          <a:lumMod val="40000"/>
+                          <a:lumOff val="60000"/>
+                        </a:schemeClr>
+                      </a:solidFill>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing></w:r>
+      
+    </w:p>
+    <w:p w14:paraId="26FB8ACF">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t xml:space="preserve">    写入MySQL数据库结果展示</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="272CF61A">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="114300" distR="114300">
+            <wp:extent cx="5266055" cy="2067560"/>
+            <wp:effectExtent l="9525" t="9525" r="10795" b="18415"/>
+            <wp:docPr id="5" name="图片 5" descr="1745853927784"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="5" name="图片 5" descr="1745853927784"/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId7"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="5266055" cy="2067560"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:ln>
+                      <a:solidFill>
+                        <a:schemeClr val="accent1">
+                          <a:lumMod val="40000"/>
+                          <a:lumOff val="60000"/>
+                        </a:schemeClr>
+                      </a:solidFill>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="48619E3E">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>结果生成为csv文件写入hdfs展示</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="5D456B1F">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="114300" distR="114300">
+            <wp:extent cx="5271135" cy="1772920"/>
+            <wp:effectExtent l="9525" t="9525" r="15240" b="17780"/>
+            <wp:docPr id="6" name="图片 6" descr="1745854003413"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="6" name="图片 6" descr="1745854003413"/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId8"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="5271135" cy="1772920"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:ln>
+                      <a:solidFill>
+                        <a:schemeClr val="accent1">
+                          <a:lumMod val="40000"/>
+                          <a:lumOff val="60000"/>
+                        </a:schemeClr>
+                      </a:solidFill>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="664A334C">
+      <w:pPr>
+        <w:pStyle w:val="2"/>
+        <w:keepNext/>
+        <w:keepLines/>
+        <w:pageBreakBefore w:val="0"/>
+        <w:widowControl w:val="0"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="5"/>
+        </w:numPr>
+        <w:kinsoku/>
+        <w:wordWrap/>
+        <w:overflowPunct/>
+        <w:topLinePunct w:val="0"/>
+        <w:autoSpaceDE/>
+        <w:autoSpaceDN/>
+        <w:bidi w:val="0"/>
+        <w:adjustRightInd/>
+        <w:snapToGrid/>
+        <w:spacing w:before="157" w:beforeLines="50" w:after="157" w:afterLines="50" w:line="240" w:lineRule="auto"/>
+        <w:ind w:leftChars="200"/>
+        <w:textAlignment w:val="auto"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>程序设计二</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="11AC7110">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="8"/>
+        </w:numPr>
+        <w:ind w:firstLine="482" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>任务分析</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="15496598">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="9"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>多源数据聚合</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="577BE81B">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>分别读取ratings.dat、movies.dat和users.dat三个文件的数据，并转换为DataFrame。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6470CB72">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="9"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>数据关联与过滤：</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="500C9526">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>通过DataFrame的连接操作，将三个数据集关联起来。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="4CF62CE0">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>根据用户年龄和性别进行过滤，分别筛选出年龄在18-24岁的女性用户和25-34岁的男性用户。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="002517A2">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="9"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>数据分析与聚合：</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="6555F6FE">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>对于筛选出的用户群体，计算其评分最高的10部影片。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="10A74BED">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>统计用户对各电影类型的喜好程度，找出最受欢迎的三种类型。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="192BC0C4">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="9"/>
+        </w:numPr>
+        <w:ind w:left="408" w:leftChars="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>结果展示：</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="1CBB8F82">
+      <w:pPr>
+        <w:ind w:firstLine="420" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>将分析结果以合适的方式展示出来，可以使用Spark SQL的show方法。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="164D6555">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="8"/>
+        </w:numPr>
+        <w:ind w:firstLine="482" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>编写代码</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="0EC0354B">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t xml:space="preserve">    （略）</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="08907134">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="8"/>
+        </w:numPr>
+        <w:ind w:firstLine="482" w:firstLineChars="200"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="eastAsia" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>运行结果</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="17F9ED25">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:kern w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="24"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="114300" distR="114300">
+            <wp:extent cx="5270500" cy="5455920"/>
+            <wp:effectExtent l="9525" t="9525" r="15875" b="11430"/>
+            <wp:docPr id="7" name="图片 7" descr="1745854334430"/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="7" name="图片 7" descr="1745854334430"/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId9"/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr>
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="5270500" cy="5455920"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:ln>
+                      <a:solidFill>
+                        <a:schemeClr val="accent1">
+                          <a:lumMod val="40000"/>
+                          <a:lumOff val="60000"/>
+                        </a:schemeClr>
+                      </a:solidFill>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="03389745">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="1"/>
+        </w:numPr>
+        <w:ind w:left="0" w:leftChars="0" w:firstLine="0" w:firstLineChars="0"/>
+        <w:outlineLvl w:val="0"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b/>
+          <w:bCs/>
+          <w:sz w:val="28"/>
+          <w:szCs w:val="28"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>实验报告要求</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="39C88BCE">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:ind w:firstLine="480" w:firstLineChars="200"/>
+        <w:jc w:val="left"/>
+        <w:outlineLvl w:val="1"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>要求实验结果截图中包含系统时间。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="78E969CE">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:ind w:firstLine="480" w:firstLineChars="200"/>
+        <w:jc w:val="left"/>
+        <w:outlineLvl w:val="1"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:t>实验成功后，根据实验报告模板完成报告，按要求正确命名并提交学习通。</w:t>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="4898B6E1">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="0"/>
+        </w:numPr>
+        <w:ind w:firstLine="480" w:firstLineChars="200"/>
+        <w:jc w:val="left"/>
+        <w:outlineLvl w:val="1"/>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+        <w:br w:type="textWrapping"/>
+      </w:r>
+    </w:p>
+    <w:p w14:paraId="60C915BC">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:hint="default" w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+          <w:b w:val="0"/>
+          <w:bCs w:val="0"/>
+          <w:sz w:val="24"/>
+          <w:szCs w:val="32"/>
+          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+        </w:rPr>
+      </w:pPr>
+    </w:p>
+    <w:sectPr>
+      <w:pgSz w:w="11906" w:h="16838"/>
+      <w:pgMar w:top="1440" w:right="1800" w:bottom="1440" w:left="1800" w:header="851" w:footer="992" w:gutter="0"/>
+      <w:pgBorders>
+        <w:top w:val="none" w:sz="0" w:space="0"/>
+        <w:left w:val="none" w:sz="0" w:space="0"/>
+        <w:bottom w:val="none" w:sz="0" w:space="0"/>
+        <w:right w:val="none" w:sz="0" w:space="0"/>
+      </w:pgBorders>
+      <w:cols w:space="425" w:num="1"/>
+      <w:docGrid w:type="lines" w:linePitch="312" w:charSpace="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>

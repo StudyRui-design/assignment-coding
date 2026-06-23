@@ -1,0 +1,818 @@
+[
+  {
+    "index": 0,
+    "folder": "001",
+    "name": "pink primrose",
+    "recall": 0.7,
+    "precision": 0.7368,
+    "f1": 0.7179
+  },
+  {
+    "index": 1,
+    "folder": "002",
+    "name": "hard-leaved pocket orchid",
+    "recall": 0.8,
+    "precision": 0.9143,
+    "f1": 0.8533
+  },
+  {
+    "index": 2,
+    "folder": "003",
+    "name": "canterbury bells",
+    "recall": 0.45,
+    "precision": 0.6923,
+    "f1": 0.5455
+  },
+  {
+    "index": 3,
+    "folder": "004",
+    "name": "sweet pea",
+    "recall": 0.3333,
+    "precision": 0.5714,
+    "f1": 0.4211
+  },
+  {
+    "index": 4,
+    "folder": "005",
+    "name": "english marigold",
+    "recall": 0.5556,
+    "precision": 0.8621,
+    "f1": 0.6757
+  },
+  {
+    "index": 5,
+    "folder": "006",
+    "name": "tiger lily",
+    "recall": 0.84,
+    "precision": 0.913,
+    "f1": 0.875
+  },
+  {
+    "index": 6,
+    "folder": "007",
+    "name": "moon orchid",
+    "recall": 0.75,
+    "precision": 0.75,
+    "f1": 0.75
+  },
+  {
+    "index": 7,
+    "folder": "008",
+    "name": "bird of paradise",
+    "recall": 0.9385,
+    "precision": 0.9242,
+    "f1": 0.9313
+  },
+  {
+    "index": 8,
+    "folder": "009",
+    "name": "monkshood",
+    "recall": 0.7692,
+    "precision": 0.7143,
+    "f1": 0.7407
+  },
+  {
+    "index": 9,
+    "folder": "010",
+    "name": "globe thistle",
+    "recall": 0.64,
+    "precision": 0.8889,
+    "f1": 0.7442
+  },
+  {
+    "index": 10,
+    "folder": "011",
+    "name": "snapdragon",
+    "recall": 0.4627,
+    "precision": 0.6596,
+    "f1": 0.5439
+  },
+  {
+    "index": 11,
+    "folder": "012",
+    "name": "colt's foot",
+    "recall": 0.8955,
+    "precision": 0.8824,
+    "f1": 0.8889
+  },
+  {
+    "index": 12,
+    "folder": "013",
+    "name": "king protea",
+    "recall": 0.8276,
+    "precision": 0.8889,
+    "f1": 0.8571
+  },
+  {
+    "index": 13,
+    "folder": "014",
+    "name": "spear thistle",
+    "recall": 0.8571,
+    "precision": 0.75,
+    "f1": 0.8
+  },
+  {
+    "index": 14,
+    "folder": "015",
+    "name": "yellow iris",
+    "recall": 0.7586,
+    "precision": 0.8462,
+    "f1": 0.8
+  },
+  {
+    "index": 15,
+    "folder": "016",
+    "name": "globe-flower",
+    "recall": 0.7143,
+    "precision": 0.4412,
+    "f1": 0.5455
+  },
+  {
+    "index": 16,
+    "folder": "017",
+    "name": "purple coneflower",
+    "recall": 0.9231,
+    "precision": 0.9091,
+    "f1": 0.916
+  },
+  {
+    "index": 17,
+    "folder": "018",
+    "name": "peruvian lily",
+    "recall": 0.5323,
+    "precision": 0.8049,
+    "f1": 0.6408
+  },
+  {
+    "index": 18,
+    "folder": "019",
+    "name": "balloon flower",
+    "recall": 0.4828,
+    "precision": 0.6087,
+    "f1": 0.5385
+  },
+  {
+    "index": 19,
+    "folder": "020",
+    "name": "giant white arum lily",
+    "recall": 0.8056,
+    "precision": 0.6304,
+    "f1": 0.7073
+  },
+  {
+    "index": 20,
+    "folder": "021",
+    "name": "fire lily",
+    "recall": 0.75,
+    "precision": 0.3947,
+    "f1": 0.5172
+  },
+  {
+    "index": 21,
+    "folder": "022",
+    "name": "pincushion flower",
+    "recall": 0.7179,
+    "precision": 0.7368,
+    "f1": 0.7273
+  },
+  {
+    "index": 22,
+    "folder": "023",
+    "name": "fritillary",
+    "recall": 0.7606,
+    "precision": 0.931,
+    "f1": 0.8372
+  },
+  {
+    "index": 23,
+    "folder": "024",
+    "name": "red ginger",
+    "recall": 0.5,
+    "precision": 0.6471,
+    "f1": 0.5641
+  },
+  {
+    "index": 24,
+    "folder": "025",
+    "name": "grape hyacinth",
+    "recall": 0.8571,
+    "precision": 0.4737,
+    "f1": 0.6102
+  },
+  {
+    "index": 25,
+    "folder": "026",
+    "name": "corn poppy",
+    "recall": 0.7143,
+    "precision": 0.6522,
+    "f1": 0.6818
+  },
+  {
+    "index": 26,
+    "folder": "027",
+    "name": "prince of wales feathers",
+    "recall": 0.9,
+    "precision": 0.5,
+    "f1": 0.6429
+  },
+  {
+    "index": 27,
+    "folder": "028",
+    "name": "stemless gentian",
+    "recall": 0.7609,
+    "precision": 0.5556,
+    "f1": 0.6422
+  },
+  {
+    "index": 28,
+    "folder": "029",
+    "name": "artichoke",
+    "recall": 0.8103,
+    "precision": 0.9216,
+    "f1": 0.8624
+  },
+  {
+    "index": 29,
+    "folder": "030",
+    "name": "sweet william",
+    "recall": 0.5077,
+    "precision": 0.7333,
+    "f1": 0.6
+  },
+  {
+    "index": 30,
+    "folder": "031",
+    "name": "carnation",
+    "recall": 0.625,
+    "precision": 0.5714,
+    "f1": 0.597
+  },
+  {
+    "index": 31,
+    "folder": "032",
+    "name": "garden phlox",
+    "recall": 0.4,
+    "precision": 0.1667,
+    "f1": 0.2353
+  },
+  {
+    "index": 32,
+    "folder": "033",
+    "name": "love in the mist",
+    "recall": 0.6154,
+    "precision": 0.8889,
+    "f1": 0.7273
+  },
+  {
+    "index": 33,
+    "folder": "034",
+    "name": "mexican aster",
+    "recall": 0.65,
+    "precision": 1.0,
+    "f1": 0.7879
+  },
+  {
+    "index": 34,
+    "folder": "035",
+    "name": "alpine sea holly",
+    "recall": 0.7826,
+    "precision": 0.9,
+    "f1": 0.8372
+  },
+  {
+    "index": 35,
+    "folder": "036",
+    "name": "ruby-lipped cattleya",
+    "recall": 0.9273,
+    "precision": 0.5667,
+    "f1": 0.7034
+  },
+  {
+    "index": 36,
+    "folder": "037",
+    "name": "cape flower",
+    "recall": 0.9091,
+    "precision": 0.7018,
+    "f1": 0.7921
+  },
+  {
+    "index": 37,
+    "folder": "038",
+    "name": "great masterwort",
+    "recall": 0.75,
+    "precision": 0.7714,
+    "f1": 0.7606
+  },
+  {
+    "index": 38,
+    "folder": "039",
+    "name": "siam tulip",
+    "recall": 0.8571,
+    "precision": 0.2,
+    "f1": 0.3243
+  },
+  {
+    "index": 39,
+    "folder": "040",
+    "name": "lenten rose",
+    "recall": 0.4043,
+    "precision": 0.76,
+    "f1": 0.5278
+  },
+  {
+    "index": 40,
+    "folder": "041",
+    "name": "barbeton daisy",
+    "recall": 0.7757,
+    "precision": 0.9121,
+    "f1": 0.8384
+  },
+  {
+    "index": 41,
+    "folder": "042",
+    "name": "daffodil",
+    "recall": 0.8462,
+    "precision": 0.5156,
+    "f1": 0.6408
+  },
+  {
+    "index": 42,
+    "folder": "043",
+    "name": "sword lily",
+    "recall": 0.3182,
+    "precision": 0.9211,
+    "f1": 0.473
+  },
+  {
+    "index": 43,
+    "folder": "044",
+    "name": "poinsettia",
+    "recall": 0.9589,
+    "precision": 0.4192,
+    "f1": 0.5833
+  },
+  {
+    "index": 44,
+    "folder": "045",
+    "name": "bolero deep blue",
+    "recall": 0.55,
+    "precision": 0.3793,
+    "f1": 0.449
+  },
+  {
+    "index": 45,
+    "folder": "046",
+    "name": "wallflower",
+    "recall": 0.8807,
+    "precision": 0.7524,
+    "f1": 0.8115
+  },
+  {
+    "index": 46,
+    "folder": "047",
+    "name": "marigold",
+    "recall": 0.9787,
+    "precision": 0.5974,
+    "f1": 0.7419
+  },
+  {
+    "index": 47,
+    "folder": "048",
+    "name": "buttercup",
+    "recall": 0.7255,
+    "precision": 0.881,
+    "f1": 0.7957
+  },
+  {
+    "index": 48,
+    "folder": "049",
+    "name": "oxeye daisy",
+    "recall": 0.9655,
+    "precision": 0.8235,
+    "f1": 0.8889
+  },
+  {
+    "index": 49,
+    "folder": "050",
+    "name": "common dandelion",
+    "recall": 0.875,
+    "precision": 0.9403,
+    "f1": 0.9065
+  },
+  {
+    "index": 50,
+    "folder": "051",
+    "name": "petunia",
+    "recall": 0.4412,
+    "precision": 0.814,
+    "f1": 0.5722
+  },
+  {
+    "index": 51,
+    "folder": "052",
+    "name": "wild pansy",
+    "recall": 0.9538,
+    "precision": 0.8493,
+    "f1": 0.8986
+  },
+  {
+    "index": 52,
+    "folder": "053",
+    "name": "primula",
+    "recall": 0.4658,
+    "precision": 0.6415,
+    "f1": 0.5397
+  },
+  {
+    "index": 53,
+    "folder": "054",
+    "name": "sunflower",
+    "recall": 0.7805,
+    "precision": 0.8649,
+    "f1": 0.8205
+  },
+  {
+    "index": 54,
+    "folder": "055",
+    "name": "pelargonium",
+    "recall": 0.8235,
+    "precision": 0.7778,
+    "f1": 0.8
+  },
+  {
+    "index": 55,
+    "folder": "056",
+    "name": "bishop of llandaff",
+    "recall": 0.7865,
+    "precision": 0.9333,
+    "f1": 0.8537
+  },
+  {
+    "index": 56,
+    "folder": "057",
+    "name": "gaura",
+    "recall": 1.0,
+    "precision": 0.5529,
+    "f1": 0.7121
+  },
+  {
+    "index": 57,
+    "folder": "058",
+    "name": "geranium",
+    "recall": 0.9894,
+    "precision": 0.5741,
+    "f1": 0.7266
+  },
+  {
+    "index": 58,
+    "folder": "059",
+    "name": "orange dahlia",
+    "recall": 0.9787,
+    "precision": 0.902,
+    "f1": 0.9388
+  },
+  {
+    "index": 59,
+    "folder": "060",
+    "name": "pink-yellow dahlia?",
+    "recall": 0.7865,
+    "precision": 0.9589,
+    "f1": 0.8642
+  },
+  {
+    "index": 60,
+    "folder": "061",
+    "name": "cautleya spicata",
+    "recall": 0.8,
+    "precision": 0.3529,
+    "f1": 0.4898
+  },
+  {
+    "index": 61,
+    "folder": "062",
+    "name": "japanese anemone",
+    "recall": 0.6857,
+    "precision": 0.5455,
+    "f1": 0.6076
+  },
+  {
+    "index": 62,
+    "folder": "063",
+    "name": "black-eyed susan",
+    "recall": 0.9412,
+    "precision": 1.0,
+    "f1": 0.9697
+  },
+  {
+    "index": 63,
+    "folder": "064",
+    "name": "silverbush",
+    "recall": 1.0,
+    "precision": 0.8649,
+    "f1": 0.9275
+  },
+  {
+    "index": 64,
+    "folder": "065",
+    "name": "californian poppy",
+    "recall": 0.7439,
+    "precision": 1.0,
+    "f1": 0.8531
+  },
+  {
+    "index": 65,
+    "folder": "066",
+    "name": "osteospermum",
+    "recall": 0.9756,
+    "precision": 0.7843,
+    "f1": 0.8696
+  },
+  {
+    "index": 66,
+    "folder": "067",
+    "name": "spring crocus",
+    "recall": 0.5909,
+    "precision": 0.3421,
+    "f1": 0.4333
+  },
+  {
+    "index": 67,
+    "folder": "068",
+    "name": "bearded iris",
+    "recall": 0.5588,
+    "precision": 0.5429,
+    "f1": 0.5507
+  },
+  {
+    "index": 68,
+    "folder": "069",
+    "name": "windflower",
+    "recall": 0.8529,
+    "precision": 0.537,
+    "f1": 0.6591
+  },
+  {
+    "index": 69,
+    "folder": "070",
+    "name": "tree poppy",
+    "recall": 0.8333,
+    "precision": 0.7955,
+    "f1": 0.814
+  },
+  {
+    "index": 70,
+    "folder": "071",
+    "name": "gazania",
+    "recall": 0.8793,
+    "precision": 0.9808,
+    "f1": 0.9273
+  },
+  {
+    "index": 71,
+    "folder": "072",
+    "name": "azalea",
+    "recall": 0.6053,
+    "precision": 0.6765,
+    "f1": 0.6389
+  },
+  {
+    "index": 72,
+    "folder": "073",
+    "name": "water lily",
+    "recall": 0.7701,
+    "precision": 0.9116,
+    "f1": 0.8349
+  },
+  {
+    "index": 73,
+    "folder": "074",
+    "name": "rose",
+    "recall": 0.7748,
+    "precision": 0.8417,
+    "f1": 0.8069
+  },
+  {
+    "index": 74,
+    "folder": "075",
+    "name": "thorn apple",
+    "recall": 0.93,
+    "precision": 0.75,
+    "f1": 0.8304
+  },
+  {
+    "index": 75,
+    "folder": "076",
+    "name": "morning glory",
+    "recall": 0.5402,
+    "precision": 0.8393,
+    "f1": 0.6573
+  },
+  {
+    "index": 76,
+    "folder": "077",
+    "name": "passion flower",
+    "recall": 0.9048,
+    "precision": 0.9167,
+    "f1": 0.9107
+  },
+  {
+    "index": 77,
+    "folder": "078",
+    "name": "lotus",
+    "recall": 0.6667,
+    "precision": 0.7358,
+    "f1": 0.6996
+  },
+  {
+    "index": 78,
+    "folder": "079",
+    "name": "toad lily",
+    "recall": 0.7143,
+    "precision": 0.7143,
+    "f1": 0.7143
+  },
+  {
+    "index": 79,
+    "folder": "080",
+    "name": "anthurium",
+    "recall": 0.6353,
+    "precision": 0.72,
+    "f1": 0.675
+  },
+  {
+    "index": 80,
+    "folder": "081",
+    "name": "frangipani",
+    "recall": 0.8082,
+    "precision": 0.9916,
+    "f1": 0.8906
+  },
+  {
+    "index": 81,
+    "folder": "082",
+    "name": "clematis",
+    "recall": 0.2609,
+    "precision": 0.8276,
+    "f1": 0.3967
+  },
+  {
+    "index": 82,
+    "folder": "083",
+    "name": "hibiscus",
+    "recall": 0.4505,
+    "precision": 0.9434,
+    "f1": 0.6098
+  },
+  {
+    "index": 83,
+    "folder": "084",
+    "name": "columbine",
+    "recall": 0.4394,
+    "precision": 0.5088,
+    "f1": 0.4715
+  },
+  {
+    "index": 84,
+    "folder": "085",
+    "name": "desert-rose",
+    "recall": 0.907,
+    "precision": 0.7091,
+    "f1": 0.7959
+  },
+  {
+    "index": 85,
+    "folder": "086",
+    "name": "tree mallow",
+    "recall": 0.8421,
+    "precision": 0.6154,
+    "f1": 0.7111
+  },
+  {
+    "index": 86,
+    "folder": "087",
+    "name": "magnolia",
+    "recall": 0.6512,
+    "precision": 0.8,
+    "f1": 0.7179
+  },
+  {
+    "index": 87,
+    "folder": "088",
+    "name": "cyclamen",
+    "recall": 0.4776,
+    "precision": 0.7805,
+    "f1": 0.5926
+  },
+  {
+    "index": 88,
+    "folder": "089",
+    "name": "watercress",
+    "recall": 0.5854,
+    "precision": 0.932,
+    "f1": 0.7191
+  },
+  {
+    "index": 89,
+    "folder": "090",
+    "name": "canna lily",
+    "recall": 0.4677,
+    "precision": 0.6304,
+    "f1": 0.537
+  },
+  {
+    "index": 90,
+    "folder": "091",
+    "name": "hippeastrum",
+    "recall": 0.75,
+    "precision": 0.84,
+    "f1": 0.7925
+  },
+  {
+    "index": 91,
+    "folder": "092",
+    "name": "bee balm",
+    "recall": 0.7826,
+    "precision": 0.5217,
+    "f1": 0.6261
+  },
+  {
+    "index": 92,
+    "folder": "093",
+    "name": "ball moss",
+    "recall": 0.6923,
+    "precision": 0.4737,
+    "f1": 0.5625
+  },
+  {
+    "index": 93,
+    "folder": "094",
+    "name": "foxglove",
+    "recall": 0.7887,
+    "precision": 0.9492,
+    "f1": 0.8615
+  },
+  {
+    "index": 94,
+    "folder": "095",
+    "name": "bougainvillea",
+    "recall": 0.7685,
+    "precision": 0.6587,
+    "f1": 0.7094
+  },
+  {
+    "index": 95,
+    "folder": "096",
+    "name": "camellia",
+    "recall": 0.6901,
+    "precision": 0.4949,
+    "f1": 0.5765
+  },
+  {
+    "index": 96,
+    "folder": "097",
+    "name": "mallow",
+    "recall": 0.7609,
+    "precision": 0.4268,
+    "f1": 0.5469
+  },
+  {
+    "index": 97,
+    "folder": "098",
+    "name": "mexican petunia",
+    "recall": 0.8065,
+    "precision": 0.4505,
+    "f1": 0.578
+  },
+  {
+    "index": 98,
+    "folder": "099",
+    "name": "bromelia",
+    "recall": 0.4884,
+    "precision": 0.7778,
+    "f1": 0.6
+  },
+  {
+    "index": 99,
+    "folder": "100",
+    "name": "blanket flower",
+    "recall": 0.7931,
+    "precision": 1.0,
+    "f1": 0.8846
+  },
+  {
+    "index": 100,
+    "folder": "101",
+    "name": "trumpet creeper",
+    "recall": 0.7632,
+    "precision": 0.3766,
+    "f1": 0.5043
+  },
+  {
+    "index": 101,
+    "folder": "102",
+    "name": "blackberry lily",
+    "recall": 0.6786,
+    "precision": 0.8636,
+    "f1": 0.76
+  }
+]

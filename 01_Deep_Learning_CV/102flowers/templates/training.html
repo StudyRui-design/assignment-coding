@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+{% block title %}102 Flowers — Dashboard{% endblock %}
+
+{% block content %}
+<!-- ================================================================== -->
+<!-- Section A — Core Stats (item 5): unified palette, 4 key metrics    -->
+<!-- ================================================================== -->
+<div class="stat-row">
+    <div class="stat-card stat-accuracy">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value">{{ summary.accuracy }}%</div>
+        <div class="stat-label">Test Accuracy</div>
+    </div>
+    <div class="stat-card stat-recall">
+        <div class="stat-icon">📡</div>
+        <div class="stat-value">{{ summary.avg_recall }}%</div>
+        <div class="stat-label">Avg Recall</div>
+    </div>
+    <div class="stat-card stat-precision">
+        <div class="stat-icon">🔬</div>
+        <div class="stat-value">{{ summary.avg_precision }}%</div>
+        <div class="stat-label">Avg Precision</div>
+    </div>
+    <div class="stat-card stat-f1">
+        <div class="stat-icon">⚖️</div>
+        <div class="stat-value">{{ summary.avg_f1 }}%</div>
+        <div class="stat-label">Avg F1 Score</div>
+    </div>
+</div>
+
+<div class="stat-row-sm">
+    <div class="stat-card-sm">
+        <div class="sv" style="color:var(--sage-dark);">{{ summary.correct }}</div>
+        <div class="sl">✅ Correct</div>
+    </div>
+    <div class="stat-card-sm">
+        <div class="sv" style="color:var(--bloom);">{{ summary.incorrect }}</div>
+        <div class="sl">❌ Incorrect</div>
+    </div>
+    <div class="stat-card-sm">
+        <div class="sv" style="color:#6c9ebf;">{{ summary.num_samples }}</div>
+        <div class="sl">📦 Test Samples</div>
+    </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- Section B — Recall Distribution Chart (item 3)                     -->
+<!-- ================================================================== -->
+{% if per_class %}
+<div class="card">
+    <h2><span class="section-icon">📊</span> Recall Distribution — All 102 Classes</h2>
+    <p style="color:var(--ink-light);font-size:0.85rem;margin-bottom:16px;">
+        Each bar = one flower class. Hover to see details. Colored by recall: <span style="color:var(--bloom);">low</span> → <span style="color:var(--sun);">mid</span> → <span style="color:var(--sage-dark);">high</span>.
+    </p>
+    <div class="recall-chart-wrap">
+        <canvas id="recallChart"></canvas>
+    </div>
+</div>
+{% endif %}
+
+<!-- ================================================================== -->
+<!-- Section C — Training Curves (item 6)                               -->
+<!-- ================================================================== -->
+{% if chart_html %}
+<div class="card">
+    <h2><span class="section-icon">📈</span> Training Curves</h2>
+    <div class="chart-container">
+        {{ chart_html | safe }}
+    </div>
+</div>
+{% endif %}
+
+<!-- ================================================================== -->
+<!-- Section D — 100% Recall Classes (item 2): botanical image cards    -->
+<!-- ================================================================== -->
+{% if recall_100 %}
+<div class="card">
+    <h2><span class="section-icon">🏆</span> Perfect Recall — {{ recall_100|length }} Classes at 100%</h2>
+    <p style="color:var(--ink-light);font-size:0.85rem;margin-bottom:16px;">
+        These flowers were identified correctly in every test image.
+    </p>
+    <div class="gallery-grid">
+        {% for flower in recall_100 %}
+        <div class="bloom-card">
+            <img class="bloom-img"
+                 src="{{ url_for('serve_test_image', subpath=flower.img) }}"
+                 alt="{{ flower.name }}"
+                 loading="lazy">
+            <div class="bloom-info">
+                <div class="bloom-name">{{ flower.name }}</div>
+                <div class="bloom-meta">
+                    <span class="r">R {{ '%.0f'|format(flower.recall * 100) }}%</span>
+                    <span class="p">P {{ '%.0f'|format(flower.precision * 100) }}%</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ================================================================== -->
+<!-- Section E — Low Recall Misclassifications (item 1): contrast cards -->
+<!-- ================================================================== -->
+{% if low_recall_cards %}
+<div class="card">
+    <h2><span class="section-icon">⚠️</span> Struggling Classes — What the Model Confuses</h2>
+    <p style="color:var(--ink-light);font-size:0.85rem;margin-bottom:16px;">
+        For each low-recall flower, we show actual misclassified images:
+        the true flower (left) vs. what the model predicted (right).
+    </p>
+    <div class="misclass-grid">
+        {% for item in low_recall_cards %}
+        <div class="misclass-card">
+            <div class="misclass-header">
+                <span class="class-name">{{ item.name }}</span>
+                <span class="recall-badge">Recall {{ '%.0f'|format(item.recall * 100) }}%</span>
+            </div>
+            {% if item.examples %}
+            {% set ex = item.examples[0] %}
+            <div class="misclass-body">
+                <div class="side">
+                    <img src="{{ url_for('serve_test_image', subpath=ex.path) }}"
+                         alt="{{ item.name }}" loading="lazy">
+                    <div class="label">True: <strong>{{ item.name }}</strong></div>
+                </div>
+                <div class="arrow-col">→</div>
+                <div class="side">
+                    {% if item.pred_class_img %}
+                    <img src="{{ url_for('serve_test_image', subpath=item.pred_class_img) }}"
+                         alt="{{ item.top_wrong_name }}" loading="lazy"
+                         style="border:3px solid var(--bloom);">
+                    {% else %}
+                    <div style="aspect-ratio:1;background:var(--stone-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--ink-light);font-size:0.8rem;">No image</div>
+                    {% endif %}
+                    <div class="label">Pred: <strong style="color:var(--bloom);">{{ item.top_wrong_name }}</strong></div>
+                </div>
+            </div>
+            {% endif %}
+            <div style="padding:8px 14px 12px;font-size:0.78rem;color:var(--ink-light);text-align:center;">
+                {{ item.mis_count }} misclassifications · most confused with <strong>{{ item.top_wrong_name }}</strong>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ================================================================== -->
+<!-- Section F — Top Confusion Pairs (item 4)                            -->
+<!-- ================================================================== -->
+{% if top_confusions %}
+<div class="card">
+    <h2><span class="section-icon">🔄</span> Top-10 Most Confused Flower Pairs</h2>
+    <p style="color:var(--ink-light);font-size:0.85rem;margin-bottom:16px;">
+        The model's most frequent mix-ups, ranked by how often one flower was mistaken for another.
+    </p>
+    <div class="confusion-pair-list">
+        {% for pair in top_confusions %}
+        <div class="confusion-pair">
+            <div class="pair-imgs">
+                {% if pair.example_true_path %}
+                <img src="{{ url_for('serve_test_image', subpath=pair.example_true_path) }}"
+                     alt="{{ pair.true_name }}" loading="lazy">
+                {% endif %}
+                {% if pair.example_pred_path %}
+                <img src="{{ url_for('serve_test_image', subpath=pair.example_pred_path) }}"
+                     alt="{{ pair.pred_name }}" loading="lazy">
+                {% endif %}
+            </div>
+            <div class="pair-info">
+                <div class="pair-names">{{ pair.true_name }} → {{ pair.pred_name }}</div>
+                <div class="pair-detail">The model often misreads "{{ pair.true_name }}" as "{{ pair.pred_name }}"</div>
+            </div>
+            <div class="pair-count">{{ pair.count }}×</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_scripts %}
+{% if per_class %}
+<script>
+// =====================================================================
+// Recall Distribution Chart — Chart.js horizontal bar (item 3)
+// =====================================================================
+(function() {
+    const metrics = {{ per_class | tojson }};
+    // Sort by recall descending
+    metrics.sort((a, b) => b.recall - a.recall);
+
+    const labels = metrics.map(m => m.name);
+    const values = metrics.map(m => m.recall * 100);  // percentage
+
+    // Color gradient: low = red/peach → mid = amber → high = green
+    const colors = metrics.map(m => {
+        const v = m.recall;  // 0..1
+        if (v >= 0.9) return '#5b8c5a';        // sage green
+        if (v >= 0.7) return '#8fbc8f';        // light green
+        if (v >= 0.5) return '#c4b84c';        // olive
+        if (v >= 0.3) return '#e0a449';        // amber
+        if (v >= 0.1) return '#d4786e';        // warm red
+        return '#c0392b';                       // deep red
+    });
+
+    const ctx = document.getElementById('recallChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Recall (%)',
+                data: values,
+                backgroundColor: colors,
+                borderColor: colors.map(c => c),
+                borderWidth: 0,
+                borderRadius: 3,
+                barThickness: 7,
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(ctx) {
+                            const m = metrics[ctx.dataIndex];
+                            return [
+                                'Recall: ' + m.recall.toFixed(2),
+                                'Precision: ' + m.precision.toFixed(2),
+                                'F1: ' + m.f1.toFixed(2),
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: { display: true, text: 'Recall (%)', font: { size: 13 } },
+                    max: 100,
+                    ticks: { callback: v => v + '%' },
+                    grid: { color: '#f0ece4' }
+                },
+                y: {
+                    ticks: {
+                        font: { size: 9 },
+                        autoSkip: false,
+                        callback: function(val, idx) {
+                            // Show every 5th label to avoid crowding
+                            return idx % 5 === 0 ? labels[idx] : '';
+                        }
+                    },
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+})();
+</script>
+{% endif %}
+
+{% if not low_recall_cards and not top_confusions %}
+<p style="text-align:center;color:var(--ink-light);padding:24px;font-size:0.9rem;">
+    💡 Image comparison panels require <code>predictions.json</code> and <code>top_confusions.json</code>.<br>
+    Run <code>python charts.py</code> to generate them from the trained model.
+</p>
+{% endif %}
+{% endblock %}

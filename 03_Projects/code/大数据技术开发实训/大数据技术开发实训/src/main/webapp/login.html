@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>系统登录 - 邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="login_bg">
+    <section class="loginBox">
+        <header class="loginHeader">
+            <h1>邓睿的大数据应用课件管理系统</h1>
+        </header>
+        <section class="loginCont">
+            <form class="loginForm" action="/sft/login" method="post">
+                <div class="inputbox">
+                    <label for="user">用户名：</label>
+                    <input id="user" type="text" name="username" placeholder="请输入用户名" required/>
+                </div>
+                <div class="inputbox">
+                    <label for="mima">密码3：</label>
+                    <input id="mima" type="password" name="password" placeholder="请输入密码" required/>
+                </div>
+                <div class="subBtn">
+                    <input type="submit" value="登录" />
+                    <input type="reset" value="重置"/>
+                </div>
+                <!-- 在登录表单下方添加 -->
+                <div style="text-align: center; margin-top: 10px;">
+                    <a href="register.html" style="color: white;">还没有账号？立即注册</a>
+                </div>
+
+            </form>
+        </section>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MovieLens 电影用户爱好分析系统</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0f1923; color: #e0e6ed; min-height: 100vh; }
+
+/* Header */
+.header { background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 100%); padding: 24px 40px; border-bottom: 1px solid #1e3a5f; display: flex; align-items: center; justify-content: space-between; }
+.header h1 { font-size: 24px; font-weight: 700; background: linear-gradient(90deg, #64b5f6, #42a5f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.header .stats-row { display: flex; gap: 30px; }
+.header .stat-item { text-align: center; }
+.header .stat-value { font-size: 22px; font-weight: 700; color: #64b5f6; }
+.header .stat-label { font-size: 12px; color: #7a8b9a; margin-top: 2px; }
+
+/* Navigation Tabs */
+.nav-tabs { display: flex; gap: 0; background: #152238; border-bottom: 1px solid #1e3a5f; padding: 0 40px; }
+.nav-tab { padding: 14px 24px; cursor: pointer; color: #7a8b9a; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-tab:hover { color: #90caf9; }
+.nav-tab.active { color: #64b5f6; border-bottom-color: #64b5f6; }
+
+/* Main Content */
+.main { max-width: 1400px; margin: 0 auto; padding: 24px 40px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Cards */
+.card { background: #152238; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.card-title { font-size: 16px; font-weight: 600; color: #e0e6ed; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.card-title::before { content: ''; width: 4px; height: 18px; background: #42a5f5; border-radius: 2px; }
+
+/* Charts Grid */
+.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.chart-box { background: #152238; border: 1px solid #1e3a5f; border-radius: 12px; padding: 20px; }
+.chart-box h3 { font-size: 14px; color: #90caf9; margin-bottom: 12px; }
+.chart-container { width: 100%; height: 400px; }
+
+/* Top 10 Table */
+.top10-table { width: 100%; border-collapse: collapse; }
+.top10-table th { text-align: left; padding: 10px 12px; font-size: 12px; color: #7a8b9a; text-transform: uppercase; border-bottom: 1px solid #1e3a5f; }
+.top10-table td { padding: 10px 12px; font-size: 13px; border-bottom: 1px solid #1a2a3a; }
+.top10-table tr:hover td { background: rgba(66, 165, 245, 0.05); }
+.rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+.rank-1 { background: #ffd700; color: #0f1923; }
+.rank-2 { background: #c0c0c0; color: #0f1923; }
+.rank-3 { background: #cd7f32; color: #fff; }
+.rank-other { background: #1e3a5f; color: #7a8b9a; }
+.rating-stars { color: #ffd700; font-weight: 600; }
+.genre-tag { display: inline-block; padding: 2px 8px; margin: 2px; border-radius: 4px; font-size: 11px; background: rgba(66,165,245,0.15); color: #64b5f6; }
+
+/* Search & Filter */
+.search-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.search-bar input, .search-bar select { background: #0f1923; border: 1px solid #1e3a5f; border-radius: 8px; padding: 10px 16px; color: #e0e6ed; font-size: 14px; outline: none; transition: border-color 0.2s; }
+.search-bar input:focus, .search-bar select:focus { border-color: #42a5f5; }
+.search-bar input { flex: 1; min-width: 200px; }
+.search-bar select { min-width: 140px; }
+.search-bar button { background: #42a5f5; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; }
+.search-bar button:hover { background: #1e88e5; }
+.filter-group { display: flex; gap: 8px; align-items: center; }
+.filter-group label { font-size: 13px; color: #7a8b9a; white-space: nowrap; }
+.filter-group input[type="number"] { width: 70px; padding: 8px 10px; }
+
+/* Pagination */
+.pagination { display: flex; gap: 4px; justify-content: center; margin-top: 16px; }
+.pagination button { background: #152238; border: 1px solid #1e3a5f; color: #90caf9; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+.pagination button:hover:not(:disabled) { background: #1e3a5f; }
+.pagination button.active { background: #42a5f5; border-color: #42a5f5; color: #fff; }
+.pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+.result-count { text-align: center; font-size: 13px; color: #7a8b9a; margin-bottom: 12px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  .header { flex-direction: column; gap: 16px; padding: 16px 20px; }
+  .main { padding: 16px 20px; }
+  .nav-tabs { padding: 0 20px; }
+  .search-bar { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MovieLens 电影用户爱好分析系统</h1>
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-value" id="totalMovies">-</div><div class="stat-label">电影数</div></div>
+    <div class="stat-item"><div class="stat-value" id="totalUsers">-</div><div class="stat-label">用户数</div></div>
+    <div class="stat-item"><div class="stat-value" id="totalRatings">-</div><div class="stat-label">评分数</div></div>
+  </div>
+</div>
+
+<div class="nav-tabs">
+  <div class="nav-tab active" data-tab="overview">数据概览</div>
+  <div class="nav-tab" data-tab="top10">Top10 分析</div>
+  <div class="nav-tab" data-tab="demographic">用户画像分析</div>
+  <div class="nav-tab" data-tab="search">电影搜索筛选</div>
+</div>
+
+<div class="main">
+
+  <!-- Tab 1: 数据概览 -->
+  <div class="tab-content active" id="tab-overview">
+    <div class="charts-grid">
+      <div class="chart-box">
+        <h3>评分分布</h3>
+        <div class="chart-container" id="chart-rating-dist"></div>
+      </div>
+      <div class="chart-box">
+        <h3>电影类型热度排行</h3>
+        <div class="chart-container" id="chart-genre-heat"></div>
+      </div>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-box">
+        <h3>各类型平均评分</h3>
+        <div class="chart-container" id="chart-genre-avg"></div>
+      </div>
+      <div class="chart-box">
+        <h3>评分次数 vs 平均评分（散点图）</h3>
+        <div class="chart-container" id="chart-scatter"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Top10 分析 -->
+  <div class="tab-content" id="tab-top10">
+    <div class="card">
+      <div class="card-title">Top10 电影（评分次数 &gt; 2000，按平均评分降序）</div>
+      <p style="font-size:12px;color:#7a8b9a;margin-bottom:12px;">对应实验要求：程序设计一 - 对电影评分数据进行统计分析，获取Top10电影（电影评分平均值最高，并且每个电影被评分的次数大于2000）</p>
+      <table class="top10-table" id="top10-table">
+        <thead><tr><th>排名</th><th>电影ID</th><th>电影名称</th><th>类型</th><th>平均评分</th><th>评分次数</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="chart-box" style="margin-top:24px;">
+      <h3>Top10 电影对比图</h3>
+      <div class="chart-container" id="chart-top10"></div>
+    </div>
+  </div>
+
+  <!-- Tab 3: 用户画像分析 -->
+  <div class="tab-content" id="tab-demographic">
+    <div class="charts-grid">
+      <div class="chart-box">
+        <h3>18-24岁女性用户评分最高的10部电影</h3>
+        <p style="font-size:11px;color:#7a8b9a;margin-bottom:8px;">对应实验要求：程序设计二 - 选出年龄在18-24的女性用户评分最高的10部影片</p>
+        <div class="chart-container" id="chart-female-top10"></div>
+      </div>
+      <div class="chart-box">
+        <h3>25-34岁男性用户最喜欢的3种电影类型</h3>
+        <p style="font-size:11px;color:#7a8b9a;margin-bottom:8px;">对应实验要求：程序设计二 - 选出25-34岁男性用户最喜欢的3种电影类型</p>
+        <div class="chart-container" id="chart-male-genre"></div>
+      </div>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-box">
+        <h3>18-24女性用户Top10电影详情</h3>
+        <table class="top10-table" id="female-top10-table">
+          <thead><tr><th>排名</th><th>电影名称</th><th>类型</th><th>平均评分</th><th>评分次数</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="chart-box">
+        <h3>25-34男性用户各类型评分分布</h3>
+        <div class="chart-container" id="chart-male-genre-detail"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 4: 电影搜索筛选 -->
+  <div class="tab-content" id="tab-search">
+    <div class="card">
+      <div class="card-title">电影搜索与筛选</div>
+      <div class="search-bar">
+        <input type="text" id="search-q" placeholder="搜索电影名称..." />
+        <select id="search-genre"><option value="">全部类型</option></select>
+        <div class="filter-group">
+          <label>评分≥</label>
+          <input type="number" id="search-min-rating" value="0" min="0" max="5" step="0.1" />
+        </div>
+        <div class="filter-group">
+          <label>评分≤</label>
+          <input type="number" id="search-max-rating" value="5" min="0" max="5" step="0.1" />
+        </div>
+        <div class="filter-group">
+          <label>评价次数≥</label>
+          <input type="number" id="search-min-count" value="0" min="0" />
+        </div>
+        <select id="search-sort">
+          <option value="cntRating">按热度排序</option>
+          <option value="avgRating">按评分排序</option>
+        </select>
+        <button onclick="searchMovies(1)">搜索</button>
+      </div>
+      <div class="result-count" id="search-result-info"></div>
+      <table class="top10-table" id="search-table">
+        <thead><tr><th>电影ID</th><th>电影名称</th><th>类型</th><th>平均评分</th><th>评分次数</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="pagination" id="search-pagination"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ============== 全局状态 ==============
+let allData = {};
+let allGenres = [];
+let currentTab = 'overview';
+let currentSearchPage = 1;
+
+// ============== Tab 切换 ==============
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    currentTab = this.dataset.tab;
+    document.getElementById('tab-' + currentTab).classList.add('active');
+    if (currentTab === 'top10') renderTop10Tab();
+    if (currentTab === 'demographic') renderDemographicTab();
+    if (currentTab === 'search') initSearchTab();
+  });
+});
+
+// ============== 数据加载 ==============
+async function loadData() {
+  try {
+    const [summaryRes, top10Res, femaleRes, maleRes, genreRes, distRes] = await Promise.all([
+      fetch('/api/summary'),
+      fetch('/api/top10'),
+      fetch('/api/female_top10'),
+      fetch('/api/male_genre_top3'),
+      fetch('/api/genre_stats'),
+      fetch('/api/rating_distribution')
+    ]);
+    allData.summary = await summaryRes.json();
+    allData.top10 = await top10Res.json();
+    allData.femaleTop10 = await femaleRes.json();
+    allData.maleGenreTop3 = await maleRes.json();
+    allData.genreStats = await genreRes.json();
+    allData.ratingDist = await distRes.json();
+    allGenres = allData.summary.genres;
+
+    // 更新头部统计
+    document.getElementById('totalMovies').textContent = allData.summary.totalMovies.toLocaleString();
+    document.getElementById('totalUsers').textContent = allData.summary.totalUsers.toLocaleString();
+    document.getElementById('totalRatings').textContent = (allData.summary.totalRatings / 1000000).toFixed(2) + 'M';
+
+    renderOverviewCharts();
+    initSearchTab();
+  } catch (e) {
+    console.error('加载数据失败:', e);
+  }
+}
+
+// ============== 数据概览图表 ==============
+function renderOverviewCharts() {
+  // 评分分布饼图
+  const distChart = echarts.init(document.getElementById('chart-rating-dist'));
+  distChart.setOption({
+    tooltip: { trigger: 'item' },
+    legend: { bottom: 0, textStyle: { color: '#7a8b9a' } },
+    series: [{
+      type: 'pie',
+      radius: ['45%', '72%'],
+      center: ['50%', '45%'],
+      label: { color: '#7a8b9a' },
+      data: allData.ratingDist.map(d => ({ name: d.rating + '星', value: d.count })),
+      itemStyle: {
+        color: params => ['#ef5350','#ff9800','#ffc107','#8bc34a','#4caf50'][params.dataIndex]
+      }
+    }]
+  });
+
+  // 电影类型热度排行
+  const genreHeat = echarts.init(document.getElementById('chart-genre-heat'));
+  const topGenres = allData.genreStats.slice(0, 12);
+  genreHeat.setOption({
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    grid: { left: 100, right: 30, top: 10, bottom: 20 },
+    xAxis: { type: 'value', axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+    yAxis: { type: 'category', data: topGenres.map(g => g.genre).reverse(), axisLabel: { color: '#90caf9' }, inverse: true },
+    series: [{
+      type: 'bar',
+      data: topGenres.map(g => g.cntRating).reverse(),
+      itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+        { offset: 0, color: '#1565c0' }, { offset: 1, color: '#42a5f5' }
+      ]), borderRadius: [0, 4, 4, 0] }
+    }]
+  });
+
+  // 各类型平均评分
+  const genreAvg = echarts.init(document.getElementById('chart-genre-avg'));
+  const sortedGenres = [...allData.genreStats].sort((a, b) => b.avgRating - a.avgRating);
+  genreAvg.setOption({
+    tooltip: { trigger: 'axis' },
+    grid: { left: 100, right: 30, top: 10, bottom: 20 },
+    xAxis: { type: 'value', min: 2.5, max: 4.5, axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+    yAxis: { type: 'category', data: sortedGenres.map(g => g.genre), axisLabel: { color: '#90caf9', fontSize: 11 }, inverse: true },
+    series: [{
+      type: 'bar',
+      data: sortedGenres.map(g => g.avgRating),
+      itemStyle: {
+        color: params => {
+          const colors = ['#ef5350','#ff9800','#ffc107','#8bc34a','#4caf50'];
+          return colors[Math.min(Math.floor((params.value - 2.5) / 0.5), 4)];
+        },
+        borderRadius: [0, 4, 4, 0]
+      },
+      label: { show: true, position: 'right', color: '#7a8b9a', fontSize: 11, formatter: '{c}' }
+    }]
+  });
+
+  // 散点图
+  const scatter = echarts.init(document.getElementById('chart-scatter'));
+  fetch('/api/movies?page_size=500&sort_by=cntRating').then(r => r.json()).then(res => {
+    scatter.setOption({
+      tooltip: { trigger: 'item', formatter: p => `<b>${p.data[2]}</b><br/>平均评分: ${p.data[1]}<br/>评分次数: ${p.data[0]}` },
+      grid: { left: 60, right: 20, top: 20, bottom: 40 },
+      xAxis: { type: 'value', name: '评分次数', nameTextStyle: { color: '#7a8b9a' }, axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+      yAxis: { type: 'value', name: '平均评分', min: 0, max: 5, nameTextStyle: { color: '#7a8b9a' }, axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+      series: [{
+        type: 'scatter',
+        data: res.data.map(m => [m.cntRating, m.avgRating, m.title]),
+        symbolSize: 6,
+        itemStyle: { color: 'rgba(66,165,245,0.5)', borderColor: '#42a5f5', borderWidth: 1 }
+      }]
+    });
+  });
+}
+
+// ============== Top10 Tab ==============
+function renderTop10Tab() {
+  if (!allData.top10) return;
+
+  const tbody = document.querySelector('#top10-table tbody');
+  tbody.innerHTML = allData.top10.map((m, i) => `
+    <tr>
+      <td><span class="rank-badge rank-${i < 3 ? i+1 : 'other'}">${i+1}</span></td>
+      <td>${m.movieId}</td>
+      <td>${m.title}</td>
+      <td>${m.genres.map(g => `<span class="genre-tag">${g}</span>`).join('')}</td>
+      <td class="rating-stars">★ ${m.avgRating}</td>
+      <td>${m.cntRating.toLocaleString()}</td>
+    </tr>
+  `).join('');
+
+  const chart = echarts.init(document.getElementById('chart-top10'));
+  chart.setOption({
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { data: ['平均评分', '评分次数'], textStyle: { color: '#7a8b9a' }, top: 0 },
+    grid: { left: 10, right: 60, top: 40, bottom: 10 },
+    xAxis: { type: 'category', data: allData.top10.map(m => m.title.length > 18 ? m.title.slice(0,16)+'...' : m.title), axisLabel: { color: '#90caf9', rotate: 30, fontSize: 10 }, axisLine: { lineStyle: { color: '#1e3a5f' } } },
+    yAxis: [
+      { type: 'value', name: '平均评分', min: 4, max: 5, nameTextStyle: { color: '#7a8b9a' }, axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+      { type: 'value', name: '评分次数', nameTextStyle: { color: '#7a8b9a' }, axisLabel: { color: '#7a8b9a' }, splitLine: { show: false } }
+    ],
+    series: [
+      { name: '平均评分', type: 'bar', data: allData.top10.map(m => m.avgRating), itemStyle: { color: '#ffd700', borderRadius: [4,4,0,0] } },
+      { name: '评分次数', type: 'line', yAxisIndex: 1, data: allData.top10.map(m => m.cntRating), itemStyle: { color: '#42a5f5' }, symbol: 'circle', symbolSize: 8 }
+    ]
+  });
+}
+
+// ============== 用户画像 Tab ==============
+function renderDemographicTab() {
+  if (!allData.femaleTop10 || !allData.maleGenreTop3) return;
+
+  // 女性Top10图表
+  const femaleChart = echarts.init(document.getElementById('chart-female-top10'));
+  femaleChart.setOption({
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    grid: { left: 10, right: 40, top: 10, bottom: 10 },
+    xAxis: { type: 'value', name: '平均评分', max: 5, nameTextStyle: { color: '#7a8b9a' }, axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+    yAxis: { type: 'category', data: allData.femaleTop10.map(m => m.title.length > 25 ? m.title.slice(0,23)+'...' : m.title).reverse(), axisLabel: { color: '#90caf9', fontSize: 10 }, inverse: true },
+    series: [{
+      type: 'bar',
+      data: allData.femaleTop10.map(m => m.avgRating).reverse(),
+      itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+        { offset: 0, color: '#e91e63' }, { offset: 1, color: '#f48fb1' }
+      ]), borderRadius: [0, 4, 4, 0] },
+      label: { show: true, position: 'right', color: '#7a8b9a', fontSize: 10 }
+    }]
+  });
+
+  // 女性Top10表格
+  const ftbody = document.querySelector('#female-top10-table tbody');
+  ftbody.innerHTML = allData.femaleTop10.map((m, i) => `
+    <tr>
+      <td><span class="rank-badge rank-${i < 3 ? i+1 : 'other'}">${i+1}</span></td>
+      <td>${m.title}</td>
+      <td>${m.genres.map(g => `<span class="genre-tag">${g}</span>`).join('')}</td>
+      <td class="rating-stars">★ ${m.avgRating}</td>
+      <td>${m.cntRating.toLocaleString()}</td>
+    </tr>
+  `).join('');
+
+  // 男性类型Top3
+  const maleGenre = echarts.init(document.getElementById('chart-male-genre'));
+  maleGenre.setOption({
+    tooltip: { trigger: 'item' },
+    series: [{
+      type: 'pie',
+      radius: ['50%', '75%'],
+      center: ['50%', '50%'],
+      label: { color: '#90caf9', fontSize: 13 },
+      emphasis: { label: { fontSize: 18, fontWeight: 'bold' } },
+      data: allData.maleGenreTop3.map(g => ({ name: g.genre, value: g.cntRating })),
+      itemStyle: { color: params => ['#ffd700','#c0c0c0','#cd7f32'][params.dataIndex] }
+    }]
+  });
+
+  // 男性各类型评分详情
+  fetch('/api/genre_stats').then(r => r.json()).then(genres => {
+    const maleGenreDetail = echarts.init(document.getElementById('chart-male-genre-detail'));
+    const sorted = [...genres].sort((a, b) => b.avgRating - a.avgRating);
+    const top3Names = allData.maleGenreTop3.map(g => g.genre);
+    maleGenreDetail.setOption({
+      tooltip: { trigger: 'axis' },
+      legend: { data: ['平均评分', '是否Top3'], textStyle: { color: '#7a8b9a' }, top: 0 },
+      grid: { left: 100, right: 30, top: 40, bottom: 10 },
+      xAxis: { type: 'value', max: 5, axisLabel: { color: '#7a8b9a' }, splitLine: { lineStyle: { color: '#1e3a5f' } } },
+      yAxis: { type: 'category', data: sorted.map(g => g.genre), axisLabel: { color: '#90caf9', fontSize: 10 }, inverse: true },
+      series: [{
+        type: 'bar',
+        data: sorted.map(g => ({
+          value: g.avgRating,
+          itemStyle: { color: top3Names.includes(g.genre) ? '#ffd700' : '#1e3a5f', borderRadius: [0, 4, 4, 0] }
+        })),
+        label: { show: true, position: 'right', color: '#7a8b9a', fontSize: 10, formatter: '{c}' }
+      }]
+    });
+  });
+}
+
+// ============== 搜索 Tab ==============
+function initSearchTab() {
+  if (!allGenres.length) return;
+  const sel = document.getElementById('search-genre');
+  sel.innerHTML = '<option value="">全部类型</option>' + allGenres.map(g => `<option value="${g}">${g}</option>`).join('');
+}
+
+async function searchMovies(page) {
+  currentSearchPage = page;
+  const params = new URLSearchParams({
+    q: document.getElementById('search-q').value,
+    genre: document.getElementById('search-genre').value,
+    min_rating: document.getElementById('search-min-rating').value,
+    max_rating: document.getElementById('search-max-rating').value,
+    min_count: document.getElementById('search-min-count').value,
+    sort_by: document.getElementById('search-sort').value,
+    page: page,
+    page_size: 20
+  });
+
+  const res = await fetch('/api/movies?' + params);
+  const data = await res.json();
+
+  document.getElementById('search-result-info').textContent =
+    `共找到 ${data.total} 部电影，第 ${data.page}/${data.total_pages} 页`;
+
+  const tbody = document.querySelector('#search-table tbody');
+  tbody.innerHTML = data.data.map(m => `
+    <tr>
+      <td>${m.movieId}</td>
+      <td>${m.title}</td>
+      <td>${m.genres.map(g => `<span class="genre-tag">${g}</span>`).join('')}</td>
+      <td class="rating-stars">★ ${m.avgRating}</td>
+      <td>${m.cntRating.toLocaleString()}</td>
+    </tr>
+  `).join('') || '<tr><td colspan="5" style="text-align:center;color:#7a8b9a;padding:30px;">未找到匹配的电影</td></tr>';
+
+  // 分页
+  const pagination = document.getElementById('search-pagination');
+  let html = '';
+  html += `<button onclick="searchMovies(${page-1})" ${page <= 1 ? 'disabled' : ''}>上一页</button>`;
+  for (let i = 1; i <= data.total_pages; i++) {
+    if (i === 1 || i === data.total_pages || Math.abs(i - page) <= 2) {
+      html += `<button class="${i === page ? 'active' : ''}" onclick="searchMovies(${i})">${i}</button>`;
+    } else if (Math.abs(i - page) === 3) {
+      html += '<button disabled>...</button>';
+    }
+  }
+  html += `<button onclick="searchMovies(${page+1})" ${page >= data.total_pages ? 'disabled' : ''}>下一页</button>`;
+  pagination.innerHTML = html;
+}
+
+// 搜索回车键触发
+document.getElementById('search-q').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') searchMovies(1);
+});
+
+// ============== 窗口自适应 ==============
+window.addEventListener('resize', () => {
+  ['chart-rating-dist','chart-genre-heat','chart-genre-avg','chart-scatter',
+   'chart-top10','chart-female-top10','chart-male-genre','chart-male-genre-detail'].forEach(id => {
+    const dom = document.getElementById(id);
+    if (dom) {
+      const instance = echarts.getInstanceByDom(dom);
+      if (instance) instance.resize();
+    }
+  });
+});
+
+// ============== 启动 ==============
+loadData();
+</script>
+</body>
+</html>

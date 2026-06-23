@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>大数据分析平台 - 邓睿的大数据应用课件管理系统</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        /* 右侧主内容区紫色主题 */
+        .spark-right {
+            width: 83%;
+            float: right;
+            padding: 0;
+            overflow-y: auto;
+            height: calc(100vh - 100px);
+        }
+
+        /* 紫色头部区域 */
+        .spark-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+            padding: 30px 0 20px;
+            position: relative;
+        }
+        .spark-header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .spark-header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        .spark-status {
+            display: inline-block;
+            background: #52c41a;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .spark-status::before {
+            content: "●";
+            margin-right: 5px;
+            font-size: 10px;
+        }
+
+        /* 指标卡片区域 */
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+            gap: 20px;
+        }
+        .stat-card-white {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card-white:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .stat-card-white .icon-wrap {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+        .stat-card-white .number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #667eea;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-card-white .label {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* 图表区域 */
+        .charts-row {
+            display: flex;
+            padding: 0 30px 30px;
+            gap: 20px;
+        }
+        .chart-panel {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .chart-panel .panel-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            padding-left: 12px;
+            border-left: 4px solid #667eea;
+        }
+        .chart-panel .chart-box {
+            width: 100%;
+            height: 320px;
+        }
+
+        /* 加载动画 */
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .loading-spinner {
+            width: 50px; height: 50px;
+            border: 4px solid #f0f0f0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { color: #667eea; font-size: 14px; }
+
+        /* 错误提示 */
+        .error-tip {
+            text-align: center;
+            padding: 60px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<!-- 加载遮罩 -->
+<div id="loading" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">正在连接 Spark 微服务...</div>
+</div>
+
+<!--头部-->
+<header class="publicHeader">
+    <h1>邓睿的大数据应用课件管理系统</h1>
+    <div class="publicHeaderR">
+        <p><span id="greeting">下午好！</span><span style="color: #fff21b"> Admin</span> , 欢迎你！</p>
+        <a href="login.html">退出</a>
+    </div>
+</header>
+<!--时间-->
+<section class="publicTime">
+    <span id="time">2015年1月1日 11:11  星期一</span>
+    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+</section>
+<!--主体内容-->
+<section class="publicMian">
+    <div class="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a href="subjectList.html">科目管理</a></li>
+                <li><a href="studyList.html">课件管理</a></li>
+                <li><a href="userList.html">用户管理</a></li>
+                <li><a href="password.html">密码修改</a></li>
+                <li><a href="dashboard.html">数据可视化</a></li>
+                <li class="active"><a href="sparkAnalytics.html">大数据分析平台</a></li>
+                <li><a href="login.html">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="spark-right">
+        <!-- 紫色头部 -->
+        <div class="spark-header">
+            <h1>大数据分析平台</h1>
+            <div class="subtitle">基于 Apache Spark 的实时数据统计分析</div>
+            <span class="spark-status" id="sparkStatus">Spark 已连接</span>
+        </div>
+
+        <!-- 指标卡片 -->
+        <div class="stats-row">
+            <div class="stat-card-white">
+                <div class="icon-wrap" style="background: #e6f7ff;">👥</div>
+                <div class="number" id="totalUsers">0</div>
+                <div class="label">用户总数</div>
+            </div>
+            <div class="stat-card-white">
+                <div class="icon-wrap" style="background: #f6ffed;">📚</div>
+                <div class="number" id="totalSubjects">0</div>
+                <div class="label">科目数量</div>
+            </div>
+            <div class="stat-card-white">
+                <div class="icon-wrap" style="background: #fff7e6;">📖</div>
+                <div class="number" id="totalStudies">0</div>
+                <div class="label">学习记录</div>
+            </div>
+            <div class="stat-card-white">
+                <div class="icon-wrap" style="background: #f9f0ff;">📊</div>
+                <div class="number" id="avgStudies">0</div>
+                <div class="label">人均学习</div>
+            </div>
+        </div>
+
+        <!-- 图表区域1 -->
+        <div class="charts-row">
+            <div class="chart-panel">
+                <div class="panel-title">📊 科目学习分布</div>
+                <div id="pieChart" class="chart-box"></div>
+            </div>
+            <div class="chart-panel">
+                <div class="panel-title">🔥 科目热度排行</div>
+                <div id="barChart" class="chart-box"></div>
+            </div>
+        </div>
+
+        <!-- 图表区域2：用户行为 + 评分分析 -->
+        <div class="charts-row">
+            <div class="chart-panel">
+                <div class="panel-title">👤 用户活跃度分布</div>
+                <div id="behaviorPieChart" class="chart-box"></div>
+            </div>
+            <div class="chart-panel">
+                <div class="panel-title">⭐ 科目评分排行 Top10</div>
+                <div id="ratingBarChart" class="chart-box"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer"></footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/time.js"></script>
+<script>
+    // Spark 微服务基础地址
+    var SPARK_BASE_URL = "http://localhost:9090/spark/api";
+
+    // 页面加载完成后执行
+    $(document).ready(function() {
+        loadOverviewData();
+        loadSubjectStats();
+        loadBehaviorData();
+        loadRatingData();
+    });
+
+    /**
+     * 加载综合概览数据（4个指标卡片）
+     */
+    function loadOverviewData() {
+        $.ajax({
+            url: SPARK_BASE_URL + "/stats/overview",
+            type: "GET",
+            dataType: "json",
+            timeout: 10000,
+            success: function(res) {
+                if (res.code === 200 && res.data) {
+                    var d = res.data;
+                    animateNumber("totalUsers", d.totalUsers || 0);
+                    animateNumber("totalSubjects", d.totalSubjects || 0);
+                    animateNumber("totalStudies", d.totalStudies || 0);
+                    animateNumber("avgStudies", d.avgStudiesPerUser || 0, true);
+                    hideLoading();
+                } else {
+                    showError("数据返回异常");
+                }
+            },
+            error: function(xhr, status, err) {
+                console.error("综合概览接口调用失败:", status, err);
+                showError("无法连接 Spark 微服务（端口 9090），请确认服务已启动");
+            }
+        });
+    }
+
+    /**
+     * 加载科目学习分布数据（饼图 + 条形图）
+     */
+    function loadSubjectStats() {
+        $.ajax({
+            url: SPARK_BASE_URL + "/stats/subject",
+            type: "GET",
+            dataType: "json",
+            timeout: 10000,
+            success: function(res) {
+                if (res.code === 200 && res.data) {
+                    renderPieChart(res.data);
+                    renderBarChart(res.data);
+                }
+            },
+            error: function(xhr, status, err) {
+                console.error("科目分布接口调用失败:", status, err);
+                renderEmptyCharts();
+            }
+        });
+    }
+
+    /**
+     * 渲染科目学习分布环形图
+     */
+    function renderPieChart(data) {
+        var chartDom = document.getElementById('pieChart');
+        var myChart = echarts.init(chartDom);
+
+        var pieData = data.map(function(item) {
+            return { value: item.studyCount, name: item.subjectName };
+        });
+
+        var colors = [
+            '#667eea','#764ba2','#f093fb','#f5576c','#4facfe',
+            '#00f2fe','#43e97b','#38f9d7','#fa709a','#fee140',
+            '#30cfd0','#a8edea','#fed6e3','#d299c2','#fef9d7'
+        ];
+
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c} ({d}%)'
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'horizontal',
+                bottom: 0,
+                left: 'center',
+                textStyle: { fontSize: 11, color: '#666' }
+            },
+            series: [{
+                name: '学习分布',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['50%', '45%'],
+                avoidLabelOverlap: true,
+                itemStyle: {
+                    borderRadius: 6,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: true,
+                    formatter: '{b}\n{c}次',
+                    fontSize: 11,
+                    color: '#666'
+                },
+                labelLine: {
+                    show: true,
+                    length: 10,
+                    length2: 8
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 14,
+                        fontWeight: 'bold'
+                    }
+                },
+                data: pieData,
+                color: colors
+            }]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', function() { myChart.resize(); });
+    }
+
+    /**
+     * 渲染科目热度排行横向条形图
+     */
+    function renderBarChart(data) {
+        var chartDom = document.getElementById('barChart');
+        var myChart = echarts.init(chartDom);
+
+        // 按学习次数排序（数据本身已是降序）
+        var names = data.map(function(item) { return item.subjectName; });
+        var counts = data.map(function(item) { return item.studyCount; });
+
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'shadow' },
+                formatter: '{b}: {c} 次'
+            },
+            grid: {
+                left: '3%',
+                right: '12%',
+                bottom: '3%',
+                top: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                axisLine: { show: false },
+                axisTick: { show: false },
+                splitLine: { lineStyle: { color: '#f0f0f0' } },
+                axisLabel: { color: '#999', fontSize: 11 }
+            },
+            yAxis: {
+                type: 'category',
+                data: names.reverse(),
+                axisLine: { show: false },
+                axisTick: { show: false },
+                axisLabel: {
+                    color: '#666',
+                    fontSize: 12,
+                    width: 90,
+                    overflow: 'truncate'
+                }
+            },
+            series: [{
+                name: '学习次数',
+                type: 'bar',
+                data: counts.reverse(),
+                barWidth: '55%',
+                itemStyle: {
+                    borderRadius: [0, 8, 8, 0],
+                    color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                        { offset: 0, color: '#667eea' },
+                        { offset: 1, color: '#764ba2' }
+                    ])
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c} 次',
+                    color: '#667eea',
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                }
+            }]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', function() { myChart.resize(); });
+    }
+
+    /**
+     * 加载用户行为特征数据
+     */
+    function loadBehaviorData() {
+        $.ajax({
+            url: SPARK_BASE_URL + "/stats/behavior",
+            type: "GET",
+            dataType: "json",
+            timeout: 10000,
+            success: function(res) {
+                if (res.code === 200 && res.data) {
+                    renderBehaviorPieChart(res.data);
+                }
+            },
+            error: function(xhr, status, err) {
+                console.error("用户行为接口调用失败:", status, err);
+            }
+        });
+    }
+
+    /**
+     * 加载用户评分分析数据
+     */
+    function loadRatingData() {
+        $.ajax({
+            url: SPARK_BASE_URL + "/stats/rating",
+            type: "GET",
+            dataType: "json",
+            timeout: 10000,
+            success: function(res) {
+                if (res.code === 200 && res.data) {
+                    renderRatingBarChart(res.data);
+                }
+            },
+            error: function(xhr, status, err) {
+                console.error("评分分析接口调用失败:", status, err);
+            }
+        });
+    }
+
+    /**
+     * 渲染用户活跃度分布环形图
+     */
+    function renderBehaviorPieChart(data) {
+        var chartDom = document.getElementById('behaviorPieChart');
+        var myChart = echarts.init(chartDom);
+
+        var pieData = (data.userTypeDistribution || []).map(function(item) {
+            return { value: item.count, name: item.type + ' (' + item.ratio + '%)' };
+        });
+
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c}人 ({d}%)'
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'horizontal',
+                bottom: 0,
+                left: 'center',
+                textStyle: { fontSize: 11, color: '#666' }
+            },
+            series: [{
+                name: '用户分类',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['50%', '45%'],
+                avoidLabelOverlap: true,
+                itemStyle: {
+                    borderRadius: 6,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: true,
+                    formatter: '{b}\n{c}人',
+                    fontSize: 11,
+                    color: '#666'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 14,
+                        fontWeight: 'bold'
+                    }
+                },
+                data: pieData,
+                color: ['#52c41a', '#1890ff', '#faad14', '#bfbfbf']
+            }]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', function() { myChart.resize(); });
+    }
+
+    /**
+     * 渲染科目评分排行横向条形图
+     */
+    function renderRatingBarChart(data) {
+        var chartDom = document.getElementById('ratingBarChart');
+        var myChart = echarts.init(chartDom);
+
+        var subjects = (data.topRatedSubjects || []);
+        var names = subjects.map(function(item) { return item.subjectName; });
+        var ratings = subjects.map(function(item) { return item.avgRating; });
+        var counts = subjects.map(function(item) { return item.ratingCount; });
+
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'shadow' },
+                formatter: function(params) {
+                    return params[0].name + '<br/>平均评分: ' + params[0].value + '分'
+                        + '<br/>评分人数: ' + counts[params[0].dataIndex] + '人';
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '12%',
+                bottom: '3%',
+                top: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                min: 3.0,
+                max: 5.0,
+                axisLine: { show: false },
+                axisTick: { show: false },
+                splitLine: { lineStyle: { color: '#f0f0f0' } },
+                axisLabel: { color: '#999', fontSize: 11, formatter: '{value}分' }
+            },
+            yAxis: {
+                type: 'category',
+                data: names.reverse(),
+                axisLine: { show: false },
+                axisTick: { show: false },
+                axisLabel: {
+                    color: '#666',
+                    fontSize: 12,
+                    width: 90,
+                    overflow: 'truncate'
+                }
+            },
+            series: [{
+                name: '平均评分',
+                type: 'bar',
+                data: ratings.reverse(),
+                barWidth: '55%',
+                itemStyle: {
+                    borderRadius: [0, 8, 8, 0],
+                    color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                        { offset: 0, color: '#f093fb' },
+                        { offset: 1, color: '#f5576c' }
+                    ])
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{c}分',
+                    color: '#f5576c',
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                }
+            }]
+        };
+
+        myChart.setOption(option);
+        window.addEventListener('resize', function() { myChart.resize(); });
+    }
+
+    /**
+     * 渲染空图表（无数据时）
+     */
+    function renderEmptyCharts() {
+        var emptyOption = {
+            title: {
+                text: '暂无数据',
+                left: 'center',
+                top: 'center',
+                textStyle: { color: '#ccc', fontSize: 16 }
+            }
+        };
+        echarts.init(document.getElementById('pieChart')).setOption(emptyOption);
+        echarts.init(document.getElementById('barChart')).setOption(emptyOption);
+    }
+
+    /**
+     * 数字递增动画
+     */
+    function animateNumber(elementId, targetValue, isFloat) {
+        var el = document.getElementById(elementId);
+        var duration = 1500;
+        var start = 0;
+        var startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var easeOut = 1 - Math.pow(1 - progress, 3);
+            var current = start + (targetValue - start) * easeOut;
+
+            if (isFloat) {
+                el.textContent = current.toFixed(1) + "次";
+            } else {
+                el.textContent = Math.round(current);
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    /**
+     * 隐藏加载遮罩
+     */
+    function hideLoading() {
+        var loading = document.getElementById('loading');
+        if (loading) {
+            loading.style.transition = 'opacity 0.5s';
+            loading.style.opacity = '0';
+            setTimeout(function() { loading.style.display = 'none'; }, 500);
+        }
+    }
+
+    /**
+     * 显示错误信息
+     */
+    function showError(msg) {
+        hideLoading();
+        document.querySelector('.spark-right').innerHTML =
+            '<div class="error-tip"><h2 style="color:#667eea;margin-bottom:15px;">⚠️ 连接失败</h2>' +
+            '<p>' + msg + '</p>' +
+            '<p style="margin-top:10px;font-size:12px;">请在项目根目录打开终端执行：<code>mvn compile exec:java</code></p></div>';
+    }
+
+    // 设置问候语
+    var hour = new Date().getHours();
+    var greeting = hour < 12 ? "上午好！" : hour < 18 ? "下午好！" : "晚上好！";
+    document.getElementById('greeting').textContent = greeting;
+</script>
+</body>
+</html>
