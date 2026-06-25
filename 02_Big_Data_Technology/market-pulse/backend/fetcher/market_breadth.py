@@ -29,7 +29,9 @@ def get_market_breadth() -> MarketBreadthData:
     # Build a list of representative symbols across Shanghai + Shenzhen
     symbols = _build_symbol_list()
 
-    # Fetch in batches of ~200 (Sina's batch limit is generous)
+    # Fetch in batches of 200 (Sina's batch limit is generous).
+    # With staggered scheduler, only one job hits Sina at a time → no
+    # rate-limiting; we can send batches without artificial delays.
     advancing = 0
     declining = 0
     unchanged = 0

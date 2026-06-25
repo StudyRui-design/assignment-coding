@@ -9,7 +9,7 @@ venv/
 env/
 
 # IDE
-# .idea/
+.idea/
 
 # Claude Code
 .claude/
@@ -42,3 +42,21 @@ results/*.png
 Thumbs.db
 .DS_Store
 Desktop.ini
+
+# 拦截大数据作业可能生成的垃圾文件
+# 过滤 Spark 运行生成的 derby.log 和 metastore_db
+derby.log
+metastore_db/
+spark-warehouse/
+
+# 过滤各种常见的大数据格式及中间结果
+*.dat
+*.data
+*.csv
+*.tsv
+*.parquet
+
+# 过滤大作业产生的各种编译和打包产物
+target/
+*.jar
+.bsp/
