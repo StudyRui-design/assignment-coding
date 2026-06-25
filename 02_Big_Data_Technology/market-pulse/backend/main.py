@@ -11,24 +11,32 @@ Run:
     → API docs at http://localhost:8000/docs
 """
 
-from datetime import datetime
+import logging
+from datetime import datetime, timezone
 from contextlib import asynccontextmanager
-from typing import Optional
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+
+import logging_config  # noqa: F401 — initialise stdlib logging
+import _proxy_bypass   # noqa: F401 — must execute before any HTTP call
 
 from cache.memory_cache import cache
-from scheduler import start as start_scheduler, stop as stop_scheduler
+from scheduler import start as start_scheduler, stop as stop_scheduler, scheduler
+
+logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
     start_scheduler()
+    logger.info("Application startup complete")
     yield
     # Shutdown
     stop_scheduler()
+    logger.info("Application shutdown complete")
 
 
 app = FastAPI(
@@ -47,11 +55,47 @@ app.add_middleware(
 )
 
 
-# ── Endpoints ──────────────────────────────────────────────────────
+# ── Global exception handler ─────────────────────────────────────────
+# Catches unhandled exceptions in route handlers and returns JSON
+# instead of leaking HTML 500 stack traces to the frontend.
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception) -> JSONResponse:
+    logger.exception("Unhandled exception on %s %s", request.method, request.url.path)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error"},
+    )
+
+
+# ── Endpoints ────────────────────────────────────────────────────────
 
 @app.get("/api/v1/market/health")
 def health():
-    return {"status": "ok", "timestamp": datetime.now().isoformat()}
+    """Readiness probe with per-key cache TTL age and scheduler status."""
+    import time as _time
+
+    cache_status: dict[str, object] = {}
+    cache_keys = ("indices", "sectors", "breadth", "anomalies")
+
+    for key in cache_keys:
+        entry = cache._store.get(key)
+        if entry is not None:
+            expires_at, value = entry
+            ttl_remaining = round(expires_at - _time.monotonic(), 1)
+            cache_status[key] = {
+                "populated": value is not None,
+                "ttl_remaining_s": max(ttl_remaining, 0.0),
+            }
+        else:
+            cache_status[key] = {"populated": False, "ttl_remaining_s": 0.0}
+
+    return {
+        "status": "ok",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "cache_status": cache_status,
+        "scheduler_running": scheduler.running if scheduler else False,
+    }
 
 
 @app.get("/api/v1/market/indices")
@@ -75,6 +119,16 @@ def index_history(code: str = Query(..., description="Index code e.g. 000001"),
     return {
         "code": code,
         "data": get_index_history(code, days),
+    }
+
+
+@app.get("/api/v1/market/indices/history/batch")
+def index_history_batch(days: int = Query(30, ge=1, le=365)):
+    """Daily OHLCV history for all 5 tracked indices in a single request."""
+    from fetcher.index_data import get_all_index_history
+    return {
+        "data": get_all_index_history(days),
+        "days": days,
     }
 
 
@@ -123,7 +177,7 @@ def market_overview():
     }
 
 
-# ── Entry point ────────────────────────────────────────────────────
+# ── Entry point ──────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     import uvicorn

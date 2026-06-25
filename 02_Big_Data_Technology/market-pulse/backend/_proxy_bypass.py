@@ -1,4 +1,4 @@
-"""
+r"""
 NUKE all proxy detection at the OS level for this process.
 
 On Windows, urllib.request.getproxies() reads
