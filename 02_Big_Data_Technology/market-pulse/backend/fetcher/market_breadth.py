@@ -6,10 +6,17 @@ We use Sina's real-time quote API directly to count up/down/flat stocks
 across a representative sample of A-shares.
 """
 
+import logging
 from datetime import datetime
 
 import requests
 from fetcher import MarketBreadthData
+
+logger = logging.getLogger(__name__)
+
+# Module-level session: reuse TCP connection across batch fetches.
+_session = requests.Session()
+_session.trust_env = False
 
 
 def get_market_breadth() -> MarketBreadthData:
@@ -51,28 +58,32 @@ def get_market_breadth() -> MarketBreadthData:
 # ── Internals ──────────────────────────────────────────────────────
 
 def _build_symbol_list() -> list[str]:
-    """Return a representative list of ~800 A-share Sina symbols."""
-    # Shanghai 600xxx-605xxx + 688xxx (科创), Shenzhen 000xxx-003xxx + 300xxx (创业)
-    symbols = []
+    """Return a representative sample of ~3700 A-share Sina symbols.
 
-    # Shanghai main board: 600000-605999 (most active range)
-    for code in range(600000, 600501):  # 500 stocks
-        symbols.append(f"sh{code}")
-    for code in range(601000, 601501):
-        symbols.append(f"sh{code}")
+    Covers Shanghai main board (600xxx–605xxx), STAR market (688xxx),
+    Shenzhen main board (000xxx–003xxx), and ChiNext (300xxx).
+    """
+    symbols: list[str] = []
+
+    # Shanghai main board
+    symbols.extend(f"sh{code}" for code in range(600000, 600801))  # 801 stocks
+    symbols.extend(f"sh{code}" for code in range(601000, 601801))  # 801 stocks
+    symbols.extend(f"sh{code}" for code in range(603000, 603501))  # 501 stocks
 
     # STAR market (科创): 688000-688500
-    for code in range(688000, 688201):
-        symbols.append(f"sh{code}")
+    symbols.extend(f"sh{code}" for code in range(688000, 688501))  # 501 stocks
 
-    # Shenzhen main board
-    for code in range(2000, 2501):  # 000001 → sz002000-sz002500
-        symbols.append(f"sz{code:06d}")
+    # Shenzhen main board (修复: 原 range(2000,2501) 产出 sz002000–sz002500,
+    # 注释却写 "000001 → …" — 意图与实现不一致)
+    symbols.extend(f"sz{code:06d}" for code in range(1, 501))      # 500 stocks
 
-    # ChiNext (创业板): 300000-300500
-    for code in range(300000, 300201):
-        symbols.append(f"sz{code}")
+    # SME board
+    symbols.extend(f"sz{code:06d}" for code in range(2000, 2501))  # 501 stocks
 
+    # ChiNext (创业板): 300000-300800
+    symbols.extend(f"sz{code}" for code in range(300000, 300501))  # 501 stocks
+
+    logger.info("Built symbol list: %d candidate symbols", len(symbols))
     return symbols
 
 
@@ -83,12 +94,15 @@ def _count_batch(symbols: list[str]) -> tuple[int, int, int]:
     url = f"http://hq.sinajs.cn/list={sym_str}"
 
     try:
-        s = requests.Session()
-        s.trust_env = False
-        resp = s.get(url, headers={"Referer": "https://finance.sina.com.cn"}, timeout=10)
+        resp = _session.get(
+            url,
+            headers={"Referer": "https://finance.sina.com.cn"},
+            timeout=10,
+        )
         resp.encoding = "gbk"
         text = resp.text
-    except Exception:
+    except Exception as exc:
+        logger.error("Sina batch query failed for %d symbols: %s", len(symbols), exc)
         return 0, 0, 0
 
     advancing = declining = unchanged = 0
